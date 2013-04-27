@@ -1,10 +1,25 @@
 <?php namespace Sow\Sys;
+use Sow\Bug as Y;
 class Bootstrap extends \Yaf\Bootstrap_Abstract  {
-	public function _initHook() {
-		Bug::registerPlugin( 'GateWay' );
-	}
-    public function _initMVC()
-    {
+    public function _initConfig() {
+        $config = Y::config();
+        Y::set( "config", $config );
+        define( "DEBUG", $config->debug );
+        define( "VIEW", $config->view );
+        if ( DEBUG ) {
+            ini_set( 'display_errors' , "On" );
+            error_reporting( E_ALL );
+        } else {
+            ini_set( 'display_errors' , "Off" );
+            error_reporting( 0 );
+        }
+    }
+    public function _initGateWay() {
+        Y::registerPlugin( 'GateWay' );
+    }
+    public function _initMVC() {
+
+
         $_mca = array(
             'Index' => array(
                 'Index' => array(
@@ -37,18 +52,17 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract  {
             ),
         );
 
-       // Y::set('mca', $_mca);
+        Y::set('mca', $_mca);
     }
     //为本地目录lib下的文件注册空间名
-    public function _initPath()
-    {
+    public function _initPath() {
         //Y::path('V');
 
     }
 
-	public function _initRoute( Yaf_Dispatcher $dispatcher ) {
-		if ( Y::get( "config" )->routes ) {
-			Y::addConfig( Y::get( "config" )->routes );
-		}
-	}
+    public function _initRoute( ) {
+        if ( Y::get( "config" )->routes ) {
+            Y::addConfig( Y::get( "config" )->routes );
+        }
+    }
 }
