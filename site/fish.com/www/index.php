@@ -3,7 +3,10 @@ use Sow\Bug as Y;
 
 $yaf = new \Yaf\Application( dirname( __DIR__ ).'/config/fish.ini', 'dev' );
 
-Y::http();
+$response = Y::http();
+
+unset( $yaf );
+
 die();
 
 

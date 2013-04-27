@@ -1,5 +1,5 @@
 <?php namespace Sow\Sys;
-class Controller extends \Yaf\Controller_Abstract {
+class Control extends \Yaf\Controller_Abstract {
   public $_tpl_dir;
   public $error;
   public function assign( $name, $value =null ) {

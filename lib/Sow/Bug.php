@@ -36,30 +36,36 @@ class Bug {
   public static function returnResponse( $switch = True ) {
     return self::dispatch()->returnResponse( $switch );
   }
-  public static function http( $bootstrap = True, $return = True ) {
-
-    $config = self::config();
-    self::set( "config", $config );
-    define( "YDEBUG", $config->debug );
-
-    if ( YDEBUG ) {
-      ini_set( 'display_errors' , "On" );
-      error_reporting( E_ALL );
-    } else {
-      ini_set( 'display_errors' , "Off" );
-      error_reporting( 0 );
-    }
-
-    if ( $bootstrap ) {
-      self::app()->bootstrap();
-    }
-
+  public static function http( $return = True ) {
+    self::app()->bootstrap();
+    self::fliter();
     if ( $return ) {
-      self::app()->returnResponse();
+      self::dispatch()->returnResponse();
     }
-
     return self::app()->run();
   }
+  public static function fliter() {
+    $filter = array( 'js', 'jpg', 'css', 'png', 'gif', 'html','shtml', 'ico' );
+    $p =self::pathinfo();
+    if ( isset( $p['extension'] ) ) {
+      $extension = strtolower( $p['extension'] );
+      if  ( in_array( $extension, $filter ) ) {
+        self::_404();
+      }
+    }
+
+    // $access = self::get( "config")->access->toArray();
+    // foreach ($access as $key => $value) {
+    //   # code...
+    // }
+    // var_dump($access);
+    exit;
+    $mca = self::get( 'mca' );
+    if ( !@$mca[$p['m']][$p['c']][$p['a']] ) {
+      self::reRoute( 'error', 'error404' );
+    }
+  }
+
 
   public static function shell( $argc, $argv ) {
 
@@ -89,7 +95,7 @@ class Bug {
 
 
     for ( $i=0; $i < count( $params ); $i=$i+2 ) {
-      @self::request()->setParam( $params[$i], $params[$i+1] );
+      self::request()->setParam( $params[$i], $params[$i+1] );
     }
     self::reRoute( $c, $a );
     return self::app()->run();
@@ -117,6 +123,22 @@ class Bug {
     self::request()->action = $a;
 
   }
+  public static function pathinfo(  ) {
+    $path['m'] = self::request()->module;
+    $path['c'] = self::request()->controller;
+    $path['a'] = self::request()->action;
+    $path['method'] = self::request()->method;
+    return $path +pathinfo(  self::request()->getRequestUri() );
+  }
+
+  public static function _404() {
+    header( "HTTP/1.1 404 Not Found" );
+    header( "Status: 404 Not Found" );
+    exit;
+  }
+
+
+
   /*
   //----------------------------------------------------
   // browser
@@ -189,37 +211,7 @@ class Bug {
   //----------------------------------------------------
   // rquest fliter
   //----------------------------------------------------
-  public static function pathinfo(  ) {
-    $path['m'] = Y::request()->module;
-    $path['c'] = Y::request()->controller;
-    $path['a'] = Y::request()->action;
-    $path['method'] = Y::request()->method;
-    return $path +pathinfo(  Y::request()->getRequestUri() );
-  }
-  public static function _404( $return = false  ) {
-    if ( $return ) {
-      // @todo
-    }else {
-      header( "HTTP/1.1 404 Not Found" );
-      header( "Status: 404 Not Found" );
-      exit;
-    }
-  }
 
-  public static function fliter() {
-    $filter = array( 'js', 'jpg', 'css', 'png', 'gif', 'html', 'ico' );
-    $p =Y::pathinfo();
-    if ( isset( $p['extension'] ) ) {
-      $extension = strtolower( $p['extension'] );
-      if  ( in_array( $extension, $filter ) ) {
-        Y::_404();
-      }
-    }
-    $mca = Y::get( 'mca' );
-    if ( !@$mca[$p['m']][$p['c']][$p['a']] ) {
-      Y::reRoute( 'error', 'error404' );
-    }
-  }
 
   public static function run( ) {
     return \Yaf\Application::run();
