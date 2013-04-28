@@ -133,8 +133,11 @@ class Bug {
   public static function params() {
     return self::request()->getParams();
   }
-    public static function param($name) {
-    return self::request()->getParam($name);
+  public static function param( $name ) {
+    return self::request()->getParam( $name );
+  }
+  public static function getMethod() {
+    return self::request()->getMethod();
   }
   public static function isCli() {
     return self::request()->isCli();
@@ -156,10 +159,10 @@ class Bug {
     return $path +pathinfo(  self::request()->getRequestUri() );
   }
 
-  public static function _404($exit = true) {
+  public static function _404( $exit = true ) {
     header( "HTTP/1.1 404 Not Found" );
     header( "Status: 404 Not Found" );
-    if ($exit) exit;
+    if ( $exit ) exit;
   }
 
 

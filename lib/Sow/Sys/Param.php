@@ -12,45 +12,41 @@ class Param {
         $rule = \rule::getRule( $name );
         if ( $rule === False ) {
             $this->message = "not_in_rules";
-        }else{
-            $this->rule = $rule;    
-        }
-        
-        if ( !array_key_exists( $name, Y::Params())){
-            
+        }else {
+            $this->rule = $rule;
+            if ( array_key_exists( $name, Y::Params() ) ) {
+                $this->value =  Y::Param( $name );
+                $this->vaild = true;
+            } else {
+
+                if ( Y::getMethod() == "GET" ) {
+                    $params = $_GET;
+                }
+                if ( Y::getMethod() == "POST" ) {
+                    $params = $_POST;
+                }
+                if ( array_key_exists( $name, $params ) ) {
+                    $this->value =  $params[$name];
+                    $this->vaild = true;
+                } else {
+                    $this->message = "not_in_params";
+                }
+
+            }
         }
 
-        $this->vaild = $params;
-        
+        if ( $this->vaild ) {
+
+            $this->validate();
+        }
+    }
+    function validate() {
+        $validate = new \Sow\Util\Validate ;
+       $this->vaild = $validate->check( $this->value, $this->rule );
+       if (! $this->vaild  ) {
+          $this->message=$validate->error();
+        }
+
     }
 
-    // public function verify( $key, $verify ) {
-    //   if ( !array_key_exists( $key, $verify ) ) { //判断key是否存在验证规则
-    //     return "key does not exist validation rules";
-    //   }else {
-    //     $preg=$verify;
-    //   }
-    //   $Validate=new Validate();
-    //   if ( array_key_exists( $key, $data=Y::request()->getParams() ) ) {
-    //     $value=trim( $data[$key] );
-    //     if ( $d=$Validate->check( $value, $preg[$key] ) ) {
-    //       $get=trim( $value );
-    //     }else {
-    //       $this->error[$key]=$Validate->error();
-    //       $get = false;
-    //     }
-    //     return $get;
-    //   }elseif ( array_key_exists( $key, $data=Y::request()->getPost() ) ) {
-    //     $value=trim( $data[$key] );
-    //     if ( $d=$Validate->check( $value, $preg[$key] ) ) {
-    //       $get=trim( $value );
-    //     }else {
-    //       $this->error[$key]=$Validate->error();
-    //       $get = false;
-    //     }
-    //     return $get;
-    //   }else {
-    //     return false;
-    //   }
-    // }
 }

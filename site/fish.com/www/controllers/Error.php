@@ -14,8 +14,8 @@ class ErrorController extends \Sow\Sys\Control
 		Y::dump($this->GET("pasge"));
 	}
 	public function error404Action() {
-		Y::dump(Y::app());
-		// Y::dump($this->GET("pasge"));
+		// Y::dump(Y::app());
+		Y::dump($this->GET("page"));
 		Y::_404(False);
 	}
 }

@@ -10,11 +10,17 @@ class Control extends \Yaf\Controller_Abstract {
     }
   }
 
-  public function GET( $name ) {
-    return new Param($name);
+  public function GET( $name,$debug = False) {
+    $param = new Param($name);
+
+    if ($debug) {
+      return $param;
+    }
+    return $param->value;
+    
   }
-  public function POST( $name ) {
-    return $this->GET( $name );
+  public function POST( $name ,$debug = False) {
+    return $this->GET( $name ,$debug = False);
   }
 
 }
