@@ -6,6 +6,9 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract  {
         Y::set( "config", $config );
         define( "DEBUG", $config->debug );
         define( "VIEW", $config->view );
+        define( "JSON", $config->json );
+        define( "FILTER", $config->filter );
+        define( "VIEWPATH", $config->viewpath );
         if ( DEBUG ) {
             ini_set( 'display_errors' , "On" );
             error_reporting( E_ALL );
@@ -15,51 +18,12 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract  {
         }
     }
     public function _initGateWay() {
-        Y::registerPlugin( 'GateWay' );
-    }
-    public function _initMVC() {
-
-
-        $_mca = array(
-            'Index' => array(
-                'Index' => array(
-                    "index" => 1,
-                    "show" => 1,
-                ),
-                'Info18' => array(
-                    "search" => 1,
-                    "limit" => 1,
-                    "recommend" => 1
-                ),
-                'Android' => array(
-                    "check" => 1,
-                    "limit" => 1,
-                    "recommend" => 1
-                ),
-                'Apple' => array(
-                    "top" => 1,
-                    "show" => 1,
-                    "list" => 1,
-                    "ioslist" => 1
-                ),
-                'Login' => array(
-                    "index" => 1,
-                    "check" => 1,
-                    "del" => 1
-
-                ),
-
-            ),
-        );
-
-        Y::set('mca', $_mca);
-    }
-    //为本地目录lib下的文件注册空间名
-    public function _initPath() {
-        //Y::path('V');
+        $plugins = Y::configSlice( 'application', 'plugins' );
+        foreach ( $plugins as $plugin ) {
+            Y::registerPlugin( $plugin );
+        }
 
     }
-
     public function _initRoute( ) {
         if ( Y::get( "config" )->routes ) {
             Y::addConfig( Y::get( "config" )->routes );

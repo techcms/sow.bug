@@ -1,7 +1,7 @@
 <?php namespace Sow\Sys;
+use Sow\Bug as Y;
 class Control extends \Yaf\Controller_Abstract {
-  public $_tpl_dir;
-  public $error;
+
   public function assign( $name, $value =null ) {
     if ( $value ) {
       return $this->_view->assign( $name, $value );
@@ -9,33 +9,14 @@ class Control extends \Yaf\Controller_Abstract {
       return $this->_view->assign( $name );
     }
   }
-  public function verify( $key, $verify ) {
-    if ( !array_key_exists( $key, $verify ) ) { //判断key是否存在验证规则
-      return "key does not exist validation rules";
-    }else {
-      $preg=$verify;
-    }
-    $Validate=new Validate();
-    if ( array_key_exists( $key, $data=Y::request()->getParams() ) ) {
-      $value=trim( $data[$key] );
-      if ( $d=$Validate->check( $value, $preg[$key] ) ) {
-        $get=trim( $value );
-      }else {
-        $this->error[$key]=$Validate->error();
-        $get = false;
-      }
-      return $get;
-    }elseif ( array_key_exists( $key, $data=Y::request()->getPost() ) ) {
-      $value=trim( $data[$key] );
-      if ( $d=$Validate->check( $value, $preg[$key] ) ) {
-        $get=trim( $value );
-      }else {
-        $this->error[$key]=$Validate->error();
-        $get = false;
-      }
-      return $get;
-    }else {
-      return false;
-    }
+  public function set( $name, $value =null ) {
+    $this->assign($name,$value);
+  }
+
+  public function _get( $name ) {
+    return \rule::_get($name);
+  }
+  public function _post( $name ) {
+   return \rule::_post($name); 
   }
 }
