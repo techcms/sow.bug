@@ -1,4 +1,5 @@
-<?php
+<?php namespace Sow\Util;
+
 class Validate
 {
     protected $_error;
