@@ -1,10 +1,10 @@
 <?php namespace Sow;
 class Bug {
   public static function dump(  ) {
-    $numargs = func_num_args();
-    $arg_list = func_get_args();
+    $argc = func_num_args();
+    $argv = func_get_args();
     echo '<pre>';
-    foreach ( $arg_list as $arg ) {
+    foreach ( $argv as $arg ) {
       var_dump( $arg );
     }
     echo '</pre>';
@@ -24,8 +24,21 @@ class Bug {
   public static function del( $name ) {
     return \Yaf\Registry::del( $name );
   }
-  public static function config( ) {
+  public static function config() {
     return self::app()->getConfig() ;
+  }
+  public static function configSlice(  ) {
+    $argc = func_num_args();
+    if ( $argc == 0 ) return False;
+
+    $argv = func_get_args();
+    $return = self::get( "config" )->toArray();
+    for ( $i = 0;$i<$argc;$i++ ) {
+      $return = $return[$argv[$i]];
+    }
+    if ( is_array( $return ) ) return $return;
+    return explode( ",", $return );
+
   }
   public static function Loader() {
     return \Yaf\Loader::getInstance();
@@ -36,16 +49,17 @@ class Bug {
   public static function returnResponse( $switch = True ) {
     return self::dispatch()->returnResponse( $switch );
   }
+
   public static function http( $return = True ) {
     self::app()->bootstrap();
-    self::fliter();
+    //self::filter();
     if ( $return ) {
       self::dispatch()->returnResponse();
     }
     return self::app()->run();
   }
-  public static function fliter() {
-    $filter = array( 'js', 'jpg', 'css', 'png', 'gif', 'html','shtml', 'ico' );
+  public static function filter() {
+    $filter = self::get( "config" )->application["modules"];
     $p =self::pathinfo();
     if ( isset( $p['extension'] ) ) {
       $extension = strtolower( $p['extension'] );
@@ -54,13 +68,18 @@ class Bug {
       }
     }
 
-    // $access = self::get( "config")->access->toArray();
-    // foreach ($access as $key => $value) {
-    //   # code...
-    // }
-    // var_dump($access);
-    exit;
-    $mca = self::get( 'mca' );
+    $modules = self::configSlice( 'application', 'modules' );
+    $mca = array();
+    foreach ( $modules as $module ) {
+      $controls = self::configSlice( "module_".$module );
+      foreach ( $controls as $control => $actions ) {
+        $actions = self::configSlice( "module_".$module, $control );
+        foreach ( $actions as $action ) {
+          $mca[$module][$control][$action] = 1;
+        }
+      }
+    }
+
     if ( !@$mca[$p['m']][$p['c']][$p['a']] ) {
       self::reRoute( 'error', 'error404' );
     }
@@ -111,6 +130,12 @@ class Bug {
   public static function request() {
     return self::dispatch()->getRequest();
   }
+  public static function params() {
+    return self::request()->getParams();
+  }
+    public static function param($name) {
+    return self::request()->getParam($name);
+  }
   public static function isCli() {
     return self::request()->isCli();
   }
@@ -131,10 +156,10 @@ class Bug {
     return $path +pathinfo(  self::request()->getRequestUri() );
   }
 
-  public static function _404() {
+  public static function _404($exit = true) {
     header( "HTTP/1.1 404 Not Found" );
     header( "Status: 404 Not Found" );
-    exit;
+    if ($exit) exit;
   }
 
 
