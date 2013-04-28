@@ -7,14 +7,15 @@ class ErrorController extends \Sow\Sys\Control
 	}
 
 	public function indexAction() {
-		$this->_get("shit");
+		Y::dump($this->GET("pasge"));
 	}
 
 	public function errorAction() {
-		$this->_get("shit");
+		Y::dump($this->GET("pasge"));
 	}
 	public function error404Action() {
-		$this->_get("shit");
+		Y::dump(Y::app());
+		// Y::dump($this->GET("pasge"));
 		Y::_404(False);
 	}
 }

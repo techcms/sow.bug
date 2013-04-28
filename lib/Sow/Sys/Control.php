@@ -9,14 +9,12 @@ class Control extends \Yaf\Controller_Abstract {
       return $this->_view->assign( $name );
     }
   }
-  public function set( $name, $value =null ) {
-    $this->assign($name,$value);
+
+  public function GET( $name ) {
+    return new Param($name);
+  }
+  public function POST( $name ) {
+    return $this->GET( $name );
   }
 
-  public function _get( $name ) {
-    return \rule::_get($name);
-  }
-  public function _post( $name ) {
-   return \rule::_post($name); 
-  }
 }
