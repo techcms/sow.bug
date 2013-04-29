@@ -89,11 +89,14 @@ class Bug {
 
   public static function http( $return = True ) {
     self::app()->bootstrap();
-    //self::filter();
-    if ( $return ) {
-      self::dispatch()->returnResponse();
+    self::dispatch()->returnResponse( $return );
+
+    if ( OHMYZI ) {
+      \Sow\Xhprof\Ohmyzi::disable();
+    } else {
+      return self::app()->run();
     }
-    return self::app()->run();
+
   }
 
   public static function shell( $argc, $argv ) {
@@ -178,7 +181,6 @@ class Bug {
     header( "Status: 404 Not Found" );
     if ( $exit ) exit;
   }
-
 
 
   /*

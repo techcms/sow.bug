@@ -9,6 +9,15 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract  {
         define( "JSON", $config->json );
         define( "FILTER", $config->filter );
         define( "VIEWPATH", $config->viewpath );
+        define( "LOGPATH", $config->logpath );
+        if (isset($_GET['ohmyzi']) && DEBUG ){
+            define( "OHMYZI", True );
+            \Sow\Xhprof\Ohmyzi::enable();
+        } else {
+            define( "OHMYZI", False );
+        }
+
+
         if ( DEBUG ) {
             ini_set( 'display_errors' , "On" );
             error_reporting( E_ALL );
