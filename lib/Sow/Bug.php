@@ -1,13 +1,23 @@
 <?php namespace Sow;
 class Bug {
-  public static function dump(  ) {
+  public static function dump() {
     $argc = func_num_args();
     $argv = func_get_args();
-    echo '<pre>';
+    echo '<pre><hr>';
     foreach ( $argv as $arg ) {
       var_dump( $arg );
+      echo '<hr>';
     }
     echo '</pre>';
+  }
+  public static function out() {
+    echo "---------------------------\n";
+    $argc = func_num_args();
+    $argv = func_get_args();
+    foreach ( $argv as $arg ) {
+      var_dump( $arg );
+      echo "---------------------------\n";
+    }
   }
   public static function app( ) {
     return \Yaf\Application::app();
@@ -50,14 +60,7 @@ class Bug {
     return self::dispatch()->returnResponse( $switch );
   }
 
-  public static function http( $return = True ) {
-    self::app()->bootstrap();
-    //self::filter();
-    if ( $return ) {
-      self::dispatch()->returnResponse();
-    }
-    return self::app()->run();
-  }
+
   public static function filter() {
     $filter = self::get( "config" )->application["modules"];
     $p =self::pathinfo();
@@ -79,39 +82,50 @@ class Bug {
         }
       }
     }
-
     if ( !@$mca[$p['m']][$p['c']][$p['a']] ) {
       self::reRoute( 'error', 'error404' );
     }
   }
 
+  public static function http( $return = True ) {
+    self::app()->bootstrap();
+    //self::filter();
+    if ( $return ) {
+      self::dispatch()->returnResponse();
+    }
+    return self::app()->run();
+  }
 
   public static function shell( $argc, $argv ) {
 
+    self::app()->bootstrap()
+    ->getDispatcher( new \Yaf\Request\Simple() );
 
-    $config = self::config();
-    self::set( "config", $config );
-    define( "YDEBUG", $config->debug );
+    $route = array(
+      0=>"Index",
+      1=>"Index"
+    );
 
-    if ( YDEBUG ) {
-      ini_set( 'display_errors' , "On" );
-      error_reporting( E_ALL );
-    } else {
-      ini_set( 'display_errors' , "Off" );
-      error_reporting( 0 );
+    if ( isset( $argv[1] ) ) {
+      $ca = explode( '/', $argv[1] );
+      $route[0] = $ca[0];
+      if ( isset( $ca[1] ) ) $route[1] = $ca[1];
     }
+    //  $route =   @ + $route;
 
-    self::app()->getDispatcher( new \Yaf\Request\Simple() )->disableView();
-
-
-    $route = @explode( '/', $argv[1] );
     $params = @explode( '/', $argv[2] );
 
+
+
+    self::out( $route, $params );
+
+    die();
     $c = 'Help';
     $a = 'Index';
     if ( isset( $route[0] ) ) $c =  $route[0];
     if ( isset( $route[1] ) ) $a =  $route[1];
 
+    var_dump( $params );
 
     for ( $i=0; $i < count( $params ); $i=$i+2 ) {
       self::request()->setParam( $params[$i], $params[$i+1] );

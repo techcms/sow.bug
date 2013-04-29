@@ -2,11 +2,8 @@
 <?php
 use Sow\Bug as Y;
 $yaf = new \Yaf\Application( 'config/bug.ini', 'dev' );
-
-
-$s = Y::shell( $argc, $argv );
-
-die();
+Y::shell( $argc, $argv );
+./bdie();
 
 $commands = array(
 	'help', 'add', 'remove', 'tree'
