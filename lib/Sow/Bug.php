@@ -34,8 +34,12 @@ class Bug {
   public static function del( $name ) {
     return \Yaf\Registry::del( $name );
   }
-  public static function config() {
-    return self::app()->getConfig() ;
+
+  public static function config( $item = NULL ) {
+    if ( is_null( $item ) ) {
+      return self::app()->getConfig() ;
+    }
+    return self::app()->getConfig()->$item ;
   }
   public static function configSlice(  ) {
     $argc = func_num_args();
@@ -50,12 +54,19 @@ class Bug {
     return explode( ",", $return );
 
   }
-  public static function Loader() {
+  public static function loader() {
     return \Yaf\Loader::getInstance();
   }
+  public static function library() {
+    return self::loader()->getLibraryPath();
+  }  
   public static function path( ) {
     return self::loader()->registerLocalNameSpace( func_get_args() );
   }
+  public static function view($module = 'Index') {
+    return self::config('viewpath')."/".$module;
+  }
+  
   public static function returnResponse( $switch = True ) {
     return self::dispatch()->returnResponse( $switch );
   }

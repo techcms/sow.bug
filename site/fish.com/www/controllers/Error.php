@@ -3,7 +3,7 @@ use Sow\Bug as Y;
 class ErrorController extends \Sow\Sys\Control
 {
 	public function init() {
-		$this->setViewpath(VIEWPATH."/".$this->getModuleName());
+		$this->setViewpath(Y::view($this->getModuleName()));
 	}
 
 	public function indexAction() {

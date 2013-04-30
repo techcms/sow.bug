@@ -11,10 +11,10 @@ class GateWayPlugin extends \Yaf\Plugin_Abstract {
 
   }
   public function preDispatch( \Yaf\Request_Abstract $request, \Yaf\Response_Abstract $response ) {
-    if ( !VIEW ) \Yaf\Dispatcher::getInstance()->disableView();
-    
-    if ( FILTER ) Y::filter();
-    if ( JSON ) header( 'content-type: application/json; $charset=utf-8' );
+    if ( !Y::config( 'view' ) ) \Yaf\Dispatcher::getInstance()->disableView();
+
+    if ( Y::config( 'filter' ) ) Y::filter();
+    if ( Y::config( 'json' ) ) header( 'content-type: application/json; $charset=utf-8' );
 
   }
   public function postDispatch( \Yaf\Request_Abstract $request, \Yaf\Response_Abstract $response ) {

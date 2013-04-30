@@ -4,27 +4,22 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract  {
     public function _initConfig() {
         $config = Y::config();
         Y::set( "config", $config );
-        define( "DEBUG", $config->debug );
-        define( "VIEW", $config->view );
-        define( "JSON", $config->json );
-        define( "FILTER", $config->filter );
-        define( "VIEWPATH", $config->viewpath );
-        define( "LOGPATH", $config->logpath );
-        if (isset($_GET['ohmyzi']) && DEBUG ){
+
+        if ( isset( $_GET['ohmyzi'] ) && $config->debug ) {
             define( "OHMYZI", True );
             \Sow\Xhprof\Ohmyzi::enable();
         } else {
             define( "OHMYZI", False );
         }
 
-
-        if ( DEBUG ) {
+        if ( $config->debug ) {
             ini_set( 'display_errors' , "On" );
             error_reporting( E_ALL );
         } else {
             ini_set( 'display_errors' , "Off" );
             error_reporting( 0 );
         }
+        ini_set('include_path',ini_get('yaf.library').':'.Y::library());
     }
     public function _initGateWay() {
         $plugins = Y::configSlice( 'application', 'plugins' );

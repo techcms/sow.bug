@@ -14,10 +14,10 @@ class Ohmyzi {
   }
   public static function disable() {
     $data = xhprof_disable();
-    $logpath = LOGPATH."/xhprof/".date("Ymd",time());
+    $logpath = Y::config( 'logpath' )."/xhprof/".Y::config( 'xhprof_id' )."/".date("Ymd",time());
     if (!is_dir($logpath)){
-          mkdir($logpath, 0755);
+          mkdir($logpath, 0755, true);
     }
-    $graph = new  \Xhprof\Display($data,$logpath);
+    $graph = new  \Sow\Xhprof\Display($data,$logpath);
   }
 }
