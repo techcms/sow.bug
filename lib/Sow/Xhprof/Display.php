@@ -7,6 +7,6 @@ class Display {
     $xhprof_runs = new \XHProfRuns_Default($dir);
     $run_id = $xhprof_runs->save_run($data, Y::config('xhprof_id'));
     Y::dump($run_id);
-    echo "http://localhost/xhprof/xhprof_html/index.php?run={$run_id}&source=xhprof_testing\n";
+    Y::dump(Y::config('application')['baseUri']."xhprof/html/run/{$run_id}/source/".Y::config('xhprof_id'));
   }
 }
