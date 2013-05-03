@@ -6,7 +6,13 @@ class rule {
       'required' => true,
       'type'     => "int",
       'msg'      => "page"
-    )
+    ),
+    "run"=>array(
+      'required' => true,
+      'type'     => "string",
+      'msg'      => "page"
+    ),
+
   );
 
   public static function getRule( $name ) {
