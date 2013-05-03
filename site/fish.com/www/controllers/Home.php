@@ -9,5 +9,6 @@ class HomeController extends \Sow\Sys\Control
 	public function indexAction() {
 	}
 	public function demoAction() {
-		$this->assign( "b", array(1,2) ); }
+		$this->assign( "b", array(1,2) ); 
+	}
 }

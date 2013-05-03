@@ -79,7 +79,7 @@ class Bug {
 
 
   public static function filter() {
-    $filter = self::get( "config" )->application["modules"];
+    $filter = self::configSlice( 'application', 'filter' );
     $p =self::pathinfo();
     if ( isset( $p['extension'] ) ) {
       $extension = strtolower( $p['extension'] );
