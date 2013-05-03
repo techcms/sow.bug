@@ -109,6 +109,7 @@ class Bug {
     self::dispatch()->returnResponse( $return );
 
     if ( OHMYZI ) {
+      self::app()->run();
       \Sow\Xhprof\Ohmyzi::disable();
     } else {
       return self::app()->run();
