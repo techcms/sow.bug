@@ -35,6 +35,12 @@ class Bug {
     return \Yaf\Registry::del( $name );
   }
 
+  public static function application_ini($name) {
+    $application = self::config('application');
+
+    return $application[$name];
+  }
+
   public static function config( $item = NULL ) {
     if ( is_null( $item ) ) {
       return self::app()->getConfig() ;
@@ -193,7 +199,9 @@ class Bug {
     if ( $exit ) exit;
   }
 
-
+  public static function location( $url ) {
+    header("location:".$url);
+  }
   /*
   //----------------------------------------------------
   // browser
