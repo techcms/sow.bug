@@ -19,7 +19,12 @@ class Ohmyzi {
     if ( !is_dir( $logpath ) ) {
       mkdir( $logpath, 0755, true );
     }
-    $script = new  \Sow\Xhprof\Debug( $data, $logpath );
+    include "Xhprof/utils/xhprof_lib.php";
+    include "Xhprof/utils/xhprof_runs.php";
+    $xhprof_runs = new \XHProfRuns_Default($logpath);
+    $run_id = $xhprof_runs->save_run($data, Y::config('xhprof_id'));
+    self::graph($run_id);
+    exit();
   }
 
   public static function graph( $run ) {
