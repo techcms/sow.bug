@@ -3,17 +3,13 @@ use Sow\Bug as Y;
 class Param {
     public $vaild = False;
     public $rule = NULL;
-    public $message = NULL;
+    public $message = 'not_fit_rules';
     public $name = NULL;
     public $value = NULL;
-
     function __construct( $name ) {
         $this->name = $name;
-        $rule = \rule::getRule( $name );
-        if ( $rule === False ) {
-            $this->message = "not_in_rules";
-        }else {
-            $this->rule = $rule;
+        $this->rule = new \rule($name);
+        if ( method_exists( "rule", $name ) ) {
             if ( array_key_exists( $name, Y::Params() ) ) {
                 $this->value =  Y::Param( $name );
                 $this->vaild = true;
@@ -31,21 +27,21 @@ class Param {
                 } else {
                     $this->message = "not_in_params";
                 }
-
             }
+
+        }else {
+            $this->message = "not_in_rules";
         }
 
         if ( $this->vaild ) {
-
             $this->validate();
         }
     }
     function validate() {
-        $validate = new \Sow\Util\Validate ;
-       $this->vaild = $validate->check( $this->value, $this->rule );
-       if (! $this->vaild  ) {
-          $this->message=$validate->error();
-        }
+        $name = $this->name;
+        $validator = $this->rule->$name();
+        $this->vaild = $validator->validate( $this->value );
+        $this->message = NULL;
 
     }
 

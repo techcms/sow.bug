@@ -1,26 +1,15 @@
 <?php
+/**
+ *  @doc : http://documentup.com/Respect/Validation
+ */
 use Sow\Bug as Y;
-class rule {
-  protected static $rules=array(
-    "page"=>array(
-      'required' => true,
-      'type'     => "int",
-      'msg'      => "page"
-    ),
-    "run"=>array(
-      'required' => true,
-      'type'     => "string",
-      'msg'      => "page"
-    ),
+use Respect\Validation\Validator as v;
+class rule extends \Sow\Sys\Rule {
 
-  );
 
-  public static function getRule( $name ) {
-
-    if ( array_key_exists( $name , self::$rules ) ) {
-      return self::$rules[$name];
-    }
-    return NULL;
+  public function page() {
+    $validator = v::int()->min( 15 );
+    return  $validator;
   }
 
 }

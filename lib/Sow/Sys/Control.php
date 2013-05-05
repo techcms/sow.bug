@@ -13,10 +13,15 @@ class Control extends \Yaf\Controller_Abstract {
   public function GET( $name,$object = False) {
     $param = new Param($name);
 
+
     if ($object) {
       return $param;
     }
-    return $param->value;
+    if ($param->vaild){
+      return $param->value;
+    } else
+      return false;
+      
     
   }
   public function POST( $name ,$object = False) {
