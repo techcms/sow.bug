@@ -7,8 +7,7 @@ class HomeController extends \Sow\Sys\Control
 	}
 
 	public function indexAction() {
-    $s = eval(\rule::$page);
-    Y::dump(\rule::$page,$s,eval(\rule::$page),$result);
+    Y::dump($this->GET('page',true));
 
 	}
 	public function demoAction() {
