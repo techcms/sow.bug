@@ -35,8 +35,8 @@ class Bug {
     return \Yaf\Registry::del( $name );
   }
 
-  public static function application_ini($name) {
-    $application = self::config('application');
+  public static function application_ini( $name ) {
+    $application = self::config( 'application' );
 
     return $application[$name];
   }
@@ -65,14 +65,14 @@ class Bug {
   }
   public static function library() {
     return self::loader()->getLibraryPath();
-  }  
+  }
   public static function path( ) {
     return self::loader()->registerLocalNameSpace( func_get_args() );
   }
-  public static function view($module = 'Index') {
-    return self::config('viewpath')."/".$module;
+  public static function view( $module = 'Index' ) {
+    return self::config( 'viewpath' )."/".$module;
   }
-  
+
   public static function returnResponse( $switch = True ) {
     return self::dispatch()->returnResponse( $switch );
   }
@@ -108,11 +108,11 @@ class Bug {
     self::app()->bootstrap();
     self::dispatch()->returnResponse( $return );
 
+    $response = self::app()->run();
     if ( OHMYZI ) {
-      self::app()->run();
       \Sow\Xhprof\Ohmyzi::disable();
     } else {
-      return self::app()->run();
+      return  $response;
     }
 
   }
@@ -201,7 +201,7 @@ class Bug {
   }
 
   public static function location( $url ) {
-    header("location:".$url);
+    header( "location:".$url );
   }
   /*
   //----------------------------------------------------
