@@ -1,5 +1,5 @@
 <?php
-use Sow\Bug as Y;
+use Sow\bug as Y;
 class GateWayPlugin extends \Yaf\Plugin_Abstract {
   public function routerStartup( \Yaf\Request_Abstract $request, \Yaf\Response_Abstract $response ) {
 

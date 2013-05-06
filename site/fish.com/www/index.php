@@ -1,5 +1,5 @@
 <?php
-use Sow\Bug as Y;
+use Sow\bug as Y;
 
 date_default_timezone_set('Asia/Shanghai');
 

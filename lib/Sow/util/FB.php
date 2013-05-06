@@ -1,4 +1,4 @@
-<?php namespace Sow\Util;
+<?php namespace Sow\util;
 
 if (!class_exists('FirePHP', false)) {
     require 'FirePHP/FirePHP.class.php';

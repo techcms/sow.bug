@@ -1,5 +1,5 @@
-<?php namespace Sow\Sys;
-use Sow\Bug as Y;
+<?php namespace Sow\sys;
+use Sow\bug as Y;
 class Bootstrap extends \Yaf\Bootstrap_Abstract  {
     public function _initConfig() {
         $config = Y::config();
@@ -7,7 +7,7 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract  {
 
         if ( isset( $_GET['ohmyzi'] ) && $config->debug ) {
             define( "OHMYZI", True );
-            \Sow\Xhprof\Ohmyzi::enable();
+            \Sow\xhprof\Ohmyzi::enable();
         } else {
             define( "OHMYZI", False );
         }

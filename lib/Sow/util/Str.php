@@ -1,4 +1,4 @@
-<?php namespace Sow\Util;
+<?php namespace Sow\util;
 
 class Str {
 
