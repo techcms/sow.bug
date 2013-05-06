@@ -1,6 +1,6 @@
 <?php
-use Sow\Bug as Y;
-class ErrorController extends \Sow\Sys\Control
+use Sow\bug as Y;
+class ErrorController extends \Sow\sys\Control
 {
 	public function init() {
 		$this->setViewpath(Y::view($this->getModuleName()));

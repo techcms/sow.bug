@@ -1,5 +1,5 @@
-<?php namespace Sow\Sys;
-use Sow\Bug as Y;
+<?php namespace Sow\sys;
+use Sow\bug as Y;
 class Rule  {
 
   public $rule = NULL;

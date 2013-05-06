@@ -1,6 +1,6 @@
 #!/usr/local/bin/php
 <?php
-use Sow\Bug as Y;
+use Sow\bug as Y;
 $yaf = new \Yaf\Application( 'config/bug.ini', 'dev' );
 Y::shell( $argc, $argv );
 ./bdie();
@@ -55,7 +55,7 @@ function sow_add_site( $site ) {
 function sow_help() {
 	global $objects, $commands;
 	echo
-	"SowBug version 0.1 \n",
+	"Sowbug version 0.1 \n",
 	"./sow [command] [object] [name]\n",
 	"------------------------------------------\n",
 	"@command   ".implode( ",", $commands )."\n",

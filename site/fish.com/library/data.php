@@ -1,6 +1,6 @@
 <?php
-use Sow\Bug as Y;
-class data extends \Sow\Sys\Rule {
+use Sow\bug as Y;
+class data extends \Sow\sys\Rule {
 
 
 

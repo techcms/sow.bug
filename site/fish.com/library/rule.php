@@ -2,9 +2,9 @@
 /**
  *  @doc : http://documentup.com/Respect/Validation
  */
-use Sow\Bug as Y;
+use Sow\bug as Y;
 use Respect\Validation\Validator as v;
-class rule extends \Sow\Sys\Rule {
+class rule extends \Sow\sys\Rule {
 
 
   public function page() {

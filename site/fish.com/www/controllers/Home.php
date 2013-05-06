@@ -1,14 +1,14 @@
 <?php
-use Sow\Bug as Y;
-use Sow\Util\FB as fb;
-class HomeController extends \Sow\Sys\Control
+use Sow\bug as Y;
+use Sow\util\FB as fb;
+class HomeController extends \Sow\sys\Control
 {
 	public function init() {
 		$this->setViewpath( Y::view( $this->getModuleName() ) );
 	}
 
 	public function indexAction() {
-
+		
 	}
 	public function demoAction() {
 		//Y::dump($this->GET('page'));

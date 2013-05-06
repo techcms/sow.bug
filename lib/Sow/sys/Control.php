@@ -1,5 +1,5 @@
-<?php namespace Sow\Sys;
-use Sow\Bug as Y;
+<?php namespace Sow\sys;
+use Sow\bug as Y;
 class Control extends \Yaf\Controller_Abstract {
 
   public function assign( $name, $value =null ) {
