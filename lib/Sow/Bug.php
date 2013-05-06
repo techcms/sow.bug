@@ -1,6 +1,30 @@
 <?php namespace Sow;
 use Sow\Util\FB as fb;
 class Bug {
+  private static $_handles = array();
+  public static function redis( $server ) {
+    $argc = func_num_args();
+    $argv = func_get_args();
+    $servers = array();
+    foreach ( $argv as $server ) {
+      $server_params = self::config( 'redis' )->$server;
+      if (is_null($server_params)) return NULL;
+        $server_params = $server_params->toArray();
+      if ( is_array( $server_params ) )
+        $servers[] = $server_params;
+    }
+    if ( empty( $servers ) ) return NULL;
+    $handle_hash = self::array_md5( $servers );
+    if ( !isset( self::$_handles[$handle_hash] ) ) {
+
+      self::$_handles[$handle_hash] = $redis = new \Predis\Client( $servers );
+
+    }
+    if ( !( self::$_handles[$handle_hash] instanceof \Predis\Client ) ) {
+      self::$_handles[$handle_hash] = $redis = new \Predis\Client( $servers );
+    }
+    return self::$_handles[$handle_hash];
+  }
   public static function dump() {
     $argc = func_num_args();
     $argv = func_get_args();
@@ -11,6 +35,11 @@ class Bug {
     }
     echo '</pre>';
   }
+  public static function array_md5( array $array ) {
+    array_multisort( $array );
+    return md5( json_encode( $array ) );
+  }
+
   public static function out() {
     echo "---------------------------\n";
     $argc = func_num_args();
