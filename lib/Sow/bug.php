@@ -1,8 +1,5 @@
 <?php namespace Sow;
-use Sow\util\FB as fb;
 class bug {
-
-
 
 //tools
 //--------------------------------------------------------

@@ -1,6 +1,7 @@
 <?php
 use Sow\bug as Y;
 use Sow\util\FB as fb;
+use Sow\DB as DB;
 class HomeController extends \Sow\sys\Control
 {
 	public function init() {
@@ -8,7 +9,7 @@ class HomeController extends \Sow\sys\Control
 	}
 
 	public function indexAction() {
-		
+
 	}
 	public function demoAction() {
 		//Y::dump($this->GET('page'));
