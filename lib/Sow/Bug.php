@@ -1,4 +1,5 @@
 <?php namespace Sow;
+use Sow\Util\FB as fb;
 class Bug {
   public static function dump() {
     $argc = func_num_args();
