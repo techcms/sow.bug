@@ -6,7 +6,7 @@ class bug {
   public static function dump() {
     $argc = func_num_args();
     $argv = func_get_args();
-    echo '<pre><hr>';
+    echo '<pre><br>';
     foreach ( $argv as $arg ) {
       var_dump( $arg );
       echo '<hr>';
@@ -19,7 +19,7 @@ class bug {
   }
 
   public static function out() {
-    echo "---------------------------\n";
+    echo "\n";
     $argc = func_num_args();
     $argv = func_get_args();
     foreach ( $argv as $arg ) {

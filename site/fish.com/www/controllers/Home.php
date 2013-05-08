@@ -1,7 +1,8 @@
 <?php
 use Sow\bug as Y;
 use Sow\util\FB as fb;
-use Sow\DB as DB;
+use Sow\db\Instance  as db;
+
 class HomeController extends \Sow\sys\Control
 {
 	public function init() {
@@ -9,7 +10,8 @@ class HomeController extends \Sow\sys\Control
 	}
 
 	public function indexAction() {
-
+		$mysql = db::mysqli('fish');
+		Y::disableView();
 	}
 	public function demoAction() {
 		//Y::dump($this->GET('page'));
