@@ -1,8 +1,8 @@
 <?php
 use Sow\bug as Y;
 use Sow\util\FB as fb;
-use Sow\db\Instance  as db;
-
+use Sow\DB as DB;
+use Sow\log\Monolog as log;
 class HomeController extends \Sow\sys\Control
 {
 	public function init() {
@@ -10,8 +10,19 @@ class HomeController extends \Sow\sys\Control
 	}
 
 	public function indexAction() {
-		$mysql = db::mysqli('fish');
-		Y::disableView();
+		/*
+		const EMERGENCY = 'emergency';
+    const ALERT     = 'alert';
+    const CRITICAL  = 'critical';
+    const ERROR     = 'error';
+    const WARNING   = 'warning';
+    const NOTICE    = 'notice';
+    const INFO      = 'info';
+    const DEBUG     = 'debug';
+		*/
+		// $log = log::stream('fish');
+		// $log->addDebug('123213213');
+		// $log->addWarning('123213213');
 	}
 	public function demoAction() {
 		//Y::dump($this->GET('page'));
