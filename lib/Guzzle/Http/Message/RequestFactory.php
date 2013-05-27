@@ -3,7 +3,6 @@
 namespace Guzzle\Http\Message;
 
 use Guzzle\Common\Collection;
-use Guzzle\Http\EntityBody;
 use Guzzle\Http\Url;
 use Guzzle\Parser\ParserRegistry;
 
@@ -79,7 +78,7 @@ class RequestFactory implements RequestFactoryInterface
         $protocol = 'HTTP',
         $protocolVersion = '1.1'
     ) {
-        return $this->create($method, Url::buildUrl($urlParts, true), $headers, $body)
+        return $this->create($method, Url::buildUrl($urlParts), $headers, $body)
                     ->setProtocolVersion($protocolVersion);
     }
 
@@ -157,10 +156,8 @@ class RequestFactory implements RequestFactoryInterface
         } elseif ($request instanceof EntityEnclosingRequestInterface) {
             $cloned->setBody($request->getBody());
         }
-        $cloned->getParams()
-            ->replace($request->getParams()->getAll())
-            ->remove('curl_handle')
-            ->remove('curl_multi');
+        $cloned->getParams()->replace($request->getParams()->getAll());
+        $cloned->dispatch('request.clone', array('request' => $cloned));
 
         return $cloned;
     }

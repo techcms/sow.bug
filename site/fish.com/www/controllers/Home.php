@@ -3,6 +3,9 @@ use Sow\bug as Y;
 use Sow\util\FB as fb;
 use Sow\DB as DB;
 use Sow\log\Monolog as log;
+use Guzzle\Http\Client;
+
+
 class HomeController extends \Sow\sys\Control
 {
 	public function init() {
@@ -10,6 +13,10 @@ class HomeController extends \Sow\sys\Control
 	}
 
 	public function indexAction() {
+		$client = new Client('http://www.candou.com');
+		$request = $client->get('/');
+		$response = $request->send();
+		Y::dump($response);
 		/*
 		const EMERGENCY = 'emergency';
     const ALERT     = 'alert';
