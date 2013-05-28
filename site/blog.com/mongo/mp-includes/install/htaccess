@@ -1,0 +1,25 @@
+
+        # BEGIN MongoPress Rules
+        <IfModule mod_rewrite.c>
+            SetEnv HTTP_MOD_REWRITE On
+
+            # MONGOPRESS ESSENTIALS
+            RewriteEngine On
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_FILENAME} !-d
+            RewriteRule . index.php [L]
+
+            # CANONICAL REWRITES
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_URI} !.html
+            RewriteCond %{REQUEST_URI} !.php
+            RewriteCond %{REQUEST_URI} !(.*)/$
+            RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]
+
+            # PREVENT DUPLICATES
+            RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /[^?]*\?\ HTTP/
+            RewriteRule (.*) http://%{HTTP_HOST}/$1? [R=301,L]
+
+        </IfModule>
+        # END MongoPress Rules
+                

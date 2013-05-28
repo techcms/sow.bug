@@ -1,0 +1,163 @@
+body {
+    background: none repeat scroll 0 0 #F3F4EB !important;
+    padding: 0 10% !important;
+    width: 80%;
+}
+div#site-wrapper {
+    padding: 25px;
+    width: auto;
+    background: #FFF;
+    margin: 25px auto;
+    box-shadow:1px 1px 5px #BBB;
+    -moz-box-shadow:1px 1px 5px #BBB;
+    -webkit-box-shadow:1px 1px 5px #BBB;
+}
+div#site-wrapper.login-form {
+    width: 50%;
+    padding: 25px 5%;
+    margin: 45px 20%;
+}
+div#primary-content {
+    display: inline-block;
+    padding: 0 2% 0 0;
+    vertical-align: top;
+    width: 68%;
+}
+div#primary-content.no-sidebar {
+    width: 100%;
+	padding: 0;
+}
+article header, div.widget h3 {
+    background: none repeat scroll 0 0 #FFFFEE;
+    border: 1px dotted #DDDDDD;
+    color: #990000;
+    display: block;
+    margin-bottom: 25px;
+    padding: 15px;
+    text-align: center;
+}
+h3 {
+    color: #990000;
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+.content h3 {
+    color: #444;
+}
+article div.content {
+    display: block;
+    padding-bottom: 25px;
+}
+div#secondary-content {
+    display: inline-block;
+    padding: 0 0 25px 1%;
+    vertical-align: top;
+    width: 28%;
+}
+div div.widget:first-child, div div.widget.first_child {
+    padding-top: 0;
+}
+div div.widget {
+    clear: both;
+    display: block;
+    padding: 45px 0 0;
+}
+div.widget ul {
+    margin: 0;
+    width: 100%;
+}
+div.widget ul li {
+    border-top: 1px dotted #CCCCCC;
+    float: left;
+    list-style: none outside none;
+    margin: 10px 0 0;
+    padding: 10px 0 0;
+    text-align: center;
+    width: 100%;
+}
+div.widget ul li:first-child {
+    border: medium none;
+    margin: 0;
+    padding: 10px 0 0;
+}
+div#site-wrapper.login-form form.mp-form {
+    display: block !important;
+}
+div#site-wrapper.login-form form.mp-form label {
+    padding: 15px 0 5px;
+    display: block;
+}
+div#site-wrapper.login-form form.mp-form input#mp-login-submit {
+    clear: both;
+    float: right;
+    margin: 15px 0 25px;
+}
+div#site-wrapper.login-form h4 {
+    font-size: 18px;
+    font-size:1.8rem;
+    color: #069;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #CCC;
+    text-align: center;
+    margin-bottom: 25px;
+}
+header#logo {
+    text-align: center;
+}
+header#logo a {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    background: transparent;
+    margin: 65px auto 15px -10px;
+}
+header#logo a img {
+    float: left;
+    width: auto;
+    height: auto;
+}
+.button {
+    clear: none;
+    font-weight: bold;
+    font-size: 13px;
+    font-size: 1.3rem;
+    border:3px solid #BBB;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    color: #999;
+    background-color: #FFE;
+    background-image: -moz-linear-gradient(100% 100% 90deg, #FFFFEE, #EEEEEE);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EEEEEE), to(#FFFFEE));
+    background-image: -o-linear-gradient(#FFFFEE,#EEEEEE);
+    box-shadow:1px 1px 5px #BBB;
+    -moz-box-shadow:1px 1px 5px #BBB;
+    -webkit-box-shadow:1px 1px 5px #BBB;
+    font-style:normal;
+}
+.button:hover {
+    color: #666;
+    background-color: #EEE;
+    background-image: -moz-linear-gradient(100% 100% 90deg, #EEEEEE, #FFFFEE);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFEE), to(#EEEEEE));
+    background-image: -o-linear-gradient(#EEEEEE,#FFFFEE);
+}
+.input-wrapper {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CCCCCC;
+    clear: both;
+    display: block;
+    margin: 0 0 10px;
+    padding: 0 2%;
+    width: 96%;
+}
+.input-wrapper .blanked {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 4px 0;
+    width: 100%;
+}

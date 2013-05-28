@@ -1,0 +1,2454 @@
+# Copyright (C) 2011 MongoPress
+# This file is distributed under the same license as the MongoPress package.
+msgid ""
+msgstr ""
+"Project-Id-Version: MongoPress\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-14 16:42+0800\n"
+"PO-Revision-Date: 2011-09-14 16:43+0800\n"
+"Last-Translator: Sundar\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: mp-admin/admin.php:11
+#, php-format
+msgid "%s | Log-In"
+msgstr "日志，在%s的"
+
+#: mp-admin/admin.php:107
+#, php-format
+msgid "Log-In to %s"
+msgstr "登录到%s"
+
+#: mp-admin/admin.php:178
+#, fuzzy
+msgid "MongoPress Admin"
+msgstr "MongoPress 管理"
+
+#: mp-admin/admin.php:285
+#: mp-admin/admin.php:352
+msgid "You do not have permission to view this page!"
+msgstr "您没有权限查看此页面！"
+
+#: mp-admin/admin.php:351
+msgid "MONGOPRESS PRIVACY"
+msgstr "MONGOPRESS 隐私"
+
+#: mp-admin/admin.php:353
+msgid "RETURN TO HOMEPAGE"
+msgstr "返回主页"
+
+#: mp-admin/admin.php:419
+msgid "New Type"
+msgstr "新型"
+
+#: mp-admin/admin.php:429
+#, fuzzy
+msgid "Define your object type"
+msgstr "给你的对象标题"
+
+#: mp-admin/admin.php:447
+#: mp-admin/admin.php:473
+msgid "-- None --"
+msgstr "-- 没有 --"
+
+#: mp-admin/admin.php:459
+#, php-format
+msgid "The database does not contain any '%s' objects"
+msgstr "该数据库不包含任何'%s'的对象"
+
+#: mp-admin/admin.php:511
+msgid "The selected database does not yet contain any media"
+msgstr "选定的数据库尚未包含任何媒体"
+
+#: mp-admin/admin.php:520
+msgid "Custom Key:"
+msgstr "自定义键："
+
+#: mp-admin/admin.php:521
+msgid "the key for the custom field"
+msgstr "为自定义字段的关键"
+
+#: mp-admin/admin.php:524
+msgid "Custom Value:"
+msgstr "自定义值："
+
+#: mp-admin/admin.php:525
+msgid "the value of the custom field"
+msgstr "自定义字段的值"
+
+#: mp-admin/admin.php:528
+msgid "Actions:"
+msgstr "动作："
+
+#: mp-admin/admin.php:529
+msgid "Remove"
+msgstr "升级"
+
+#: mp-admin/admin.php:564
+#: mp-admin/admin.php:598
+msgid "Add &amp Edit Objects:"
+msgstr "添加和编辑对象："
+
+#: mp-admin/admin.php:565
+msgid "Object Title:"
+msgstr "对象的标题："
+
+#: mp-admin/admin.php:566
+msgid "Give your object a title"
+msgstr "给你的对象标题"
+
+#: mp-admin/admin.php:569
+#: mp-admin/admin.php:583
+msgid "Object Type:"
+msgstr "对象类型："
+
+#: mp-admin/admin.php:572
+msgid "New Object Type:"
+msgstr "新的对象类型："
+
+#: mp-admin/admin.php:573
+#: mp-admin/admin.php:584
+msgid "Select an object type"
+msgstr "选择对象类型"
+
+#: mp-admin/admin.php:575
+msgid "Edit Slug"
+msgstr "编辑弹头"
+
+#: mp-admin/admin.php:576
+#: mp-admin/admin.php:585
+msgid "Object Slug:"
+msgstr "对象弹头："
+
+#: mp-admin/admin.php:580
+#: mp-admin/admin.php:586
+msgid "Give your object a slug"
+msgstr "给你的对象蛞蝓"
+
+#: mp-admin/admin.php:588
+msgid "Object Content:"
+msgstr "对象的内容："
+
+#: mp-admin/admin.php:588
+msgid "Switch to WYSIWYG Mode"
+msgstr "切换到WYSIWYG模式"
+
+#: mp-admin/admin.php:588
+msgid "Switch to HTML Mode"
+msgstr "切换到HTML模式"
+
+#: mp-admin/admin.php:589
+msgid "Give your object contents"
+msgstr "给你的对象的内容"
+
+#: mp-admin/admin.php:594
+msgid "Custom Fields"
+msgstr "自定义字段"
+
+#: mp-admin/admin.php:595
+msgid "Add Another Field"
+msgstr "添加另一个字段"
+
+#: mp-admin/admin.php:597
+msgid "ADD NEW OBJECT"
+msgstr "添加新对象"
+
+#: mp-admin/admin.php:599
+msgid "SAVE OBJECT"
+msgstr "保存对象"
+
+#: mp-admin/admin.php:632
+msgid "l jS \\of F Y h:i:s A"
+msgstr "l jS \\的 F Y h:i:s A"
+
+#: mp-admin/admin.php:639
+msgid "l jS \\of F Y"
+msgstr "l jS \\的 F Y"
+
+#: mp-admin/admin.php:646
+msgid "h:i:s A"
+msgstr "h:i:s A"
+
+#: mp-admin/admin.php:661
+msgid "year"
+msgstr "一年"
+
+#: mp-admin/admin.php:661
+msgid "years"
+msgstr "年"
+
+#: mp-admin/admin.php:662
+msgid "month"
+msgstr "一个月"
+
+#: mp-admin/admin.php:662
+msgid "months"
+msgstr "个月"
+
+#: mp-admin/admin.php:663
+msgid "week"
+msgstr "一周"
+
+#: mp-admin/admin.php:663
+msgid "weeks"
+msgstr "周"
+
+#: mp-admin/admin.php:664
+msgid "day"
+msgstr "一天"
+
+#: mp-admin/admin.php:664
+msgid "days"
+msgstr "天"
+
+#: mp-admin/admin.php:665
+msgid "hour"
+msgstr "每小时"
+
+#: mp-admin/admin.php:665
+msgid "hours"
+msgstr "小时"
+
+#: mp-admin/admin.php:666
+msgid "minute"
+msgstr "分钟的"
+
+#: mp-admin/admin.php:666
+msgid "minutes"
+msgstr "分钟"
+
+#: mp-admin/admin.php:667
+msgid "second"
+msgstr "第二个"
+
+#: mp-admin/admin.php:667
+#: mp-admin/admin.php:706
+msgid "seconds"
+msgstr "秒"
+
+#: mp-admin/admin.php:681
+msgid "sometime"
+msgstr "某时"
+
+#: mp-admin/admin.php:725
+msgid "here"
+msgstr "在这里"
+
+#: mp-admin/admin.php:726
+msgid "admin dashboard"
+msgstr "管理仪表板"
+
+#: mp-admin/admin.php:733
+#, php-format
+msgid "You are currently logged-in as %s. Please click %s to log-out, or use your %s as required."
+msgstr "您当前登录的为%s.请点击%s到登出，或使用您的%s需要。"
+
+#: mp-admin/admin.php:744
+msgid "Username"
+msgstr "用户名"
+
+#: mp-admin/admin.php:746
+msgid "Your unique display name"
+msgstr "你唯一的显示名称"
+
+#: mp-admin/admin.php:747
+msgid "Password"
+msgstr "密码"
+
+#: mp-admin/admin.php:749
+msgid "Do you have the rights to access?"
+msgstr "你有权利访问？"
+
+#: mp-admin/admin.php:752
+msgid "Login"
+msgstr "登录"
+
+#: mp-admin/admin.php:776
+#: mp-admin/admin.php:870
+#: mp-admin/admin.php:1089
+msgid "Unsupported Media Type"
+msgstr "不支持的媒体类型"
+
+#: mp-admin/admin.php:810
+#, fuzzy
+msgid "Unidentified Object in Imperial Vortex!!!"
+msgstr "在帝国涡不明物体！"
+
+#: mp-admin/admin.php:826
+msgid "Unidentified Object in The Imperial Vortex!!!"
+msgstr "在帝国涡不明物体！"
+
+#: mp-admin/admin.php:860
+msgid "This File Already Exists"
+msgstr "此文件已存在"
+
+#: mp-admin/admin.php:864
+msgid "Successfully Uploaded Media"
+msgstr "成功上传媒体"
+
+#: mp-admin/admin.php:866
+msgid "Unknown Error Uploading Media"
+msgstr "未知的错误上传媒体"
+
+#: mp-admin/admin.php:892
+msgid "Successfully Updated Media"
+msgstr "成功更新媒体"
+
+#: mp-admin/admin.php:899
+#: mp-admin/admin.php:1078
+#, fuzzy
+msgid "Download Link:"
+msgstr "下载链接："
+
+#: mp-admin/admin.php:907
+msgid "Error Updating Media"
+msgstr "媒体错误更新"
+
+#: mp-admin/admin.php:910
+msgid "Cannot Rename File to Empty String"
+msgstr "不能重命名文件为空字符串"
+
+#: mp-admin/admin.php:917
+msgid "Title of Media"
+msgstr "标题新闻"
+
+#: mp-admin/admin.php:919
+msgid "File to Upload"
+msgstr "要上传的文件"
+
+#: mp-admin/admin.php:922
+msgid "Upload Media"
+msgstr "上传媒体"
+
+#: mp-admin/admin.php:941
+#: mp-admin/admin.php:989
+#, fuzzy
+msgid "More options coming soon, but for now, you can edit the following:"
+msgstr "更多选择即将上市，但现在，您可以编辑以下内容："
+
+#: mp-admin/admin.php:946
+#, fuzzy
+msgid "Site Name:"
+msgstr "网站名称"
+
+#: mp-admin/admin.php:948
+msgid "Override your config settings by changing site name here"
+msgstr "覆盖变化的网站名称在这里你的配置设置"
+
+#: mp-admin/admin.php:953
+msgid "Site Description:"
+msgstr "网站描述："
+
+#: mp-admin/admin.php:955
+#, fuzzy
+msgid "Override your config settings by changing site description here"
+msgstr "覆盖变化的网站名称在这里你的配置设置"
+
+#: mp-admin/admin.php:959
+msgid "Cookie TTL:"
+msgstr "Cookie时间的生活："
+
+#: mp-admin/admin.php:961
+#, fuzzy
+msgid "Override your cookie time to live settings by changing type here - must be INT or word session"
+msgstr "覆盖变化的网站名称在这里你的配置设置"
+
+#: mp-admin/admin.php:964
+#: mp-admin/admin.php:1007
+msgid "Save Options"
+msgstr "保存选项"
+
+#: mp-admin/admin.php:994
+#, fuzzy
+msgid "Your Email:"
+msgstr "电子邮件"
+
+#: mp-admin/admin.php:996
+msgid "Currently used for fall-back Gravatars"
+msgstr "目前用于依傍Gravatars"
+
+#: mp-admin/admin.php:1001
+#, fuzzy
+msgid "Your Name:"
+msgstr "网站名称"
+
+#: mp-admin/admin.php:1003
+msgid "Used throughout the site"
+msgstr "用于整个网站"
+
+#: mp-admin/admin.php:1032
+msgid "--- --- Select Action --- ---"
+msgstr "--- --- 选择操作 --- ---"
+
+#: mp-admin/admin.php:1033
+msgid "Delete Selected Objects"
+msgstr "删除选定的对象"
+
+#: mp-admin/admin.php:1039
+#, fuzzy
+msgid "Import Objects"
+msgstr "对象"
+
+#: mp-admin/admin.php:1067
+#: mp-admin/admin.php:1080
+msgid "Filename:"
+msgstr "文件名："
+
+#: mp-admin/admin.php:1068
+#: mp-admin/admin.php:1081
+#, fuzzy
+msgid "Actual Name:"
+msgstr "网站名称"
+
+#: mp-admin/admin.php:1069
+#: mp-admin/admin.php:1082
+msgid "Pretty URL:"
+msgstr "漂亮的网址："
+
+#: mp-admin/admin.php:1070
+msgid "File Type:"
+msgstr "文件类型："
+
+#: mp-admin/admin.php:1071
+msgid "Views:"
+msgstr "浏览次数："
+
+#: mp-admin/admin.php:1072
+#: mp-admin/admin.php:1084
+msgid "Edit"
+msgstr "编辑"
+
+#: mp-admin/admin.php:1072
+#: mp-admin/admin.php:1084
+msgid "Delete"
+msgstr "删除"
+
+#: mp-admin/admin.php:1075
+msgid "ZIP File"
+msgstr "ZIP文件"
+
+#: mp-admin/admin.php:1083
+msgid "Downloads:"
+msgstr "下载："
+
+#: mp-admin/admin.php:1096
+msgid "No media added yet."
+msgstr "尚未添加任何媒体。"
+
+#: mp-admin/admin.php:1149
+#, fuzzy, php-format
+msgid "Return to %s"
+msgstr "返回首页"
+
+#: mp-admin/admin.php:1159
+#, fuzzy
+msgid "Dashboard"
+msgstr "管理仪表板"
+
+#: mp-admin/admin.php:1164
+#, fuzzy, php-format
+msgid "Logged-in as %s"
+msgstr "登录到%s"
+
+#: mp-admin/admin.php:1165
+msgid "Edit Profile"
+msgstr "编辑个人资料"
+
+#: mp-admin/admin.php:1166
+#: mp-admin/admin.php:1215
+msgid "Log-Out"
+msgstr "登出"
+
+#: mp-admin/admin.php:1173
+msgid "Objects"
+msgstr "对象"
+
+#: mp-admin/admin.php:1180
+msgid "Media"
+msgstr "媒体"
+
+#: mp-admin/admin.php:1187
+#, fuzzy
+msgid "Settings"
+msgstr " | 管理设置"
+
+#: mp-admin/admin.php:1204
+msgid "Core Contributors"
+msgstr "核心贡献者"
+
+#: mp-admin/admin.php:1205
+#, fuzzy, php-format
+msgid "%s: MongoPress %s | PHP %s | MongoDB %s | MongoDB PHP Drivers %s"
+msgstr "该服务器当前正在运行的PHP版本：%s | MongoDB的版本：%s | MongoDB的PHP驱动程序版本：%s"
+
+#: mp-admin/admin.php:1216
+#, fuzzy, php-format
+msgid "Logged-in as %s %s"
+msgstr "登录到%s"
+
+#: mp-admin/admin.php:1228
+#, php-format
+msgid "Your Current Version of MongoPress is Out-of-Date - %s"
+msgstr "你的MongoPress目前的版本是过时的 - %s"
+
+#: mp-admin/admin.php:1228
+msgid "Please Download Latest Version"
+msgstr "请下载最新版本"
+
+#: mp-admin/admin.php:1231
+#, php-format
+msgid "Your Have Successfully Installed MongoPress - You May Now:<br /><br />%s or %s"
+msgstr "您已成功安装MonoPress - 你现在可以：<br/><br/>%s或%s的"
+
+#: mp-admin/admin.php:1231
+#, fuzzy
+msgid "Import Content"
+msgstr "对象"
+
+#: mp-admin/admin.php:1231
+#, fuzzy
+msgid "Add Objects"
+msgstr "添加新的对象："
+
+#: mp-admin/admin.php:1241
+msgid "No Avatar Present - add your email address and use externally loaded <a href=\"http://gravatar.com\">Gravatars</a> or upload and use your own internal avatars below!"
+msgstr "头像礼物 - 添加您的电子邮件地址，并使用外部加载<a href=\"http://gravatar.com\">Gravatars</a>或上传和使用自己的内部的头像下面！"
+
+#: mp-admin/admin.php:1259
+#, fuzzy
+msgid "Proudly Powered by <a href=\"http://mongopress.org\">MongoPress</a> and <a href=\"http://www.gnu.org/licenses/gpl.html\">GPLv3</a> Freedoms"
+msgstr "自豪地采用<a href=\"http://mongopress.com\">MongoPress</a> - 高性能的，基于对象的，NoSQL的开源CMS开发<a href=\"http://laulima.com\">Laulima</a>"
+
+#: mp-admin/admin.php:1325
+msgid "No data sent to function!"
+msgstr "无数据传送功能！"
+
+#: mp-admin/check-install.php:12
+msgid "MongoDB PHP Drivers Not Installed."
+msgstr "MongoDB的PHP的驱动程序没有安装。"
+
+#: mp-admin/check-install.php:12
+msgid "( you could use pecl to install the driver with \"pecl install mongo\" ) - or download from:"
+msgstr "（ 你也可以使用PECL安装驱动程序\"PECL安装蒙戈\" ）- 或下载："
+
+#: mp-admin/check-install.php:12
+#, fuzzy
+msgid "MongoPress - Platform Dependency Errors"
+msgstr "MongoPress配置错误"
+
+#: mp-admin/check-install.php:39
+msgid "<h4>MongoPress - Configuration Problem</h4><br />Your config value for BASE_URL_DIRECTORY should probably be: "
+msgstr "<h4>MongoPress - 配置问题</h4><br />您BASE_URL_DIRECTORY配置价值也许应该是："
+
+#: mp-admin/check-install.php:39
+#, fuzzy, php-format
+msgid " and not %s"
+msgstr " 和 "
+
+#: mp-admin/check-install.php:39
+#, fuzzy
+msgid "MongoPress - Config Errors"
+msgstr "MongoPress配置错误"
+
+#: mp-admin/check-install.php:65
+msgid "Error: Unsupported Web Server - currently only nginx and apache supported"
+msgstr "错误：不支持的Web服务器 - 目前只有nginx的和Apache的支持"
+
+#: mp-admin/check-install.php:65
+#, fuzzy
+msgid "Unsupported Web Server"
+msgstr "不支持的媒体类型"
+
+#: mp-admin/check-install.php:75
+msgid "Error: mod_rewrite is not working on your system. Please set config HT_SKIP to true"
+msgstr "错误：mod_rewrite的在您的系统不能正常工作。请设置为true配置HT_SKIP"
+
+#: mp-admin/check-install.php:75
+msgid "mod_rewrite problem"
+msgstr "mod_rewrite的问题"
+
+#: mp-admin/check-install.php:85
+msgid "This theme is missing an index.php file!"
+msgstr "这个主题是缺少一个index.php文件！"
+
+#: mp-admin/check-install.php:85
+#: mp-admin/check-install.php:89
+msgid "Missing File in Theme"
+msgstr "在主题文件丢失"
+
+#: mp-admin/check-install.php:89
+msgid "This theme is missing an single.php file!"
+msgstr "这个主题是缺少一个single.php文件！"
+
+#: mp-admin/check-install.php:102
+#, fuzzy
+msgid "Config is Missing Database Name"
+msgstr "MongoDB数据库名称"
+
+#: mp-admin/check-install.php:104
+#, fuzzy
+msgid "Config is Missing Name of Object Collection"
+msgstr "名称MongoPress对象集合"
+
+#: mp-admin/check-install.php:106
+#, fuzzy
+msgid "Config is Missing Name of Slug Collection"
+msgstr "名称MongoPress弹头收藏"
+
+#: mp-admin/check-install.php:108
+#, fuzzy
+msgid "Config is Missing Name of Cookie Collection"
+msgstr "收集用户名称MongoPress"
+
+#: mp-admin/check-install.php:110
+#, fuzzy
+msgid "Config is Missing Name of Usernames Collection"
+msgstr "名称MongoPress用户名收藏"
+
+#: mp-admin/check-install.php:112
+#, fuzzy
+msgid "Config is Missing Name of User Collection"
+msgstr "收集用户名称MongoPress"
+
+#: mp-admin/check-install.php:115
+msgid "Config is Missing Website Address"
+msgstr "config是缺少网站地址"
+
+#: mp-admin/check-install.php:117
+msgid "Config is Missing Site Name"
+msgstr "config是缺少网站名称"
+
+#: mp-admin/check-install.php:122
+#: mp-admin/install.php:87
+msgid "Error connecting to MongoDB Server"
+msgstr "MongoDB服务器连接错误"
+
+#: mp-admin/check-install.php:125
+msgid "Error: "
+msgstr "错误："
+
+#: mp-admin/check-install.php:132
+#, fuzzy
+msgid "MongoPress is installed correctly"
+msgstr "MongoPress媒体库"
+
+#: mp-admin/check-install.php:134
+msgid "Error: MongoPress cache incorrectly set"
+msgstr "设置不正确的错误：MongoPress缓存"
+
+#: mp-admin/import.php:28
+msgid "Content Already Added"
+msgstr "内容已经添加"
+
+#: mp-admin/import.php:30
+#, fuzzy
+msgid "Import Content from Theme"
+msgstr "没有内容模板"
+
+#: mp-admin/import.php:33
+msgid "No Content Templates"
+msgstr "没有内容模板"
+
+#: mp-admin/import.php:37
+msgid "OBJECT IMPORT ERROR: "
+msgstr "对象导入错误："
+
+#: mp-admin/import.php:38
+msgid "OBJECTS IMPORTED"
+msgstr "进口对象"
+
+#: mp-admin/import.php:39
+msgid "ERROR FINDING IMPORT FILES"
+msgstr "错误发现导入文件"
+
+#: mp-admin/import.php:77
+#: mp-admin/install.php:90
+#: mp-admin/reclaim-user.php:39
+#, fuzzy, php-format
+msgid "Error: %s"
+msgstr "错误："
+
+#: mp-admin/import.php:78
+#: mp-admin/install.php:88
+#: mp-admin/install.php:91
+msgid "MongoDB Error"
+msgstr "MongoDB的错误"
+
+#: mp-admin/install.php:21
+#, php-format
+msgid "%s : Current: %s Required: %s"
+msgstr "%s : 当前: %s 要求: %s"
+
+#: mp-admin/install.php:23
+#, fuzzy
+msgid "Install Error"
+msgstr "用户安装错误："
+
+#: mp-admin/install.php:23
+#, fuzzy, php-format
+msgid "MongoPress requirements not met: %s"
+msgstr "MongoPress媒体库"
+
+#: mp-admin/install.php:29
+msgid "You are running on Nginx"
+msgstr "关于Nginx的运行"
+
+#: mp-admin/install.php:30
+msgid " There are additional manual steps you need to make."
+msgstr "有你需要做的额外的手动步骤。"
+
+#: mp-admin/install.php:31
+msgid " You need to add the following lines to your nginx config."
+msgstr "您需要添加以下几行到您的nginx的配置。"
+
+#: mp-admin/install.php:37
+msgid "You need to restart your web server."
+msgstr "您需要重新启动您的Web服务器。"
+
+#: mp-admin/install.php:41
+msgid "Site Name <span class=\"required\">*</span>"
+msgstr "网站名称<span class=\"required\">*</span>"
+
+#: mp-admin/install.php:43
+msgid "MongoDB Name <span class=\"required\">*</span>"
+msgstr "MongoDB的名称<span class=\"required\">*</span>"
+
+#: mp-admin/install.php:48
+#, fuzzy
+msgid "Your Email"
+msgstr "电子邮件"
+
+#: mp-admin/install.php:50
+#, fuzzy
+msgid "MongoDB Host"
+msgstr "MongoDB的主机地址"
+
+#: mp-admin/install.php:51
+msgid "ip address or dns name"
+msgstr "IP地址或DNS名称"
+
+#: mp-admin/install.php:55
+#, fuzzy
+msgid "MongoDB Port"
+msgstr "MongoDB的DB港口"
+
+#: mp-admin/install.php:56
+#, fuzzy
+msgid "MongoDB User"
+msgstr "MongoDB的数据库用户名"
+
+#: mp-admin/install.php:56
+#, fuzzy
+msgid "database username"
+msgstr "数据库摘要"
+
+#: mp-admin/install.php:57
+#, fuzzy
+msgid "MongoDB Password"
+msgstr "MongoDB的数据库密码"
+
+#: mp-admin/install.php:57
+#, fuzzy
+msgid "database password"
+msgstr "什么是你的数据库密码？"
+
+#: mp-admin/install.php:58
+msgid "MongoDB Collection Prefix"
+msgstr "MongoDB的收集前缀"
+
+#: mp-admin/install.php:58
+msgid "collection prefix eg. mp_"
+msgstr "收集前缀，例如。 mp_"
+
+#: mp-admin/install.php:59
+#, fuzzy
+msgid "Display Name"
+msgstr "全部显示名称"
+
+#: mp-admin/install.php:60
+msgid "User Name <span class=\"required\">*</span>"
+msgstr "用户名<span class=\"required\">*</span>"
+
+#: mp-admin/install.php:61
+#: mp-admin/reclaim-user.php:64
+msgid "Password <span class=\"required\">*</span>"
+msgstr "密码<span class=\"required\">*</span>"
+
+#: mp-admin/install.php:73
+msgid "MongoPress Installation Step 1 of 1: Create Config "
+msgstr "MongoPress安装步骤1：创建配置"
+
+#: mp-admin/install.php:73
+msgid "( we really do have the simplest set-up imaginable - fill this one form out and you will be good to go )"
+msgstr "（我们真的有简单的设置，可以想象 - 填补这一种形式，你会好到哪里去）"
+
+#: mp-admin/install.php:96
+msgid "Your installation is successful"
+msgstr "您的安装成功"
+
+#: mp-admin/install.php:97
+msgid " However your settings directory is not secure - we suggest"
+msgstr "然而，您的设置目录并不安全 - 我们建议"
+
+#: mp-admin/install.php:101
+#, fuzzy
+msgid "Successfully Installed"
+msgstr "成功导入"
+
+#: mp-admin/install.php:101
+#, php-format
+msgid "This installation of MongoPress is successfully installed %s"
+msgstr "这MongoPress安装已成功安装%s的"
+
+#: mp-admin/logout.php:14
+msgid "Logging-out and re-directing..."
+msgstr "记录出和重新指挥..."
+
+#: mp-admin/reclaim-user.php:28
+#, php-format
+msgid "MongoDB Connection Failed - please check your advanced settings and if MongoDB is running on %s"
+msgstr "MongoDB的连接失败 - 请检查您的高级设置，如果MongoDB是运行在%s"
+
+#: mp-admin/reclaim-user.php:29
+#, fuzzy, php-format
+msgid "Verbose Error: %s"
+msgstr "错误："
+
+#: mp-admin/reclaim-user.php:29
+msgid " connection string:"
+msgstr "连接字符串："
+
+#: mp-admin/reclaim-user.php:40
+msgid "Unexpected Error: "
+msgstr "意外的错误："
+
+#: mp-admin/reclaim-user.php:63
+#, fuzzy
+msgid "Username <span class=\"required\">*</span>"
+msgstr "用户名<span class=\"required\">*</span>"
+
+#: mp-admin/reclaim-user.php:63
+msgid "not to reset"
+msgstr "不复位"
+
+#: mp-admin/reclaim-user.php:64
+#, fuzzy
+msgid "something easy to remember"
+msgstr "...因此，请挑选您能记住！"
+
+#: mp-admin/reclaim-user.php:95
+msgid "SUCCESS - Password Reset"
+msgstr "侨 - 密码重置"
+
+#: mp-admin/reclaim-user.php:95
+#, php-format
+msgid "You have reset the password on your MongoPress installation. %s"
+msgstr "您已重置您MongoPress安装的密码。%s的"
+
+#: mp-admin/reclaim-user.php:98
+msgid "FAILED - Password Reset"
+msgstr "失败 - 重设密码"
+
+#: mp-admin/reclaim-user.php:98
+#, php-format
+msgid "some error here TODO catch it. %s"
+msgstr "一些错误在这里做赶上它。%s的"
+
+#: mp-admin/reclaim-user.php:102
+#, fuzzy
+msgid "MongoPress Numpty Recovery "
+msgstr "MongoPress 管理"
+
+#: mp-admin/reclaim-user.php:102
+#, fuzzy
+msgid "( we really do have the simplest set-up imaginable - but you seem to have screwed up )"
+msgstr "（我们真的有简单的设置，可以想象 - 填补这一种形式，你会好到哪里去）"
+
+#: mp-admin/reclaim-user.php:107
+msgid "THIS IS DANGEROUS! "
+msgstr "这是很危险的！"
+
+#: mp-admin/reclaim-user.php:107
+#, fuzzy
+msgid "Password Reset"
+msgstr "密码"
+
+#: mp-admin/reclaim-user.php:107
+#, php-format
+msgid "Reset the password on your MongoPress installation. %s"
+msgstr "重置您MongoPress安装的密码。%s的"
+
+#: mp-admin/reclaim-user.php:161
+msgid "PASSWORD REQUIRED"
+msgstr "需要密码"
+
+#: mp-admin/reclaim-user.php:165
+msgid "RESET PASSWORD"
+msgstr "重设密码"
+
+#: mp-admin/inc/collections.php:18
+#: mp-admin/inc/mp-admin-debug.php:22
+msgid "You currently have "
+msgstr "您目前有 "
+
+#: mp-admin/inc/collections.php:30
+#: mp-admin/inc/mp-admin-debug.php:36
+msgid "You also have "
+msgstr "您还可以 "
+
+#: mp-admin/inc/mp-admin-contributors.php:13
+msgid "People Who Have Contributed to Core:"
+msgstr "核心的人作出了贡献："
+
+#: mp-admin/inc/mp-admin-dashboard.php:10
+msgid "Database Collections"
+msgstr "数据库集合"
+
+#: mp-admin/inc/mp-admin-dashboard.php:34
+#, fuzzy
+msgid "System Settings"
+msgstr " | 管理设置"
+
+#: mp-admin/inc/mp-admin-dashboard.php:61
+msgid "Server Console"
+msgstr "服务器控制台"
+
+#: mp-admin/inc/mp-admin-dashboard.php:74
+#, fuzzy
+msgid "Add New Object"
+msgstr "添加新的对象："
+
+#: mp-admin/inc/mp-admin-dashboard.php:90
+#, fuzzy
+msgid "MongoPress News"
+msgstr "MongoPress 管理"
+
+#: mp-admin/inc/mp-admin-dashboard.php:91
+msgid "FETCHING FEED VIA AJAX - PLEASE BE PATIENT"
+msgstr "通过Ajax获取饲料 - 请要有耐心"
+
+#: mp-admin/inc/mp-admin-debug.php:2
+msgid "Debug Panel"
+msgstr "调试小组"
+
+#: mp-admin/inc/mp-admin-media.php:13
+#, fuzzy
+msgid "Add Media"
+msgstr "媒体"
+
+#: mp-admin/inc/mp-admin-media.php:20
+#, fuzzy
+msgid "Media Gallery"
+msgstr "MongoPress媒体库"
+
+#: mp-admin/inc/mp-admin-objects.php:2
+#, fuzzy
+msgid "Current Objects"
+msgstr "对象"
+
+#: mp-admin/inc/mp-admin-objects.php:14
+#, fuzzy
+msgid "Add &amp Edit Objects"
+msgstr "添加和编辑对象："
+
+#: mp-admin/inc/mp-admin-profile.php:13
+msgid "Your Profile"
+msgstr "您的个人档案"
+
+#: mp-admin/inc/mp-admin-profile.php:20
+msgid "Your Avatar"
+msgstr "您的头像"
+
+#: mp-admin/inc/mp-admin-profile.php:22
+msgid "Please note that the avatar uploading and cropping functionality is currently in very early beta development and that its improvement will be on the top of our list for the next major update."
+msgstr "请注意，头像上传和裁剪功能，是在非常早期的测试发展和改善，目前我们最的下一个重大更新。"
+
+#: mp-admin/inc/mp-admin-profile.php:23
+msgid "At the moment, this system only works with files that have no spaces in their names and are all in lowercase."
+msgstr "目前，该系统只适用于在其名称中没有空格的文件，都以小写。"
+
+#: mp-admin/inc/mp-admin-settings.php:2
+#, fuzzy
+msgid "Misc Settings"
+msgstr "MISC选项"
+
+#: mp-admin/inc/mp-admin-settings.php:9
+msgid "Plugin Options"
+msgstr "插件选项"
+
+#: mp-admin/inc/mp-admin-settings.php:14
+msgid "You currently have the following <strong>mu-plugins</strong> installed and activated:"
+msgstr "您目前有以下<strong>亩，插件</strong>安装和激活："
+
+#: mp-admin/inc/mp-admin-settings.php:17
+#, fuzzy
+msgid "--- --- Select Plugin --- ---"
+msgstr "--- --- 选择操作 --- ---"
+
+#: mp-admin/inc/mp-admin-settings.php:33
+msgid "You do not have any valid <strong>mu-plugins</strong> accessible. Once valid plugins are added to the mu-plugins folder and if those plugins have options, they will show-up here."
+msgstr "您没有任何有效的<strong>亩，插件</strong>访问。一旦有效的插件添加到μ- plugins文件夹，如果这些插件有选项，它们将显示，在这里。"
+
+#: mp-content/mu-plugins/analytics_footer.php:16
+msgid "Google Analytics ID"
+msgstr "谷歌分析ID"
+
+#: mp-content/mu-plugins/analytics_footer.php:18
+msgid "Please manually add the relevant Object ID"
+msgstr "请手动添加相关的对象ID"
+
+#: mp-content/mu-plugins/analytics_footer.php:20
+#: mp-content/mu-plugins/ddos_protection.php:32
+#: mp-content/mu-plugins/default_header.php:22
+#: mp-content/mu-plugins/contact_form/contact_form.php:49
+#: mp-content/mu-plugins/download_counter/download_counter.php:32
+#: mp-content/mu-plugins/rss/rss.php:71
+#, fuzzy
+msgid "Save Plugin Settings"
+msgstr " | 管理设置"
+
+#: mp-content/mu-plugins/ddos_protection.php:16
+msgid "Enable DDOS protection"
+msgstr "启用DDOS保护"
+
+#: mp-content/mu-plugins/default_header.php:16
+msgid "Header Image"
+msgstr "标题图片"
+
+#: mp-content/mu-plugins/default_header.php:18
+msgid "URL for Header Link"
+msgstr "网址为标题链接"
+
+#: mp-content/mu-plugins/default_header.php:20
+msgid "Add a URL if you would like the header image to act as a link"
+msgstr "添加一个网址，如果你想的头形象作为一个链接"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:19
+#, fuzzy
+msgid "Filter By"
+msgstr "文件类型："
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:21
+msgid "This is the object type used to filter the drop-down below"
+msgstr "这是对象的类型，用于过滤的下拉低于"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:23
+msgid "Use AJAX"
+msgstr "使用AJAX"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:30
+#: mp-content/mu-plugins/contact_form/contact_form.php:34
+msgid "NO"
+msgstr "无"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:31
+#: mp-content/mu-plugins/contact_form/contact_form.php:33
+msgid "YES"
+msgstr "是"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:39
+msgid "Your Email Address"
+msgstr "您的电邮地址"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:41
+msgid "This is where the contact form will send the messages to"
+msgstr "这是那里接触形式将消息发送到"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:43
+msgid "Minimum Number of Characters for Message"
+msgstr "消息最小的字符数"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:45
+msgid "This offers an additional level of authentication"
+msgstr "这提供了一个额外的认证水平"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:47
+msgid "Where to display the contact form?"
+msgstr "在哪里显示的联系表格？"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:87
+msgid "Please enter a real name!"
+msgstr "请输入真实姓名！"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:90
+msgid "Please enter a real message!"
+msgstr "请输入一个真实的消息！"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:97
+msgid "<p>You have received a new message from the enquiries form on your website.</p>"
+msgstr "<p>您收到查询的形式，在您的网站上一个新的消息。</p>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:98
+#, php-format
+msgid "<p><strong>Name: </strong> %s</p>"
+msgstr "<p><strong>名称：</strong> %s</p>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:99
+#, php-format
+msgid "<p><strong>Email Address: </strong> %s</p>"
+msgstr "<p><strong>电子邮件地址：</strong> %s</p>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:100
+#, php-format
+msgid "<p><strong>Message: </strong> %s</p>"
+msgstr "<p><strong>消息：</strong> %s</p>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:101
+msgid "New Enquiry"
+msgstr "新查询"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:104
+msgid "PHP Mail Function not Available"
+msgstr "PHP的邮件功能没有"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:116
+msgid "Please use a valid email address!"
+msgstr "请使用有效的电子邮件地址！"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:125
+msgid "<p>You must enter a name in order to submit this form</p>"
+msgstr "<p>您必须输入一个名称，以便提交此表单</p>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:126
+msgid "<p>You must enter an email address in order to submit this form</p>"
+msgstr "<p>您必须输入一个电子邮件地址，以便提交此表单</p>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:127
+msgid "<p>You must enter a message in order to submit this form</p>"
+msgstr "<p>您必须输入信息，以提交此表单</p>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:128
+msgid "<p>Thank you for your message, we will be in touch soon</p>"
+msgstr "<p>感谢您的留言，我们会尽快联系</p>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:131
+#, fuzzy
+msgid "Message Successfully Sent"
+msgstr "成功添加配置文件"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:138
+msgid "Name: <span class=\"required\">*</span>"
+msgstr "名称：<span class=\"required\">*</span>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:139
+msgid "We need to know what to call you when replying"
+msgstr "我们需要知道什么给你打电话时回答"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:142
+msgid "Email Address: <span class=\"required\">*</span>"
+msgstr "电子邮件地址：<span class=\"required\">*</span>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:143
+msgid "Please provide your full email address"
+msgstr "请提供完整的电子邮件地址"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:146
+msgid "Message: <span class=\"required\">*</span>"
+msgstr "消息：<span class=\"required\">*</span>"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:147
+msgid "Please share what is on your mind or let us know how we can help"
+msgstr "请分享您的想法或让我们知道我们可以如何帮助"
+
+#: mp-content/mu-plugins/contact_form/contact_form.php:148
+msgid "Submit Message"
+msgstr "发表留言"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:18
+#, fuzzy
+msgid "ZIP to Download"
+msgstr "媒体的ID下载"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:20
+msgid "Start Count"
+msgstr "开始计数"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:22
+msgid "If upgrading the Media ID you can start from a specific view or download count"
+msgstr "如果升级介质ID时，你可以从特定视图或下载计数"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:24
+msgid "Intro Text"
+msgstr "介绍文字"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:26
+#, fuzzy
+msgid "Add additional before the download link / counter"
+msgstr "下载后添加额外的文本计数器"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:28
+msgid "Extra HTML After Widget"
+msgstr "经过额外的HTML控件"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:30
+msgid "Add additional text after the download counter"
+msgstr "下载后添加额外的文本计数器"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:59
+#: mp-content/mu-plugins/download_counter/download_counter.php:62
+#, fuzzy, php-format
+msgid "Download %s"
+msgstr "下载："
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:60
+msgid "AJAX Rocket Ready to Launch - Are You...?"
+msgstr "AJAX火箭准备发射 - 你...？"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:61
+#, fuzzy, php-format
+msgid "Download<br />%s"
+msgstr "下载链接：<br /> %s"
+
+#: mp-content/mu-plugins/download_counter/download_counter.php:81
+#, php-format
+msgid "downloaded %s times and counting"
+msgstr "%s的下载时间和计数"
+
+#: mp-content/mu-plugins/rss/rss.php:59
+#, fuzzy
+msgid "RSS Slug"
+msgstr "弹头"
+
+#: mp-content/mu-plugins/rss/rss.php:61
+msgid "Used for location of feed"
+msgstr "用于饲料的位置。"
+
+#: mp-content/mu-plugins/rss/rss.php:63
+msgid "RSS cache time in minute"
+msgstr "RSS在缓存时间分钟"
+
+#: mp-content/mu-plugins/rss/rss.php:65
+#, fuzzy
+msgid "Please manually add the relevant cache time in minute"
+msgstr "请手动添加相关的对象ID"
+
+#: mp-content/mu-plugins/rss/rss.php:67
+#, fuzzy
+msgid "RSS Object Type:"
+msgstr "对象类型："
+
+#: mp-content/mu-plugins/rss/rss.php:96
+#, fuzzy
+msgid "MongoPress Plugin Error"
+msgstr "MongoPress错误"
+
+#: mp-content/mu-plugins/rss/rss.php:163
+#, php-format
+msgid "%s | RSS Feed"
+msgstr "%s | RSS提要"
+
+#: mp-content/mu-plugins/support/support.php:20
+#, fuzzy
+msgid "Where to display the support section?"
+msgstr "在哪里显示的联系表格？"
+
+#: mp-content/themes/default/footer.php:6
+#, fuzzy, php-format
+msgid "Proudly Powered by <a href=\"http://mongopress.com\">MongoPress</a> - %s - Developed by <a href=\"http://laulima.com\">Laulima</a>"
+msgstr "自豪地采用<a href=\"http://mongopress.com\">MongoPress</a> - 高性能的，基于对象的，NoSQL的开源CMS开发<a href=\"http://laulima.com\">Laulima</a>"
+
+#: mp-content/themes/default/functions.php:21
+msgid "Mark Smalley"
+msgstr "马克斯莫利"
+
+#: mp-content/themes/default/functions.php:25
+#, fuzzy
+msgid "Powered by MongoPress"
+msgstr "下载MongoPress"
+
+#: mp-content/themes/default/functions.php:34
+#, fuzzy, php-format
+msgid "Admin Dashboard | %s"
+msgstr "管理仪表板"
+
+#: mp-content/themes/default/functions.php:36
+#, fuzzy, php-format
+msgid "Add Object | %s"
+msgstr "添加新的对象："
+
+#: mp-content/themes/default/functions.php:38
+#, fuzzy, php-format
+msgid "Media Gallery | %s"
+msgstr "MongoPress媒体库"
+
+#: mp-content/themes/default/functions.php:40
+#, fuzzy, php-format
+msgid "Misc Options | %s"
+msgstr "MISC选项"
+
+#: mp-content/themes/default/header.php:48
+msgid "Logout / Admin"
+msgstr "登出 / 管理"
+
+#: mp-content/themes/default/index.php:12
+#, php-format
+msgid "( Last updated %s ago - %s )"
+msgstr "（最后更新%s的%s的前 - ）"
+
+#: mp-content/themes/default/sidebar.php:8
+msgid "Getting Started"
+msgstr "入门"
+
+#: mp-content/themes/default/sidebar.php:14
+msgid "Friends &amp Partners"
+msgstr "朋友与合作伙伴"
+
+#: mp-content/themes/default/admin/functions.php:23
+#, fuzzy
+msgid "Current Media Gallery"
+msgstr "MongoPress媒体库"
+
+#: mp-content/themes/default/admin/functions.php:27
+msgid "Add New Media"
+msgstr "添加新的媒体"
+
+#: mp-content/themes/default/admin/functions.php:44
+#: mp-content/themes/default/admin/index-sample.php:22
+msgid "Unidentified object in the imperial vortex!"
+msgstr "不明物体在帝王旋涡！"
+
+#: mp-content/themes/default/admin/functions.php:45
+#: mp-content/themes/default/admin/index-sample.php:23
+msgid "( You do not have permission to view the contents of this page )"
+msgstr "（您没有权限查看此网页的内容）"
+
+#: mp-content/themes/default/admin/functions.php:52
+#: mp-content/themes/default/admin/index-sample.php:30
+#, fuzzy
+msgid "Admin Dashboard"
+msgstr "管理仪表板"
+
+#: mp-content/themes/default/admin/functions.php:53
+#: mp-content/themes/default/admin/index-sample.php:31
+#, fuzzy
+msgid "Add Object"
+msgstr "添加新的对象："
+
+#: mp-content/themes/default/admin/functions.php:55
+#: mp-content/themes/default/admin/index-sample.php:33
+#, fuzzy
+msgid "Misc Options"
+msgstr "MISC选项"
+
+#: mp-includes/cache.php:59
+msgid "Error: probably username password in config"
+msgstr "错误：可能是在配置用户名密码"
+
+#: mp-includes/cache.php:114
+#, php-format
+msgid "PHP %s+ required"
+msgstr "PHP %s+ 要求"
+
+#: mp-includes/cache.php:118
+#, php-format
+msgid "PHP Mongo Drivers %s+ required"
+msgstr "PHP Mongo驱动程序 %s+ required"
+
+#: mp-includes/cache.php:122
+#, php-format
+msgid "MongoDB %s+ required"
+msgstr "MongoDB %s+ 要求"
+
+#: mp-includes/cache.php:128
+#, fuzzy
+msgid "PHP Hash extension required"
+msgstr "PHP %s+ 要求"
+
+#: mp-includes/cache.php:133
+#, fuzzy
+msgid "PHP JSON extension required"
+msgstr "PHP %s+ 要求"
+
+#: mp-includes/error-old.php:23
+#: mp-includes/error.php:34
+msgid "Nginx Webserver Detected - Make sure you check this configuration exists in your nginx server config."
+msgstr "Nginx的网络服务器检测 - 确保您检查您的nginx服务器配置这种配置存在。"
+
+#: mp-includes/error-old.php:24
+#: mp-includes/error.php:35
+#, fuzzy
+msgid "Mongopress redirect rules"
+msgstr "MongoPress媒体库"
+
+#: mp-includes/error-old.php:26
+#: mp-includes/error-old.php:371
+#: mp-includes/error.php:37
+#: mp-includes/error.php:380
+#, fuzzy
+msgid "MISSING CONFIG"
+msgstr "保存配置"
+
+#: mp-includes/error-old.php:32
+#: mp-includes/error-old.php:275
+#: mp-includes/error.php:44
+#: mp-includes/error.php:277
+#, fuzzy
+msgid "Installation"
+msgstr "安装MongoPress"
+
+#: mp-includes/error-old.php:81
+#: mp-includes/error.php:92
+msgid ".htaccess does not exist!"
+msgstr ".htaccess文件不存在！"
+
+#: mp-includes/error-old.php:142
+#: mp-includes/error.php:151
+#, fuzzy
+msgid "Return to the Homepage"
+msgstr "返回首页"
+
+#: mp-includes/error-old.php:143
+#: mp-includes/error.php:152
+msgid "If not using .htaccess you will need to modify config.php to:"
+msgstr "如果不使用htaccess文件，您将需要修改config.php文件："
+
+#: mp-includes/error-old.php:143
+#: mp-includes/error.php:152
+#, fuzzy, php-format
+msgid "If you have already done either of these, please %s to continue with the installation."
+msgstr "如果你已经做了其中任何，请用%s来继续安装。"
+
+#: mp-includes/error-old.php:154
+#: mp-includes/error.php:163
+msgid "We noticed that you did not have a .htaccess file, but were succesfully able to add it for you."
+msgstr "我们注意到，你没有一个.htaccess文件，但已成功能够为你添加它。"
+
+#: mp-includes/error-old.php:156
+#: mp-includes/error-old.php:172
+#: mp-includes/error.php:165
+#: mp-includes/error.php:176
+#, fuzzy
+msgid "Additionally, you may wish to consider importing the available content template."
+msgstr "此外，您不妨考虑输入可用的内容模板...？"
+
+#: mp-includes/error-old.php:157
+msgid "Please login to do this."
+msgstr "请登录做到这一点。"
+
+#: mp-includes/error-old.php:161
+#: mp-includes/error-old.php:163
+#: mp-includes/error-old.php:342
+#: mp-includes/error.php:168
+#: mp-includes/error.php:170
+#: mp-includes/error.php:348
+msgid "Return to Homepage"
+msgstr "返回首页"
+
+#: mp-includes/error-old.php:163
+#: mp-includes/error.php:170
+#, fuzzy
+msgid "Alternatively, you could simply "
+msgstr "或者，你可以简单地 "
+
+#: mp-includes/error-old.php:166
+msgid "You may attempt to modify the permissions of your home directory with the following command, then reload this page"
+msgstr "您可以尝试用下面的命令修改您的主目录的权限，然后重新载入此页"
+
+#: mp-includes/error-old.php:168
+#: mp-includes/error.php:173
+#, fuzzy
+msgid "We do not have the necessary permissions required to create the .htaccess file for you, so you will need to manually add one with the following lines of code to the root of this installation:"
+msgstr "我们没有必要创建.htaccess的文件为您必要的权限，所以你需要手动添加以下代码行一到这个安装目录的根："
+
+#: mp-includes/error-old.php:179
+#: mp-includes/error.php:181
+msgid "Unknown error in the imperial vortex - Please contact Overlord Ming"
+msgstr "在帝国旋涡未知的错误 - 请与霸王明"
+
+#: mp-includes/error-old.php:186
+#: mp-includes/error.php:12
+#: mp-includes/error.php:188
+#, fuzzy
+msgid "MongoPress Error"
+msgstr "MongoPress错误"
+
+#: mp-includes/error-old.php:215
+#: mp-includes/error.php:217
+msgid "The imperial guards are dazed and confused trying to locate config.php!"
+msgstr "禁卫军的茫然和困惑试图找到config.php中！"
+
+#: mp-includes/error-old.php:218
+#: mp-includes/error-old.php:233
+#: mp-includes/error.php:220
+#: mp-includes/error.php:235
+msgid "OOPS - IT SEEMS THAT MONGOPRESS HAS BEEN MIS-CONFIGURED"
+msgstr "哎呀 - 似乎动议MONGOPRESS被错误配置"
+
+#: mp-includes/error-old.php:218
+#: mp-includes/error.php:220
+#, fuzzy
+msgid "This error is due to an incorrect <strong>SITE_ADDRESS</strong> within the <strong>config.php</strong> file at the root of this installation. If your are developing locally, this is often as simple as localhost, or localhost:80, etc. Do not include any http:// statements, which is the same as if you have deployed this on a live public server, where the site address should be your-domain.com"
+msgstr "这个错误是由于不正确的<strong>SITE_ADDRESS</strong>在<strong>config.php</strong>在此安装根文件在。如果您的本地开发，这是经常为localhost，或localhost简单：80，等不包括任何http://报表，这是相同的公共服务器上的生活，仿佛你已经部署了这一点，在该网站地址应该是你的，domain.com"
+
+#: mp-includes/error-old.php:224
+#: mp-includes/error-old.php:240
+#: mp-includes/error-old.php:254
+#: mp-includes/error.php:226
+#: mp-includes/error.php:242
+#: mp-includes/error.php:256
+msgid "ADVANCE CONFIG"
+msgstr "高级配置"
+
+#: mp-includes/error-old.php:224
+#: mp-includes/error-old.php:240
+#: mp-includes/error-old.php:254
+#: mp-includes/error.php:226
+#: mp-includes/error.php:242
+#: mp-includes/error.php:256
+msgid "SAVE CONFIG"
+msgstr "保存配置"
+
+#: mp-includes/error-old.php:229
+#: mp-includes/error-old.php:244
+#: mp-includes/error.php:231
+#: mp-includes/error.php:246
+msgid "Unfortunately, you do not have the required permissions needed to create the config.php file remotely, so please add and configure it manually."
+msgstr "不幸的是，你没有必要建立远程config.php文件所需的权限，所以请手动添加和配置。"
+
+#: mp-includes/error-old.php:233
+#: mp-includes/error.php:235
+#, fuzzy
+msgid "This error is due to an incorrect <strong>BASE_URL_DIRECTORY</strong> within the <strong>config.php</strong> file at the root of this installation. If your are developing locally, this is often as simple as adding the name of the folder that the files have been added to, which is the same as if it was online and hosted at your-domain.com/mp/ the BASE_URL_DIRECTORY would be just <strong>mp</strong>"
+msgstr "这个错误是由于不正确的<strong>BASE_URL_DIRECTORY</strong>在<strong>config.php</strong>在此安装根文件在。如果您的本地开发，这往往是只要加入该文件夹的名称，该文件已被添加到，这是一样的，如果是在线和your-domain.com/mp主办/将简单的BASE_URL_DIRECTORY只是<strong>mp</strong>"
+
+#: mp-includes/error-old.php:248
+#: mp-includes/error.php:250
+msgid "IT APPEARS YOU ARE MISSING THE \"config.php\" FILE"
+msgstr "看来你缺少的\"config.php文件\"文件"
+
+#: mp-includes/error-old.php:248
+#, fuzzy
+msgid "If this is your first time, you probably just need to rename config-sample.php to config.php, <strong>but before you do</strong>, please be sure to make the necessary changes and properly configure things."
+msgstr "如果这是你第一次，你可能只需要重命名config-sample.php文件config.php文件，<strong>但在此之前</strong>，请一定要进行必要的修改和正确配置的东西。"
+
+#: mp-includes/error-old.php:259
+#: mp-includes/error.php:261
+msgid "Unfortunately, you do not have the required permissions needed to create the config.php file remotely."
+msgstr "不幸的是，你没有必要建立远程config.php文件所需的权限。"
+
+#: mp-includes/error-old.php:260
+#: mp-includes/error.php:262
+msgid "If you would like to enable these features, you will need to alter your file permissions, which can be done by running the following shell command:"
+msgstr "如果你想启用这些功能，则需要改变你的文件权限，可以通过运行下面的shell命令完成："
+
+#: mp-includes/error-old.php:261
+#: mp-includes/error.php:263
+#, fuzzy
+msgid "chmod 777 "
+msgstr "chmod 777"
+
+#: mp-includes/error-old.php:261
+#: mp-includes/error.php:263
+msgid "Please remember to chmod 755 after the installation is complete!"
+msgstr "请记住，安装完成后，CHMOD755！"
+
+#: mp-includes/error-old.php:290
+#: mp-includes/error.php:294
+#, fuzzy
+msgid "Installing MongoPress"
+msgstr "安装MongoPress"
+
+#: mp-includes/error-old.php:294
+#: mp-includes/error.php:298
+msgid "Successfully connected to MongoDB Server"
+msgstr "成功连接到MongoDB服务器"
+
+#: mp-includes/error-old.php:296
+#: mp-includes/error.php:300
+msgid "Please Note That The Root Folder Has Write Permissions Enabled - You Really Should Resolve This"
+msgstr "请注意，根文件夹有写权限启用 - 你真的应该解决这个"
+
+#: mp-includes/error-old.php:304
+#: mp-includes/error.php:308
+msgid "No User Accounts Created Yet"
+msgstr "然而，没有用户帐户创建"
+
+#: mp-includes/error-old.php:310
+#: mp-includes/error.php:314
+msgid "Email"
+msgstr "电子邮件"
+
+#: mp-includes/error-old.php:312
+#: mp-includes/error.php:316
+msgid "Confirmation functionality coming soon..."
+msgstr "确认功能即将推出..."
+
+#: mp-includes/error-old.php:316
+#: mp-includes/error.php:320
+msgid "...so pick something you can remember!"
+msgstr "...因此，请挑选您能记住！"
+
+#: mp-includes/error-old.php:318
+#: mp-includes/error.php:322
+msgid "Full Display Name"
+msgstr "全部显示名称"
+
+#: mp-includes/error-old.php:320
+#: mp-includes/error.php:324
+msgid "Fullname"
+msgstr "全名"
+
+#: mp-includes/error-old.php:322
+#: mp-includes/error.php:326
+msgid "CREATE NEW USER"
+msgstr "创建新用户"
+
+#: mp-includes/error-old.php:325
+#: mp-includes/error.php:329
+msgid "User Account Already Created"
+msgstr "用户帐户已经建立"
+
+#: mp-includes/error-old.php:331
+#: mp-includes/error.php:336
+msgid "No Objects Created Yet"
+msgstr "但没有对象创建"
+
+#: mp-includes/error-old.php:333
+#: mp-includes/error.php:338
+msgid "Import the detected content template using the button below:"
+msgstr "检测内容导入模板使用下面的按钮："
+
+#: mp-includes/error-old.php:334
+#: mp-includes/error.php:339
+msgid "IMPORT CONTENT"
+msgstr "导入内容"
+
+#: mp-includes/error-old.php:339
+#: mp-includes/error.php:344
+msgid "Objects Already Included"
+msgstr "对象已包括"
+
+#: mp-includes/error-old.php:371
+#: mp-includes/error.php:380
+msgid "Missing Config - Refresh Root of Install to Continue"
+msgstr "缺少配置 - 刷新根的安装程序继续"
+
+#: mp-includes/error-old.php:374
+#: mp-includes/error.php:383
+msgid "Unknown Error"
+msgstr "错误：％s"
+
+#: mp-includes/error-old.php:374
+#: mp-includes/error.php:383
+msgid "UNKNOWN ERROR"
+msgstr "未知的错误"
+
+#: mp-includes/error.php:12
+msgid "Ming the Merciless has terminated this action - What is your problem Earthling?"
+msgstr "明无情的终止这项行动 - 您的问题，地球行星是什么？"
+
+#: mp-includes/error.php:250
+#, fuzzy
+msgid "If this is your first time, you probably just need to rename some of the included files:<br /><br />mp-settings/config-sample.php to mp-settings/config.php <strong>and</strong><br />mp-settings/security-sample.php to mp-settings/security.php<br /><br />(before you do, please be sure to make the necessary changes and properly configure things)"
+msgstr "如果这是你第一次，你可能只需要重命名config-sample.php文件config.php文件，<strong>但在此之前</strong>，请一定要进行必要的修改和正确配置的东西。"
+
+#: mp-includes/formatting.php:2265
+msgid "The email address entered did not appear to be a valid email address. Please enter a valid email address."
+msgstr "的电子邮件地址输入并未成为一个有效的电子邮件地址。请输入一个有效的电子邮件地址。"
+
+#: mp-includes/formatting.php:2349
+msgid "The WordPress address you entered did not appear to be a valid URL. Please enter a valid URL."
+msgstr "WordPress的地址输入并未成为一个有效的URL。请输入一个有效的URL。"
+
+#: mp-includes/formatting.php:2359
+msgid "The Site address you entered did not appear to be a valid URL. Please enter a valid URL."
+msgstr "网站地址输入并未成为一个有效的URL。请输入一个有效的URL。"
+
+#: mp-includes/formatting.php:2499
+msgid ", "
+msgstr ", "
+
+#: mp-includes/formatting.php:2501
+msgid ", and "
+msgstr "，和 "
+
+#: mp-includes/formatting.php:2503
+msgid " and "
+msgstr " 和 "
+
+#: mp-includes/plugins.php:671
+msgid "Only a static class method or function can be used in an uninstall hook."
+msgstr "只有一个静态类方法或函数可用于卸载钩子。"
+
+#: mp-includes/ajax/add-user.php:30
+msgid "Need Name to Add User"
+msgstr "需要添加用户名称"
+
+#: mp-includes/ajax/add-user.php:31
+msgid "Need Email to Add User"
+msgstr "电子邮件地址的用户需要"
+
+#: mp-includes/ajax/add-user.php:32
+msgid "Need Username to Add User"
+msgstr "需要用户名添加用户"
+
+#: mp-includes/ajax/add-user.php:33
+msgid "Need Password to Add User"
+msgstr "需要添加用户密码"
+
+#: mp-includes/ajax/create-config.php:43
+#: mp-includes/ajax/install.php:34
+#, fuzzy
+msgid "MongoPress"
+msgstr "MongoPress 管理"
+
+#: mp-includes/ajax/create-config.php:44
+msgid "The High-Performance, Object-Based NoSQL CMS"
+msgstr "高性能的，基于对象的NoSQL的CMS"
+
+#: mp-includes/ajax/create-config.php:129
+msgid "Problem trying to remotely create file"
+msgstr "问题尝试远程创建文件"
+
+#: mp-includes/ajax/create-config.php:132
+#: mp-includes/ajax/install.php:239
+msgid "Successfully Added Config File"
+msgstr "成功添加配置文件"
+
+#: mp-includes/ajax/create-config.php:137
+msgid "Cannot write to folder"
+msgstr "无法写入文件夹"
+
+#: mp-includes/ajax/get-avatar.php:23
+msgid "Error Getting Gravatar"
+msgstr "错误获取Gravatar"
+
+#: mp-includes/ajax/get-contributors.php:8
+msgid "ERROR: Unable to fetch contributors!"
+msgstr "错误：无法获取贡献者！"
+
+#: mp-includes/ajax/install.php:35
+#, fuzzy
+msgid "The High-Performance, PHP MongoDB CMS"
+msgstr "高性能的，基于对象的NoSQL的CMS"
+
+#: mp-includes/ajax/install.php:85
+#, fuzzy
+msgid "MongoDB Error: "
+msgstr "MongoDB的错误"
+
+#: mp-includes/ajax/install.php:85
+msgid "Please check your MongoDB username and password"
+msgstr "请检查你的MongoDB的用户名和密码"
+
+#: mp-includes/ajax/install.php:86
+#, fuzzy
+msgid "Raw Error: "
+msgstr "错误："
+
+#: mp-includes/ajax/install.php:87
+msgid "Connect String: "
+msgstr "连接字符串："
+
+#: mp-includes/ajax/install.php:102
+#, php-format
+msgid "Settings directory is not writeable: %s"
+msgstr "设置目录是不可写的：%s"
+
+#: mp-includes/ajax/install.php:231
+#, fuzzy
+msgid "User already exists - but config destroyed - please use mongodb to drop users and user (in order to keep content) or drop your "
+msgstr "用户已存在 - 但配置摧毁 - 请使用MongoDB中删除用户和用户（序保持内容）或摔落"
+
+#: mp-includes/ajax/login.php:23
+#, fuzzy
+msgid "Unidentified Object in The Imperial Vortex!!! - empty data"
+msgstr "在帝国涡不明物体！"
+
+#: mp-includes/ajax/login.php:43
+msgid " No Such User"
+msgstr "没有这样的用户"
+
+#: mp-includes/ajax/send-email.php:27
+msgid "Please Enter a Real Name"
+msgstr "请输入真实姓名"
+
+#: mp-includes/ajax/send-email.php:31
+msgid "Please Enter a Real Message"
+msgstr "请输入一个真实的信息"
+
+#: mp-includes/ajax/send-email.php:43
+#, fuzzy
+msgid "Email Successfully Sent"
+msgstr "成功添加配置文件"
+
+#: mp-includes/ajax/send-email.php:47
+#, fuzzy
+msgid "Unable to Send Email"
+msgstr "无法删除媒体"
+
+#: mp-includes/ajax/send-email.php:57
+msgid "Please Enter a Valid Email Address"
+msgstr "请输入一个有效的电子邮件地址"
+
+#: mp-includes/inc/media.inc.php:64
+msgid "Tmp dir problems"
+msgstr "温度DIR问题"
+
+#: mp-includes/inc/media.inc.php:77
+#: mp-includes/inc/media.inc.php:103
+#, fuzzy
+msgid "Unsupported Image Format"
+msgstr "不支持的内容类型"
+
+#: mp-includes/inc/media.inc.php:114
+#, fuzzy
+msgid "Successfully Edited Avatar"
+msgstr "成功更新媒体"
+
+#: mp-includes/inc/media.inc.php:127
+msgid "This browser does not support media uploading."
+msgstr "此浏览器不支持媒体上传。"
+
+#: mp-includes/inc/media.inc.php:183
+#: mp-includes/inc/media.inc.php:306
+#, fuzzy
+msgid "Successfully Added Avatar"
+msgstr "成功添加配置文件"
+
+#: mp-includes/inc/media.inc.php:186
+#: mp-includes/inc/media.inc.php:309
+#, fuzzy
+msgid "Unable to upload avatar"
+msgstr "无法删除媒体"
+
+#: mp-includes/inc/mongopress.class.php:9
+msgid "This is an object:"
+msgstr "这是一个对象："
+
+#: mp-includes/inc/mongopress.class.php:14
+msgid "This $arr is a string = "
+msgstr "这个$arr是一个字符串= "
+
+#: mp-includes/inc/mongopress.class.php:16
+#, fuzzy
+msgid "Empty $arr"
+msgstr "阵列空Objs"
+
+#: mp-includes/inc/mongopress.class.php:344
+#, fuzzy
+msgid "Error connecting to MongoDB server"
+msgstr "MongoDB服务器连接错误"
+
+#: mp-includes/inc/mongopress.class.php:354
+msgid "Empty Objs Array"
+msgstr "阵列空Objs"
+
+#: mp-includes/inc/mongopress.class.php:535
+#, fuzzy
+msgid "Successfully Added Option"
+msgstr "成功添加配置文件"
+
+#: mp-includes/inc/mongopress.class.php:539
+#, fuzzy
+msgid "Successfully Updated Option"
+msgstr "成功更新媒体"
+
+#: mp-includes/inc/mongopress.class.php:542
+#, fuzzy
+msgid "Unknown Error Updating Option"
+msgstr "未知的错误上传媒体"
+
+#: mp-includes/inc/mongopress.class.php:552
+msgid "Error: probably username password in /mp-settings/security.php <br>"
+msgstr "错误：用户名密码可能在/mp-settings/security.php <br>"
+
+#: mp-includes/inc/mongopress.class.php:596
+#, fuzzy
+msgid "Successfully Updated User Options"
+msgstr "成功更新媒体"
+
+#: mp-includes/inc/mongopress.class.php:599
+msgid "Unable to Update User Options"
+msgstr "无法更新用户选项"
+
+#: mp-includes/inc/mongopress.class.php:742
+#: mp-includes/inc/mongopress.class.php:781
+#, fuzzy
+msgid "View Object"
+msgstr "对象"
+
+#: mp-includes/inc/mongopress.class.php:743
+#, fuzzy, php-format
+msgid "Successfully Added First Object - %s"
+msgstr "成功添加的第一个对象"
+
+#: mp-includes/inc/mongopress.class.php:782
+#, fuzzy, php-format
+msgid "New Object Added - %s"
+msgstr "新的对象类型："
+
+#: mp-includes/inc/mongopress.class.php:852
+msgid "Object Updated"
+msgstr "对象更新"
+
+#: mp-includes/inc/mongopress.class.php:1071
+msgid "Sucessfully Imported"
+msgstr "成功导入"
+
+#: mp-includes/inc/mongopress.class.php:1073
+msgid "Objects Not Imported"
+msgstr "不导入的对象"
+
+#: mp-includes/inc/mongopress.inc.php:309
+msgid "Sitename (used in page titles, footers, etc)"
+msgstr "网站的名称（在页面标题，页脚等）"
+
+#: mp-includes/inc/mongopress.inc.php:310
+msgid "The display name for your site - eg. My awesome project!"
+msgstr "为您的网站显示名称 - 例如。我的项目真棒！"
+
+#: mp-includes/inc/mongopress.inc.php:311
+msgid "Directory (if stored in sub-folder - eg if installed at localhost/mongopress/ - this should be mongopress)"
+msgstr "目录（如果存储在子文件夹 - 例如，如果安装在localhost/ mongopress/ - 这应该是mongopress）"
+
+#: mp-includes/inc/mongopress.inc.php:312
+msgid "The name of the folder(s) relative to the root of your install"
+msgstr "相对于安装的根文件夹的名称"
+
+#: mp-includes/inc/mongopress.inc.php:314
+msgid "Site Description"
+msgstr "网站描述"
+
+#: mp-includes/inc/mongopress.inc.php:315
+msgid "A short explanation of your site"
+msgstr "您的网站的简短说明"
+
+#: mp-includes/inc/mongopress.inc.php:316
+msgid "MongoDB Database Name"
+msgstr "MongoDB数据库名称"
+
+#: mp-includes/inc/mongopress.inc.php:317
+msgid "What would you like to call your database? - eg. mongopress"
+msgstr "请问您想打电话给你的数据库？ - 例如。 mongopress"
+
+#: mp-includes/inc/mongopress.inc.php:318
+#, fuzzy
+msgid "MongoDB Host Address"
+msgstr "MongoDB的主机地址"
+
+#: mp-includes/inc/mongopress.inc.php:319
+msgid "IP address of the database host server - eg. localhost"
+msgstr "IP地址的数据库主机服务器 - 例如。本地主机"
+
+#: mp-includes/inc/mongopress.inc.php:320
+msgid "Name of MongoPress Object Collection"
+msgstr "名称MongoPress对象集合"
+
+#: mp-includes/inc/mongopress.inc.php:321
+msgid "What would you like to name the collection where you store your objects? - eg. objs"
+msgstr "请问您想命名的集合，您存储您的对象？ - 例如。 OBJ文件"
+
+#: mp-includes/inc/mongopress.inc.php:322
+msgid "Name of MongoPress Slug Collection"
+msgstr "名称MongoPress弹头收藏"
+
+#: mp-includes/inc/mongopress.inc.php:323
+msgid "What would you like to name the collection where you store your slugs? - eg. slugs"
+msgstr "请问您想命名的集合，您存储您的蛞蝓？ - 例如。蛞蝓"
+
+#: mp-includes/inc/mongopress.inc.php:324
+msgid "Name of MongoPress Username Collection"
+msgstr "名称MongoPress用户名收藏"
+
+#: mp-includes/inc/mongopress.inc.php:325
+msgid "What would you like to name the collection where you store your usernames? - eg. users"
+msgstr "请问您想命名的集合，您存储您的用户名？ - 例如。用户"
+
+#: mp-includes/inc/mongopress.inc.php:326
+msgid "Name of MongoPress User Collection"
+msgstr "收集用户名称MongoPress"
+
+#: mp-includes/inc/mongopress.inc.php:327
+msgid "What would you like to name the collection where you store your users? - eg. user"
+msgstr "请问您想命名的集合，您存储您的用户呢？ - 例如。用户的"
+
+#: mp-includes/inc/mongopress.inc.php:328
+msgid "MongoDB DB Username"
+msgstr "MongoDB的数据库用户名"
+
+#: mp-includes/inc/mongopress.inc.php:329
+msgid "What is your database username? - eg. db-user"
+msgstr "什么是你的数据库用户名？ - 例如。 DB -用户"
+
+#: mp-includes/inc/mongopress.inc.php:330
+msgid "MongoDB DB Password"
+msgstr "MongoDB的数据库密码"
+
+#: mp-includes/inc/mongopress.inc.php:331
+msgid "What is your database password?"
+msgstr "什么是你的数据库密码？"
+
+#: mp-includes/inc/mongopress.inc.php:332
+msgid "MongoDB DB Port"
+msgstr "MongoDB的DB港口"
+
+#: mp-includes/inc/mongopress.inc.php:333
+msgid "What is your database port?"
+msgstr "什么是你的数据库端口？"
+
+#: mp-includes/inc/mongopress.inc.php:357
+msgid "MongoPress Configuration Error"
+msgstr "MongoPress配置错误"
+
+#: mp-includes/inc/mongopress.inc.php:498
+msgid "MONGODB NAME REQUIRED"
+msgstr "MongoDB的名称需求"
+
+#: mp-includes/inc/mongopress.inc.php:499
+msgid "SITE NAME REQUIRED"
+msgstr "网站名称需求"
+
+#: mp-includes/inc/mongopress.inc.php:500
+msgid "USERNAME REQUIRED"
+msgstr "用户名需"
+
+#: mp-includes/inc/mongopress.inc.php:593
+msgid "Content Template Detected"
+msgstr "内容模板检测"
+
+#: mp-includes/inc/mongopress.inc.php:594
+msgid "This means that if you import the detected content template that you will be setting-up the following object types with the (labeled) counts for each of the types..."
+msgstr "这意味着，如果导入检测到的内容模板，你会的设立与为每个类型（标）计数下列对象类型..."
+
+#: mp-includes/inc/mongopress.inc.php:610
+#: mp-includes/inc/mongopress.inc.php:618
+msgid "Object"
+msgstr "对象"
+
+#: mp-includes/inc/mongopress.inc.php:700
+msgid "Which part of Admin do you want?"
+msgstr "你想管理的一部分？"
+
+#: mp-includes/inc/mongopress.inc.php:739
+#, php-format
+msgid "Missing Theme File : %s"
+msgstr "缺少主题文件：%s"
+
+#: mp-includes/inc/mongopress.inc.php:748
+#, fuzzy
+msgid " - Error code: "
+msgstr "错误："
+
+#: mp-includes/inc/mongopress.inc.php:762
+msgid "mp_json_end requires an object or an array"
+msgstr "mp_json_end需要一个对象或数组"
+
+#: mp-includes/inc/nonce.inc.php:51
+msgid "Ming the Merciless has stopped this transaction - invalid level on nonce create"
+msgstr "明朝的残酷已停止这项交易 - 无效的nonce创建水平"
+
+#: mp-includes/inc/themes.inc.php:67
+msgid " | Admin Settings"
+msgstr " | 管理设置"
+
+#: mp-includes/inc/themes.inc.php:147
+msgid "Search"
+msgstr "搜索"
+
+#: mp-includes/inc/themes.inc.php:159
+msgid "Query"
+msgstr "查询"
+
+#: mp-includes/inc/themes.inc.php:174
+msgid "Error"
+msgstr "错误"
+
+#: mp-includes/inc/themes.inc.php:325
+msgid "Currently available hooks:"
+msgstr "目前可用的钩子："
+
+#: mp-includes/inc/themes.inc.php:327
+msgid "The current objects presently displayed on screen include:"
+msgstr "目前在屏幕上显示当前的对象包括："
+
+#: mp-includes/inc/themes.inc.php:404
+msgid "Expecting Style for Getting Content"
+msgstr "期待获取的内容风格"
+
+#: mp-includes/inc/themes.inc.php:406
+msgid "Expecting Type for Getting Content"
+msgstr "期待键入获取内容"
+
+#: mp-includes/inc/themes.inc.php:413
+msgid "Expecting an Array to Get Content"
+msgstr "预期阵列获取内容"
+
+#: mp-includes/inc/themes.inc.php:693
+msgid "Unsupported Content Style"
+msgstr "不支持的内容类型"
+
+#: mp-includes/inc/themes.inc.php:698
+msgid "QUERY RESULTS:"
+msgstr "查询结果："
+
+#: mp-includes/inc/themes.inc.php:701
+msgid "SEARCH RESULTS:"
+msgstr "搜索结果："
+
+#: mp-includes/inc/themes.inc.php:753
+msgid "No Object Matching Requested Type"
+msgstr "没有对象匹配请求的类型"
+
+#: mp-includes/js/languages.php:9
+msgid "Unidentified Object in the Imperial Vortex!"
+msgstr "不明物体在帝国涡！"
+
+#: mp-includes/js/languages.php:10
+msgid "( Incorrect username or password combination )"
+msgstr "（不正确的用户名和密码组合）"
+
+#: mp-includes/js/languages.php:11
+msgid "Install User Error: "
+msgstr "用户安装错误："
+
+#: mp-includes/js/languages.php:12
+#, fuzzy
+msgid "User Installed"
+msgstr "用户安装"
+
+#: mp-includes/js/languages.php:13
+msgid "Object Import Error: "
+msgstr "对象导入错误："
+
+#: mp-includes/js/languages.php:14
+msgid "Object(s) Imported"
+msgstr "进口对象"
+
+#: mp-includes/js/languages.php:15
+#, fuzzy
+msgid "Error Importing Objects"
+msgstr "对象"
+
+#: mp-includes/js/languages.php:16
+msgid "Error finding Import Files"
+msgstr "发现错误导入文件"
+
+#: mp-includes/js/languages.php:17
+#, fuzzy
+msgid "Error Uploading"
+msgstr "媒体错误更新"
+
+#: mp-includes/js/languages.php:18
+msgid "Object Type"
+msgstr "对象类型"
+
+#: mp-includes/js/languages.php:19
+msgid "Slug"
+msgstr "弹头"
+
+#: mp-includes/js/languages.php:20
+msgid "Title"
+msgstr "标题"
+
+#: mp-includes/js/languages.php:21
+#, fuzzy
+msgid "Edit Filename:"
+msgstr "文件名："
+
+#: mp-includes/js/languages.php:22
+msgid "Copy Media ID:"
+msgstr "复制媒体ID："
+
+#: mp-includes/js/languages.php:23
+#, fuzzy
+msgid "Edit Media"
+msgstr "媒体"
+
+#: mp-includes/js/languages.php:24
+msgid "Created"
+msgstr "创建"
+
+#: mp-includes/js/languages.php:25
+msgid "Updated"
+msgstr "更新"
+
+#: mp-includes/js/languages.php:26
+msgid "Actions"
+msgstr "动作"
+
+#: mp-includes/js/languages.php:28
+msgid "Are you sure you want to delete this object...?"
+msgstr "你确定要删除此对象...？"
+
+#: mp-includes/js/languages.php:29
+msgid "Error finding File"
+msgstr "找到文件的错误"
+
+#: mp-includes/js/languages.php:30
+msgid "Add new Object: "
+msgstr "添加新的对象："
+
+#: mp-includes/js/languages.php:31
+#, fuzzy
+msgid "Processing Objects"
+msgstr "MongoPress对象"
+
+#: mp-includes/js/languages.php:32
+msgid "Display _MENU_ objects per page"
+msgstr "每页显示菜单对象"
+
+#: mp-includes/js/languages.php:33
+#, fuzzy
+msgid "No objects found - sorry"
+msgstr "无DB对象 - %s的"
+
+#: mp-includes/js/languages.php:34
+msgid "No objects available - please import objects from your active theme by clicking on the button below the table, or add new objects by using the form to the right-hand side."
+msgstr "没有对象 - 导入对象从活动的主题，请点击表格下方的按钮，或使用右侧的形式添加新的对象。"
+
+#: mp-includes/js/languages.php:35
+msgid "Showing _START_ to _END_ of _TOTAL_ objects"
+msgstr "显示开始到结束的对象总数"
+
+#: mp-includes/js/languages.php:36
+msgid "Showing 0 to 0 of 0 objects"
+msgstr "显示0到00对象"
+
+#: mp-includes/js/languages.php:37
+#: mp-includes/js/languages.php:38
+msgid "(filtered from _MAX_ total objects)"
+msgstr "（从最大的对象总数，过滤）"
+
+#: mp-includes/js/languages.php:39
+msgid "First"
+msgstr "第一"
+
+#: mp-includes/js/languages.php:40
+msgid "Previous"
+msgstr "上一页"
+
+#: mp-includes/js/languages.php:41
+msgid "Next"
+msgstr "下一页"
+
+#: mp-includes/js/languages.php:42
+msgid "Last"
+msgstr "最后"
+
+#: mp-includes/js/languages.php:43
+msgid "Select Files"
+msgstr "选择文件"
+
+#: mp-includes/js/languages.php:44
+msgid "Add files to the upload queue and click the start button."
+msgstr "添加文件到上传队列，按一下启动按钮。"
+
+#: mp-includes/js/languages.php:45
+#, fuzzy
+msgid "Filename"
+msgstr "文件名："
+
+#: mp-includes/js/languages.php:46
+msgid "Status"
+msgstr "状态"
+
+#: mp-includes/js/languages.php:47
+msgid "Size"
+msgstr "尺寸"
+
+#: mp-includes/js/languages.php:48
+msgid "Add files"
+msgstr "添加文件"
+
+#: mp-includes/js/languages.php:49
+#, fuzzy
+msgid "Start upload"
+msgstr "开始计数"
+
+#: mp-includes/js/languages.php:50
+msgid "Stop current upload"
+msgstr "停止当前的上传"
+
+#: mp-includes/js/languages.php:51
+msgid "Start uploading queue"
+msgstr "开始上传队列"
+
+#: mp-includes/js/languages.php:52
+msgid "Drag files here."
+msgstr "这里拖动文件。"
+
+#: mp-includes/pjax/add-object.php:77
+msgid "Need Title to Add Object"
+msgstr "需要添加对象的所有权"
+
+#: mp-includes/pjax/add-object.php:78
+msgid "Need Type to Add Object"
+msgstr "需要添加的对象类型"
+
+#: mp-includes/pjax/add-object.php:88
+msgid "Need Slug to Add Object"
+msgstr "需要弹头添加对象"
+
+#: mp-includes/pjax/delete-media.php:25
+#: mp-includes/pjax/delete-object.php:17
+msgid "Object Deleted"
+msgstr "对象已删除"
+
+#: mp-includes/pjax/delete-media.php:28
+#: mp-includes/pjax/edit-media.php:28
+msgid "Unable to Delete Media"
+msgstr "无法删除媒体"
+
+#: mp-includes/pjax/edit-media-meta.php:25
+#, fuzzy
+msgid "Media Filename Successfully Edited"
+msgstr "成功添加配置文件"
+
+#: mp-includes/pjax/edit-media-meta.php:29
+#, fuzzy
+msgid "Unable to Edit Media Filename"
+msgstr "无法删除媒体"
+
+#: mp-includes/pjax/edit-media.php:23
+msgid "Editing Object"
+msgstr "编辑对象"
+
+#: mp-includes/pjax/new-custom-field-row.php:24
+msgid "Unknown Error Whilst Creating Custom Field"
+msgstr "未知的错误虽然创建自定义字段"
+
+#: mp-includes/pjax/table.php:81
+#, fuzzy
+msgid "edit this object"
+msgstr "编辑对象"
+
+#: mp-includes/pjax/table.php:81
+msgid "EDIT"
+msgstr "编辑"
+
+#: mp-includes/pjax/table.php:83
+#, fuzzy
+msgid "delete this object"
+msgstr "删除选定的对象"
+
+#: mp-includes/pjax/table.php:83
+msgid "DELETE"
+msgstr "删除"
+
+#: mp-includes/pjax/table.php:85
+msgid "click to view object"
+msgstr "单击“查看对象”"
+
+#: mp-includes/pjax/table.php:88
+msgid "click to edit object"
+msgstr "单击“编辑对象"
+
+#~ msgid "something @ .com"
+#~ msgstr "东西@ .com"
+
+#, fuzzy
+#~ msgid "a-z0-9 username"
+#~ msgstr "用户名"
+
+#, fuzzy
+#~ msgid "Options"
+#~ msgstr "动作"
+
+#~ msgid "Welcome back %s"
+#~ msgstr "欢迎回来 %s"
+
+#~ msgid "LOG-OUT"
+#~ msgstr "注销"
+
+#~ msgid ""
+#~ "Proudly Powered by <a href='http://mongopress.org'>MongoPress</a> - The "
+#~ "High-Performance, Object-Based OpenSource NoSQL CMS developed by <a "
+#~ "href='http://laulima.com'>Laulima</a>"
+#~ msgstr ""
+#~ "自豪地采用<a href='http://mongopress.org'>MongoPress</a> - 高性能的，基于"
+#~ "对象的开源CMS的<a href='http://laulima.com'>Laulima</a>开发的NoSQL"
+
+#, fuzzy
+#~ msgid "mp_datetime"
+#~ msgstr "某时"
+
+#, fuzzy
+#~ msgid "mp_date"
+#~ msgstr "更新"
+
+#, fuzzy
+#~ msgid "mp_time"
+#~ msgstr "某时"
+
+#, fuzzy
+#~ msgid "Location: "
+#~ msgstr "动作："
+
+#, fuzzy
+#~ msgid "MongoPress Objects"
+#~ msgstr "MongoPress对象"
+
+#~ msgid "Object Control"
+#~ msgstr "对象控制"
+
+#~ msgid "Media Control"
+#~ msgstr "媒体控制"
+
+#~ msgid "MISC Options"
+#~ msgstr "MISC选项"
+
+#, fuzzy
+#~ msgid "Sitename"
+#~ msgstr "网站名称"
+
+#~ msgid "No Objects in DB - %s"
+#~ msgstr "无DB对象 - %s的"
+
+#~ msgid "VIEW"
+#~ msgstr "查看"
+
+#~ msgid "Config is Missing Name of ID Collection"
+#~ msgstr "配置缺少的ID集合名称"
+
+#~ msgid "Media ID for Header"
+#~ msgstr "媒体的ID头"
+
+#, fuzzy
+#~ msgid "Download MongoPress"
+#~ msgstr "下载MongoPress"
+
+#, fuzzy
+#~ msgid "Download<br />MongoPress 0.1.1"
+#~ msgstr "下载<br />MongoPress0.1.1"
+
+#, fuzzy
+#~ msgid "Download MongoPress 0.1.1"
+#~ msgstr "下载MongoPress0.1.1"
+
+#~ msgid "Site Address ( do not include http:// )"
+#~ msgstr "网站地址（不包含http://）"
+
+#~ msgid "eg. mongopress.com or localhost"
+#~ msgstr "例如。mongopress.com或localhost"
+
+#~ msgid "Base URL Directory (if stored in sub-folder)"
+#~ msgstr "基本网址目录（如果子文件夹中）"
+
+#~ msgid "The path of your base directory if not the same as above"
+#~ msgstr "你的基本目录路径，如果不与上面相同"
+
+#, fuzzy
+#~ msgid "This shows your current Working Set..."
+#~ msgstr "这说明当前的工作集..."
+
+#~ msgid "http://mongopress.com"
+#~ msgstr "http://mongopress.com"
+
+#~ msgid "<br><p style=\"font-weight:bold;\">No media added yet.</p><br />"
+#~ msgstr "<br><p style=\"font-weight:bold;\">媒体还没有加入。</p><br />"
+
+#~ msgid "<span>Download<br />MongoPress 0.1</span>"
+#~ msgstr "下载<br />MongoPress 0.1"
+
+#~ msgid "New Object Added - <a href=\"%s\">View Object</a>"
+#~ msgstr "新对象添加 - <a href=\"%s\">查看对象</a>"
+
+#~ msgid "submit"
+#~ msgstr "提出"

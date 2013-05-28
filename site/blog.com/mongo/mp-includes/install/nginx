@@ -1,0 +1,23 @@
+## Put the line below in nginx php.conf
+fastcgi_param  HTTP_MOD_REWRITE		On;
+
+## Put the line below in nginx server config
+try_files $uri $uri/ /index.php;
+
+## Performance Note
+Change from using tcp to unix socket and save them to /dev/shm (memory filesystem)
+edit your php-fpm.conf and change 
+listen = 127.0.0.1:9000 
+to
+listen = /dev/shm/php5-fpm.sock
+
+You also need to change your nginx server config from
+location ~ \.php$ {
+ fastcgi_pass 127.0.0.1:9000;
+}
+
+to
+
+location ~ \.php$ {
+ fastcgi_pass unix:/dev/shm/php5-fpm.sock;
+}

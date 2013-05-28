@@ -1,0 +1,173 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Widget area: begin */
+
+/* Menu-type widgets: begin */
+	.widget ul.menu{
+	}
+		.widget ul ul{
+			margin: 10px 0 10px 30px;
+		}
+		.widget ul.menu li, .widget .page_item, .widget .cat-item, .widget ul.blogroll li, .widget .recentcomments{
+			position: relative;
+			background: url(../images/mm_spread.png) no-repeat center bottom;
+			padding:10px 0 10px 0;
+		}
+		.widget .recentcomments.last {
+			background:none;
+		}
+		.widget ul.menu li.last, .widget .page_item.last, .widget .cat-item.last, .widget ul.blogroll li.last{
+			background: none;
+			padding: 10px 0 0px 0;
+		}
+			.widget ul.menu li li, .widget .page_item li, .widget .cat-item li, .widget ul.blogroll li li{
+				background: none !important;
+				padding: 0px 0 0px 0 !important;
+			}
+			.widget ul.menu li a, .widget .page_item a, .widget .cat-item a, .widget ul.blogroll li a{
+				background:url("../images/ddmenu_arr.png") no-repeat -24px 4px;
+				padding: 0 0 0 20px;
+				display:block;
+			}
+			.widget ul.menu li a:hover, .widget .page_item a:hover, .widget .cat-item a:hover, .widget ul.blogroll li a:hover{
+				color: #f5f2eb;
+				text-decoration: underline;
+				background-position:6px -22px;
+			}
+				.widget ul.menu li li a, .widget .page_item li a, .widget .cat-item li a, .widget ul.blogroll li li a{
+					background:url("../images/bullet-level2.png") no-repeat 0 9px !important;
+					padding: 0 0 0 8px;
+				}
+/* Menu-type widgets: end */
+
+/* Widget "Comments": begin */
+li.recentcomments{
+	color: #636363;
+}
+/* Widget "Comments": end */
+
+/* Widget "Calendar": begin */
+#wp-calendar{
+	background: #0f0f0f;
+	margin-top: 2px;
+	border: solid #212121 1px;
+}
+#wp-calendar th{
+	color: #fff;
+	padding: 6px 0 6px 0;
+}
+#wp-calendar td{
+	margin: 1px 1px 2px 2px;
+	padding: 0;
+	border: solid #212121 1px;
+	background: #0d0d0d;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 18px;
+	width: 34px;
+	height: 29px;
+	cursor: default;
+}
+#wp-calendar td:hover{
+	background: #222;
+}
+#wp-calendar caption{
+	color: #fff;
+	font-size: 14px;
+	border: solid #212121 1px;
+	background: #0d0d0d;
+	padding: 6px 0 6px 0;
+	margin: 0;
+	height: auto;
+	border-bottom: none;
+}
+#wp-calendar td a{
+	display: block;
+	text-decoration: none;
+	width: 100%;
+	padding: 5px 0 5px 0;
+	text-decoration: underline;
+}
+#wp-calendar td a:hover{
+	background: #373737;
+}
+#wp-calendar td.pad{
+	background: none;
+	border: none;
+}
+
+#wp-calendar tfoot td{
+/*	font-weight: normal; 
+	height: auto;*/
+	width: auto;
+	padding: 0;
+	overflow: visible;
+}
+#wp-calendar tfoot td#prev{
+	text-align: left;
+	padding-left: 10px;
+}
+#wp-calendar tfoot td#next{
+	text-align: right;
+	padding-right: 10px;
+}
+#wp-calendar tfoot td a{
+	color: #fff;
+}
+#wp-calendar tfoot td a:hover{
+	background: none;
+	text-decoration: none;
+}
+/* Widget "Calendar": end */
+
+/* Widget area: end */
+
+
+
+
+/* Custom widgets: begin */
+
+/* Search: begin */
+			.widget .c_search {
+				padding:0;
+				margin:0;
+				font-size:13px;
+				position:relative;
+			}
+				.widget .c_search div.p {
+					display: none !important;
+				}
+				.widget .c_search .i-h {
+					float: left;
+					width: 201px;
+					height: 20px;
+					padding: 2px 0 0 4px;	
+					background: url(../images/search_bg_widg.png) no-repeat 0 0;	
+				}
+				.widget .c_search .i-h.i-f {
+				  background-position:0 -21px;
+				  width: 201px;
+				  height: 20px;	
+				  padding: 2px 0 0 4px;
+			  }
+				  .widget .c_search .i-h input {
+					  border:none;
+					  color:#e9e9e9;
+					  line-height: 18px;
+					  float: left;
+					  border: none;
+					  width: 169px;
+				  } 
+				  .widget .c_search a{
+					  float: left;
+					  height: 18px;
+					  width: 24px;
+					  background: url(../images/go_search.png) no-repeat 0 3px;
+				  }
+				  .widget .c_search a:hover{
+					  background-position: 0 -29px;
+				  }
+/* Search: end */
+
+/* Custom widgets: end */

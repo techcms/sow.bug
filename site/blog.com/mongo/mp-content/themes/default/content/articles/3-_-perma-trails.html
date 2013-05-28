@@ -1,0 +1,16 @@
+<title>Introducing Perma-Trails</title>
+<p>Rather than simply replicating the WordPress permalink system, we decided to take things one step further, and allow you to use forward slashes, in -turn creating virtual structures without having to categorize things. In addition to this, are perma-trails are intelligent, and if you tried to visit the URL of a sub-folder and no objects are found to match the final part of the slug, the system will search and display objects matching the same folder structure. You can also use the final part of the slug as a number to limit the results, and assign a specific query_perma_key to use as a direct filter for returning sets of objects. It really is quite amazing and is something we will be expanding upon in future releases.</p>
+<p>For example, let's say we create three objects:</p>
+<ul>
+    <li><strong>new/stuff/new1</strong></li>
+    <li><strong>new/stuff/new2</strong></li>
+    <li><strong>new/stuff/new3</strong></li>
+</ul>
+
+<p style="margin-top:25px;padding-top:15px;border-top:1px dotted #CCC;">If we were to visit <strong>your-domain.com/new/stuff/</strong>, we would see all 3 objects, but visit <strong>your-domain.com/new/stuff/2</strong> and we get only 2 objects.</p>
+<p>If our reserved <strong>query_perma_key</strong> was (as it is by default) <strong>mp</strong> and we visited these URLs we would get the following results:</p>
+<ul>
+    <li><strong>mp/type/articles/5</strong> - 5 objects where type equals articles</li>
+    <li><strong>mp/type/links/all</strong> - 25 (by default or as assigned by OBJECT_PP variable) objects where type equals links</li>
+    <li><strong>mp/title/Hello-World</strong> - any objects with the title of Hello-World</li>
+</ul>

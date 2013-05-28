@@ -1,0 +1,225 @@
+/* Dashboard Column */
+td.jdash-column { vertical-align: top; }
+
+/* Dashboard Sector */
+div.jdash-sector {
+	margin: 15px;
+	background: #FCFCFC;
+	border: 1px dashed #BBBBBB;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	display: none;
+}
+
+
+/*
+ * Dashboard Item
+ */
+
+/* Dashboard Item */
+div.jdash-item {
+	background: white;
+	position: relative;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border: 1px solid #CCCCCC;
+	margin: 15px 1%;
+	z-index: 5;
+}
+div.jdash-item.blank {
+    display: none;
+}
+/* Dashboard Item - While Dragging */
+div.jdash-item.dragging { z-index: 10; }
+
+
+/*
+ * Dashboard Item Header
+ */
+
+/* Item Head */
+h1.jdash-head {
+	border-radius: 8px 8px 0 0;
+	-moz-border-radius: 8px 8px 0 0;
+	-webkit-border-radius: 8px 8px 0 0;
+	border-bottom: 1px solid #CCCCCC;
+        font-size: 14px;
+	font-size: 1.4rem;
+	padding: 0;
+	margin: 0;
+	background: #EEEEEE url("images/header.png") repeat-x;
+}
+
+/* Item Head - Collapsed */
+div.jdash-item.collapse h1.jdash-head {
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-bottom: 0;
+}
+
+/* Item Title */
+div.jdash-head-title {
+	padding: 6px 12px;
+	cursor: move;
+	color: #555555;
+}
+/* Item Title - While Hovering */
+div.jdash-head-title:hover { color: black; }
+/* Item Title - While Hovering - Sub Title */
+div.jdash-head-title:hover span.sub-title { color: #666666; }
+
+/* Item Collapse - Expanded */
+div.jdash-head-collapse {
+	display: none;
+	border-left: 1px solid #CCCCCC;
+	height: 25px;
+	width: 30px;
+	background: url("../images/arrow-up.png") no-repeat center 10px;
+	cursor: default;
+}
+/* Item Collapse - Collapsed */
+div.jdash-item.collapse div.jdash-head-collapse {
+	background: url("../images/arrow-down.png") no-repeat center 11px;
+}
+
+/* Item Collapse - Hover */
+div.jdash-item:hover div.jdash-head-collapse { display: block; }
+
+/* Item Toolbar */
+div.jdash-toolbar {
+	padding: 6px 2px;
+	margin: 0 7px;
+	font-weight: normal;
+	color: #555555;
+	border-top: 1px solid #DDDDDD;
+	font-family: Calibri, Verdana, Arial, sans-serif;
+        font-size: 12px;
+	font-size: 1.2rem;
+	text-shadow: none;
+}
+
+/* Item Body */
+div.jdash-body {
+        font-size: 12px;
+	font-size: 1.2rem;
+	font-family: Calibri, Verdana, Arial, sans-serif;
+	color: #444444;
+	padding: 15px;
+	overflow: hidden;
+	border-radius: 0 0 8px 8px;
+	-moz-border-radius: 0 0 8px 8px;
+	-webkit-border-radius: 0 0 8px 8px;
+	background: white;
+        min-width: 250px;
+}
+
+/* Lists */
+div.jdash-item ul {
+	margin: 15px;
+	padding: 0;
+	list-style-type: square;
+        font-size: 13px;
+	font-size: 1.3rem;
+}
+div.jdash-item ul li {
+	margin: 4px 0;
+	padding: 0;
+}
+
+/* Paragraphs */
+div.jdash-item p { margin: 10px 0; }
+div.jdash-item p:first-child { margin-top: -10px; }
+div.jdash-item p:last-child { margin-bottom: 0; }
+
+/* Links */
+div.jdash-item a {
+	color: #4F81BD;
+	text-decoration: none;
+}
+div.jdash-item a:hover { text-decoration: underline; }
+
+/* Heading 2 */
+div.jdash-item h2 {
+	color: #333333;
+	font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 13px;
+	font-size: 1.3rem;
+	margin: 4px 0;
+}
+
+/* Plus-Minus Class */
+div.jdash.plus-minus div.jdash-head-collapse {
+	background: url("images/minus.png") no-repeat center 9px;
+}
+div.jdash.plus-minus div.jdash-item.collapse div.jdash-head-collapse {
+	background-image: url("images/plus.png");
+}
+
+/* Padded Class */
+div.jdash.padded div.jdash-item h1.jdash-head {
+	-moz-border-radius: 4px;
+	border: 1px solid #CCCCCC !important;
+}
+div.jdash.padded div.jdash-item, div.jdash.padded div.jdash-sector { padding: 4px; }
+
+
+/* THESE OVERWRITE DEFAULT JDASH */
+.three-columns .jdash-column.odd {
+	width:20% !important;
+}
+.three-columns .jdash-column.even {
+	width:60% !important;
+}
+.two-columns .jdash-column.odd {
+	width:70% !important;
+}
+.two-columns .jdash-column.even {
+	width:30% !important;
+        min-width: 225px !important;
+}
+h1.jdash-head {
+	color:#FFF;
+	text-transform:uppercase;
+        font-size: 13px;
+	font-size:1.3rem;
+	text-align:center;
+	padding:8px;
+        background-color: #454545;
+        background-image: -webkit-gradient(linear, 0 0, 0 70%, from(#454545), to(#000000));
+        background-image: -moz-linear-gradient(#454545, #000000 70%);
+        background-image: linear-gradient(#454545, #000000 70%);
+        background-image: -o-linear-gradient(#454545,#000000);
+	border-bottom:3px double #666666;
+}
+/* REMOVE FOR NOW - MAYBE FOREVER ...?
+h1.jdash-head:hover {
+	color:#FFF;
+	text-transform:uppercase;
+        font-size: 13px;
+	font-size:1.3rem;
+	text-align:center;
+	padding:8px;
+    background: -webkit-gradient(linear, 0 0, 0 70%, from(#000), to(#222));
+    background: -moz-linear-gradient(#000, #222 70%);
+    background: linear-gradient(#000, #222 70%);	
+} */
+div.jdash-head-title {
+	color:#CCC;
+	padding:2px;
+}
+div.jdash-head-title:hover {
+	color:#EEE;
+	padding:2px;
+}
+div.jdash-head-collapse {
+	height:16px;
+	border-color:#666;
+	background-position:13px 5px;
+	cursor:pointer;
+}
+div.jdash-item.collapse div.jdash-head-collapse {
+	background-position:13px 5px;
+}

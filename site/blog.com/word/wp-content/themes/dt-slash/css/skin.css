@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{
+	
+}
+body{
+	/*background: url(../images/skins/l/1.png) repeat;*/
+	background: #cecece url(../images/bg.png) repeat -1px 0;
+}
+body.black{
+	/*background: url(../images/skins/l/1.png) repeat;*/
+	background: #c7bfac url(../images/bg.jpg) repeat 1px 0;
+}
+body.gal-full, body .bg.hidden {
+	/*background: url(../images/skins/l/1.png) repeat;*/
+	background: url(../images/bg-alt.png) repeat;
+}
+
+h1.page-title{
+	color: #EDEDED;
+	text-shadow: 1px 1px 0 #000;
+	margin-bottom: 10px;
+}
+#bg{
+	min-height: 100%;
+	position:relative;
+	overflow:hidden;
+}
+
+#slider_dots li{
+	background-image: url(../images/night_slider_dots.png);
+}
+	
+#about_t{
+	background: url(../images/night_about_t.png) no-repeat center 0;
+}
+#about_b{
+	background: url(../images/night_about_b.png) no-repeat center bottom;
+}
+#about{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: italic;
+}
+
+#footer_shadow{
+	display: none;
+}

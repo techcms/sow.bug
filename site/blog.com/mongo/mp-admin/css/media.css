@@ -1,0 +1,93 @@
+ul#mp-media-gallery {
+    display: table;
+    position: relative;
+    width: 100%;
+    margin:0 1.5%;
+}
+ul#mp-media-gallery li {
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    width:20%;
+    padding:10px 1%;
+    margin: 10px 1%;
+    background: #EEE;
+    border: 1px solid #CCC;
+    vertical-align: top;
+}
+ul#mp-media-gallery li span.media-frame {
+    display: block;
+    padding: 5px 1%;
+    background: #FFF;
+    border: 1px solid #DDD;
+}
+ul#mp-media-gallery li span.media-frame img {
+    width: 100%;
+    height: auto;
+}
+ul#mp-media-gallery li span.media-meta {
+    clear: both;
+    float: left;
+    margin: 5px 0;
+    padding: 15px 0 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+	line-height: 20px;
+	line-height: 2rem;
+}
+
+/* MEDIA FORM */
+form#media { position: relative; }
+form#media input#mp_media_title { padding: 4px 0; }
+form#media .input-wrapper.container { overflow: hidden; }
+form#media input#media_submit { float: right; }
+form#media .input-wrapper .really.blanked {
+    border-color: transparent;
+    text-align: right;
+}
+form#media input#mp_file_fake {
+    width: 0px;
+    padding: 0;
+    margin: -84px 0 0 -2%;
+    background: transparent;
+    border-color: transparent;
+    position: relative
+}
+form#media input#mp_file_fake.active {
+    width: 96%;
+    padding: 4px 0;
+    margin: -84px 0 0 2%;
+	text-indent: -999em;
+}
+form#media span.notification {
+    display:block;
+    text-align: center;
+    padding: 25px 0 15px;
+    margin-bottom: 25px;
+    background: #FFFFEE;
+    border: 1px solid #DDD;
+}
+form#media span.notification.error {
+    background: #FFF4F4;
+}
+
+/* FRONT-END ONLY */
+div#site-wrapper div#primary-content div.jdash-item ul#mp-media-gallery li {
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 28px;
+    line-height: 2.8rem;
+}
+
+/* EDIT MEDIA INLINE */
+span.media-meta form.mp-form {
+	padding-top: 15px;
+}
+span.media-meta form.mp-form .input-wrapper {
+	background: #FFF;
+}
+span.media-meta form.mp-form .button {
+	float: none;
+	margin: 10px auto;
+}

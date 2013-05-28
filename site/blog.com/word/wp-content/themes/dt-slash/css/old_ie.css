@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+
+#top div, #top form{
+	zoom: 1;
+	display: inline;
+	white-space: normal;
+}
+		#nav li, #nav li a{
+			zoom: 1;
+		}
+.ico_link{
+	white-space: nowrap;
+}
+.article_box .meta .ico-l .ico_link.date {
+	padding:10px 0 9px;
+}
+.article_box .meta .ico_link.author {
+	padding:10px 0 9px;
+}
+.gallery_item{
+	zoom: 1;
+	display: inline;
+}
+.gallery_item .shadow_light{
+	margin: 5px 0 5px 0;
+	padding: 0;
+}
+.item-blog {
+	margin:30px 0 0 0;
+}
+
+	.hr_w.bot{
+		margin-top: -2px;
+	}
+a.button{
+	margin-right:0;
+}
+a.button span.but-r {
+	 padding:6px 9px 8px 10px;
+}
+a.button.filter span.but-r{
+	 padding:6px 0px 8px 10px;
+}
+a.button.big span.but-r {
+	padding:8px 4px 15px 10px;
+}
+.uniform a.button.big span.but-r {
+	padding:8px 20px 13px 10px;
+}
+.gal-full a.button span.but-r {
+	padding:9px 11px 7px 22px;
+}
+a.button span.but-r i{
+   position: absolute;
+   right: -13px;
+   top:2px;
+}
+a.button span.but-r span {
+	margin:0 0 0 -10px;
+}
+
+a.button span i.submit {
+	background: url("../images/submit.png") no-repeat right 0px;
+	right: -17px;
+	left:auto;
+	top:6px;
+
+}
+a.button span i.back {
+	left:0px;
+	top:8px;
+}
+a.button span i.detail {
+	right: -17px;
+	left:auto;
+	top:2px;
+
+}
+.navigation .paginator-small {
+	clear:both;
+}
+
+#bottom {
+}
+#bottom div.bottom-cont {
+	margin:0 10px 0 0px;
+	width:98%;
+}
+#bottom div.search-f {
+	width:250px;
+}
+#bottom form a {
+	top:2px;
+}
+.p {
+	top:10px;
+}
+.artic-g {
+	margin:0px 0 0
+}
+.navigation .paginator li.larr a, .navigation .paginator li.rarr a {
+	margin:10px 0 0 0px;
+}
+
+.article_box .meta .ico_link {
+	padding:10px 0 8px;
+}
+.widget .uniform .i_h .l, .widget .uniform .i_h .r {
+	margin:-15px 0 0 0;
+}
+.article .gall_std li {
+	display:inline;
+	zoom:1;
+}

@@ -1,0 +1,62 @@
+<title>Building Plugins for MongoPress</title>
+<p>More information coming soon, but in the meantime, please note that the following familiar functions are available:</p>
+<ul>
+    <li>add_action() / do_action()</li>
+    <li>add_filter() / apply_filters() </li>
+</ul>
+
+<p>In addition, for this first release, we have also bundled 3 "mu-plugins" to in order to show what is possible:</p>
+<ul>
+    <li><strong>download_counter</strong> - add the Media ID for your ZIP file and let GridFS handle the storage, serving and tracking of downloads.<br />This plugin adds a widget to the default theme sidebar.<br /><br /></li>
+    <li><strong>default_header</strong> - add the Media ID for your image file and let GridFS handle the storage, serving and viewing of images.<br />This plugin allows you to control the image in the default theme header.<br /><br /></li>
+    <li><strong>analytics_footer</strong> - simple plugin for adding Google Analytics tracking code to the footer.<br /><br /></li>
+</ul>
+
+<p>The difference between "mp-content/mu-plugins" and "mp-content/plugins" is that mu (Must-Use) plugins will automatically be activated and included, where as other plugins will need to be manually activated, which is not yet possible... :-)</p>
+<p>For a quick run-down of the last-minute addition of a basic options framework for MongoPress, the magic of options is accomplished through the following functions:</p>
+<ul>
+    <li>add_action('the_place_you_want_to_run_the_plugin_by_hook_name','the_name_of_your_new_function_to_run');</li>
+    <li>add_action('mp_content_block_content_article_< REPLACE WITH NAME OF PLUGIN >','this_is_the_only_way_to_add_plugin_options_and_must_follow_this_exact_format',1,5);</li>
+</ul>
+<p>Dig into the example currently included in core, which will alter be refined as our options API becomes more matured.</p>
+
+<p style="margin-top:25px;padding-top:15px;border-top:1px dotted #CCC;">These filters can be accessed with the following options:</p>
+<ul>
+    <li>apply_filters('<strong>mp_admin_meta_charset</strong>',$default_meta_charset,$perma);</li>
+    <li>apply_filters('<strong>mp_admin_meta_description</strong>',$default_meta_description,$perma);</li>
+    <li>apply_filters('<strong>mp_admin_meta_author</strong>',$default_meta_author,$perma);</li>
+    <li>apply_filters('<strong>mp_logo_login</strong>',$image_url');</li>
+    <li>apply_filters('<strong>mp_html_class</strong>',$class);</li>
+    <li>apply_filters('<strong>mp_html_lang</strong>',$lang);</li>
+    <li>apply_filters('<strong>mp_page_title</strong>',$title);</li>
+    <li>apply_filters('<strong>mp_get_content</strong>',$content,$this_mongo_id);</li>
+    <li>apply_filters('<strong>mp_article_excerpt</strong>',$excerpt);</li>
+    <li>apply_filters('<strong>mp_article_title</strong>',$title);</li>
+    <li>apply_filters('<strong>mp_article_content</strong>',$content);</li>
+    <li>apply_filters('<strong>mp_content_block_content_'.$type.'_'.$id</strong>',$content,$type,$id,$class,$href);</li>
+    <li>apply_filters('<strong>mp_content_block_content_'.$type.'_'.$class</strong>',$content,$type,$id,$class,$href);</li>
+    <li>apply_filters('<strong>mp_content_block_content</strong>',$content,$type,$id,$class,$href);</li>
+    <li>apply_filters('<strong>mp_admin_js_to_load</strong>',$default_scripts);</li>
+    <li>apply_filters('<strong>mp_theme_js_to_load</strong>',$default_scripts);</li>
+    <li>apply_filters('<strong>mp_attributes</strong>',$attributes,$file_name,$tag_type,$url,$id,$classes);</li>
+</ul>
+
+<p style="margin-top:25px;padding-top:15px;border-top:1px dotted #CCC;">These action hooks have the following options:</p>
+<ul>
+    <li>do_action('<strong>mp_footer</strong>');</li>
+    <li>do_action('<strong>mp_header</strong>');</li>
+    <li>do_action('<strong>mp_admin_header_start</strong>');</li>
+    <li>do_action('<strong>mp_admin_header_end</strong>');</li>
+    <li>do_action('<strong>mp_before_admin_footer</strong>');</li>
+    <li>do_action('<strong>mp_after_admin_footer</strong>');</li>
+    <li>do_action('<strong>mp_login_form_start</strong>',$is_logged_in);</li>
+    <li>do_action('<strong>mp_login_form_end</strong>',$is_logged_in);</li>
+    <li>do_action('<strong>mp_default_sidebar_top</strong>');</li>
+    <li>do_action('<strong>mp_default_sidebar_bottom</strong>');</li>
+    <li>do_action('<strong>mp_before_block_'.$type.'_'.$class</strong>,$type,$id,$class,$content');</li>
+    <li>do_action('<strong>mp_before_block_'.$type.'_'.$id</strong>,$type,$id,$class,$content');</li>
+    <li>do_action('<strong>mp_after_block_'.$class</strong>,$type,$id,$class,$content');</li>
+    <li>do_action('<strong>mp_after_block_'.$id</strong>,$type,$id,$class,$content');</li>
+</ul>
+
+<p style="margin-top:25px;padding-top:15px;border-top:1px dotted #CCC;">Now that MongoPress is out in the wild, we will be adding more hooks and filters as required and or requested...</p>
