@@ -2,7 +2,7 @@
 use Sow\bug as Y;
 use Sow\util\FB as fb;
 use Sow\DB as DB;
-class HomeController extends \Sow\sys\Control
+class Home_Controller extends \Sow\sys\Control
 {
 	public function init() {
 		$this->setViewpath( Y::view( $this->getModuleName() ) );
