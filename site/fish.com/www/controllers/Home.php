@@ -19,17 +19,20 @@ class Home_Controller extends \Sow\sys\Control
 
 
 
-		header( "Content-Type: image/png" );
-		$barcodeOptions = array( 'text' => 'ZEND-FRAMEWORK' );
+		$table = new Zend\Text\Table\Table( array( 'columnWidths' => array( 10, 20 ) ) );
 
-		// No required options
-		$rendererOptions = array();
+		// Either simple
+		$table->appendRow( array( 'Zend', 'Framework' ) );
 
-		// Draw the barcode in a new image,
-		// send the headers and the image
-		Zend_Barcode::render(
-			'code39', 'image', $barcodeOptions, $rendererOptions
-		);
+		// Or verbose
+		$row = new Zend\Text\Table\Row();
+
+		$row->appendColumn( new Zend\Text\Table\Column( 'Zend' ) );
+		$row->appendColumn( new Zend\Text\Table\Column( 'Framework' ) );
+
+		$table->appendRow( $row );
+
+		echo $table;
 	}
 	public function demoAction() {
 		//Y::dump($this->GET('page'));
