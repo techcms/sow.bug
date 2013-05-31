@@ -29,9 +29,6 @@ class CurlMultiProxy extends AbstractHasDispatcher implements CurlMultiInterface
         class_exists('Guzzle\Http\Exception\CurlException');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function add(RequestInterface $request)
     {
         $this->queued[] = $request;
@@ -39,9 +36,6 @@ class CurlMultiProxy extends AbstractHasDispatcher implements CurlMultiInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function all()
     {
         $requests = $this->queued;
@@ -52,9 +46,6 @@ class CurlMultiProxy extends AbstractHasDispatcher implements CurlMultiInterface
         return $requests;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function remove(RequestInterface $request)
     {
         foreach ($this->queued as $i => $r) {
@@ -73,9 +64,6 @@ class CurlMultiProxy extends AbstractHasDispatcher implements CurlMultiInterface
         return false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function reset($hard = false)
     {
         $this->queued = array();
@@ -90,9 +78,6 @@ class CurlMultiProxy extends AbstractHasDispatcher implements CurlMultiInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function send()
     {
         if ($this->queued) {
@@ -102,15 +87,21 @@ class CurlMultiProxy extends AbstractHasDispatcher implements CurlMultiInterface
             while ($request = array_shift($this->queued)) {
                 $group->add($request);
             }
-            $group->send();
-            array_pop($this->groups);
-            $this->cleanupHandles();
+            try {
+                $group->send();
+                array_pop($this->groups);
+                $this->cleanupHandles();
+            } catch (\Exception $e) {
+                // Remove the group and cleanup if an exception was encountered and no more requests in group
+                if (!$group->count()) {
+                    array_pop($this->groups);
+                    $this->cleanupHandles();
+                }
+                throw $e;
+            }
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function count()
     {
         return count($this->all());

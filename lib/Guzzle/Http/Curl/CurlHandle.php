@@ -19,19 +19,13 @@ class CurlHandle
     const PROGRESS = 'progress';
     const DEBUG = 'debug';
 
-    /**
-     * @var Collection Curl options
-     */
+    /** @var Collection Curl options */
     protected $options;
 
-    /**
-     * @var resource Curl resource handle
-     */
+    /** @var resource Curl resource handle */
     protected $handle;
 
-    /**
-     * @var int CURLE_* error
-     */
+    /** @var int CURLE_* error */
     protected $errorNo = CURLE_OK;
 
     /**
@@ -82,12 +76,6 @@ class CurlHandle
             $curlOptions[CURLOPT_ENCODING] = (string) $acceptEncodingHeader;
             // Let cURL set the Accept-Encoding header, prevents duplicate values
             $request->removeHeader('Accept-Encoding');
-        }
-
-        // Enable the progress function if the 'progress' param was set
-        if ($requestCurlOptions->get('progress')) {
-            $curlOptions[CURLOPT_PROGRESSFUNCTION] = array($mediator, 'progress');
-            $curlOptions[CURLOPT_NOPROGRESS] = false;
         }
 
         // Enable curl debug information if the 'debug' param was set
@@ -192,37 +180,34 @@ class CurlHandle
             $curlOptions[CURLOPT_HTTPHEADER][] = 'Accept:';
         }
 
-        // Check if any headers or cURL options are blacklisted
-        if ($blacklist = $requestCurlOptions->get('blacklist')) {
-            foreach ($blacklist as $value) {
-                if (strpos($value, 'header.') !== 0) {
-                    unset($curlOptions[$value]);
-                } else {
-                    // Remove headers that may have previously been set but are supposed to be blacklisted
-                    $key = substr($value, 7);
-                    $request->removeHeader($key);
-                    $curlOptions[CURLOPT_HTTPHEADER][] = $key . ':';
-                }
-            }
-        }
-
         // Add any custom headers to the request. Empty headers will cause curl to not send the header at all.
         foreach ($request->getHeaderLines() as $line) {
             $curlOptions[CURLOPT_HTTPHEADER][] = $line;
         }
 
-        // Apply the options to a new cURL handle.
-        $handle = curl_init();
-        curl_setopt_array($handle, $curlOptions);
-
+        // Add the content-length header back if it was temporarily removed
         if ($tempContentLength) {
             $request->setHeader('Content-Length', $tempContentLength);
         }
 
-        $handle = new static($handle, $curlOptions);
-        $mediator->setCurlHandle($handle);
+        // Apply the options to a new cURL handle.
+        $handle = curl_init();
 
-        return $handle;
+        // Enable the progress function if the 'progress' param was set
+        if ($requestCurlOptions->get('progress')) {
+            // Wrap the function in a function that provides the curl handle to the mediator's progress function
+            // Using this rather than injecting the handle into the mediator prevents a circular reference
+            $curlOptions[CURLOPT_PROGRESSFUNCTION] = function () use ($mediator, $handle) {
+                $args = func_get_args();
+                $args[] = $handle;
+                call_user_func_array(array($mediator, 'progress'), $args);
+            };
+            $curlOptions[CURLOPT_NOPROGRESS] = false;
+        }
+
+        curl_setopt_array($handle, $curlOptions);
+
+        return new static($handle, $curlOptions);
     }
 
     /**
@@ -451,7 +436,7 @@ class CurlHandle
     {
         $curlOptions = array();
         foreach ($config as $key => $value) {
-            if (!is_numeric($key) && defined($key)) {
+            if (is_string($key) && defined($key)) {
                 // Convert constants represented as string to constant int values
                 $key = constant($key);
             }

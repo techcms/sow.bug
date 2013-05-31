@@ -11,14 +11,10 @@ use Guzzle\Service\Command\LocationVisitor\Response\ResponseVisitorInterface;
  */
 class VisitorFlyweight
 {
-    /**
-     * @var self Singleton instance of self
-     */
+    /** @var self Singleton instance of self */
     protected static $instance;
 
-    /**
-     * @var array Default array of mappings of location names to classes
-     */
+    /** @var array Default array of mappings of location names to classes */
     protected static $defaultMappings = array(
         'request.body'          => 'Guzzle\Service\Command\LocationVisitor\Request\BodyVisitor',
         'request.header'        => 'Guzzle\Service\Command\LocationVisitor\Request\HeaderVisitor',
@@ -27,6 +23,7 @@ class VisitorFlyweight
         'request.postFile'      => 'Guzzle\Service\Command\LocationVisitor\Request\PostFileVisitor',
         'request.query'         => 'Guzzle\Service\Command\LocationVisitor\Request\QueryVisitor',
         'request.response_body' => 'Guzzle\Service\Command\LocationVisitor\Request\ResponseBodyVisitor',
+        'request.responseBody'  => 'Guzzle\Service\Command\LocationVisitor\Request\ResponseBodyVisitor',
         'request.xml'           => 'Guzzle\Service\Command\LocationVisitor\Request\XmlVisitor',
         'response.body'         => 'Guzzle\Service\Command\LocationVisitor\Response\BodyVisitor',
         'response.header'       => 'Guzzle\Service\Command\LocationVisitor\Response\HeaderVisitor',
@@ -36,19 +33,13 @@ class VisitorFlyweight
         'response.xml'          => 'Guzzle\Service\Command\LocationVisitor\Response\XmlVisitor'
     );
 
-    /**
-     * @var array Array of mappings of location names to classes
-     */
+    /** @var array Array of mappings of location names to classes */
     protected $mappings;
 
-    /**
-     * @var array Cache of instantiated visitors
-     */
+    /** @var array Cache of instantiated visitors */
     protected $cache = array();
 
     /**
-     * Get a cached instance of the flyweight factory
-     *
      * @return self
      * @codeCoverageIgnore
      */
@@ -62,8 +53,6 @@ class VisitorFlyweight
     }
 
     /**
-     * Create a new flyweight
-     *
      * @param array $mappings Array mapping request.name and response.name to location visitor classes. Leave null to
      *                        use the default values.
      */

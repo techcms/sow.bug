@@ -7,6 +7,7 @@ use Guzzle\Common\Exception\RuntimeException;
 use Guzzle\Http\EntityBodyInterface;
 use Guzzle\Http\EntityBody;
 use Guzzle\Http\Exception\BadResponseException;
+use Guzzle\Http\RedirectPlugin;
 use Guzzle\Parser\ParserRegistry;
 
 /**
@@ -78,52 +79,30 @@ class Response extends AbstractMessage
         511 => 'Network Authentication Required',
     );
 
-    /**
-     * @var EntityBodyInterface The response body
-     */
+    /** @var EntityBodyInterface The response body */
     protected $body;
 
-    /**
-     * @var string The reason phrase of the response (human readable code)
-     */
+    /** @var string The reason phrase of the response (human readable code) */
     protected $reasonPhrase;
 
-    /**
-     * @var string The status code of the response
-     */
+    /** @var string The status code of the response */
     protected $statusCode;
 
-    /**
-     * @var string Response protocol
-     */
-    protected $protocol = 'HTTP';
-
-    /**
-     * @var array Information about the request
-     */
+    /** @var array Information about the request */
     protected $info = array();
 
-    /**
-     * @var RequestInterface Request object that may or may not be set
-     */
-    protected $request = null;
-
-    /**
-     * @var array Cacheable response codes (see RFC 2616:13.4)
-     */
+    /** @var array Cacheable response codes (see RFC 2616:13.4) */
     protected $cacheResponseCodes = array(200, 203, 206, 300, 301, 410);
 
-    /**
-     * @var Response If a redirect was issued or an intermediate response was issued
-     */
-    protected $previous;
+    /** @var string The effective URL that returned this response */
+    protected $effectiveUrl;
 
     /**
      * Create a new Response based on a raw response message
      *
      * @param string $message Response message
      *
-     * @return Response|bool Returns false on error
+     * @return self|bool Returns false on error
      */
     public static function fromMessage($message)
     {
@@ -157,23 +136,22 @@ class Response extends AbstractMessage
      */
     public function __construct($statusCode, $headers = null, $body = null)
     {
+        parent::__construct();
         $this->setStatus($statusCode);
-        $this->params = new Collection();
         $this->body = EntityBody::factory($body !== null ? $body : '');
 
         if ($headers) {
-            if (!is_array($headers) && !($headers instanceof Collection)) {
+            if (is_array($headers)) {
+                $this->setHeaders($headers);
+            } elseif ($headers instanceof Collection) {
+                $this->setHeaders($headers->toArray());
+            } else {
                 throw new BadResponseException('Invalid headers argument received');
-            }
-            foreach ($headers as $key => $value) {
-                $this->addHeaders(array($key => $value));
             }
         }
     }
 
     /**
-     * Convert the response object to a string
-     *
      * @return string
      */
     public function __toString()
@@ -213,7 +191,7 @@ class Response extends AbstractMessage
      * @param string $protocol Response protocol
      * @param string $version  Protocol version
      *
-     * @return Response
+     * @return self
      */
     public function setProtocol($protocol, $version)
     {
@@ -230,7 +208,7 @@ class Response extends AbstractMessage
      */
     public function getProtocol()
     {
-        return $this->protocol ?: 'HTTP';
+        return $this->protocol;
     }
 
     /**
@@ -240,7 +218,7 @@ class Response extends AbstractMessage
      */
     public function getProtocolVersion()
     {
-        return $this->protocolVersion ?: '1.1';
+        return $this->protocolVersion;
     }
 
     /**
@@ -268,7 +246,7 @@ class Response extends AbstractMessage
      *
      * @param array $info Array of cURL transfer stats
      *
-     * @return Response
+     * @return self
      */
     public function setInfo(array $info)
     {
@@ -283,14 +261,14 @@ class Response extends AbstractMessage
      * @param int    $statusCode   Response status code to set
      * @param string $reasonPhrase Response reason phrase
      *
-     * @return Response
+     * @return self
      * @throws BadResponseException when an invalid response code is received
      */
     public function setStatus($statusCode, $reasonPhrase = '')
     {
         $this->statusCode = (int) $statusCode;
 
-        if (!$reasonPhrase && array_key_exists($this->statusCode, self::$statusTexts)) {
+        if (!$reasonPhrase && isset(self::$statusTexts[$this->statusCode])) {
             $this->reasonPhrase = self::$statusTexts[$this->statusCode];
         } else {
             $this->reasonPhrase = $reasonPhrase;
@@ -344,16 +322,6 @@ class Response extends AbstractMessage
     }
 
     /**
-     * Get the request object (or null) that is associated with this response
-     *
-     * @return RequestInterface
-     */
-    public function getRequest()
-    {
-        return $this->request;
-    }
-
-    /**
      * Get the response reason phrase- a human readable version of the numeric
      * status code
      *
@@ -371,25 +339,33 @@ class Response extends AbstractMessage
      */
     public function getAcceptRanges()
     {
-        return $this->getHeader('Accept-Ranges', true);
+        return (string) $this->getHeader('Accept-Ranges');
+    }
+
+    /**
+     * Calculate the age of the response
+     *
+     * @return integer
+     */
+    public function calculateAge()
+    {
+        $age = $this->getHeader('Age');
+
+        if ($age === null && $this->getDate()) {
+            $age = time() - strtotime($this->getDate());
+        }
+
+        return $age === null ? null : (int) (string) $age;
     }
 
     /**
      * Get the Age HTTP header
      *
-     * @param bool $headerOnly Set to TRUE to only retrieve the Age header rather than calculating the age
-     *
      * @return integer|null Returns the age the object has been in a proxy cache in seconds.
      */
-    public function getAge($headerOnly = false)
+    public function getAge()
     {
-        $age = $this->getHeader('Age', true);
-
-        if (!$headerOnly && $age === null && $this->getDate()) {
-            $age = time() - strtotime($this->getDate());
-        }
-
-        return $age;
+        return (string) $this->getHeader('Age');
     }
 
     /**
@@ -399,7 +375,7 @@ class Response extends AbstractMessage
      */
     public function getAllow()
     {
-        return $this->getHeader('Allow', true);
+        return (string) $this->getHeader('Allow');
     }
 
     /**
@@ -426,12 +402,11 @@ class Response extends AbstractMessage
     /**
      * Get the Cache-Control HTTP header
      *
-     * @return Header|null Returns a Header object that tells all caching mechanisms from server to client whether they
-     *                     may cache this object.
+     * @return string
      */
     public function getCacheControl()
     {
-        return $this->getHeader('Cache-Control');
+        return (string) $this->getHeader('Cache-Control');
     }
 
     /**
@@ -441,17 +416,17 @@ class Response extends AbstractMessage
      */
     public function getConnection()
     {
-        return $this->getHeader('Connection', true);
+        return (string) $this->getHeader('Connection');
     }
 
     /**
      * Get the Content-Encoding HTTP header
      *
-     * @return string|null Returns the type of encoding used on the data. One of compress, deflate, gzip, identity.
+     * @return string|null
      */
     public function getContentEncoding()
     {
-        return $this->getHeader('Content-Encoding', true);
+        return (string) $this->getHeader('Content-Encoding');
     }
 
     /**
@@ -461,7 +436,7 @@ class Response extends AbstractMessage
      */
     public function getContentLanguage()
     {
-        return $this->getHeader('Content-Language', true);
+        return (string) $this->getHeader('Content-Language');
     }
 
     /**
@@ -471,7 +446,7 @@ class Response extends AbstractMessage
      */
     public function getContentLength()
     {
-        return (int) $this->getHeader('Content-Length', true);
+        return (int) (string) $this->getHeader('Content-Length');
     }
 
     /**
@@ -481,7 +456,7 @@ class Response extends AbstractMessage
      */
     public function getContentLocation()
     {
-        return $this->getHeader('Content-Location', true);
+        return (string) $this->getHeader('Content-Location');
     }
 
     /**
@@ -491,7 +466,7 @@ class Response extends AbstractMessage
      */
     public function getContentDisposition()
     {
-        return (string) $this->getHeader('Content-Disposition')->setGlue(';');
+        return (string) $this->getHeader('Content-Disposition');
     }
 
     /**
@@ -501,7 +476,7 @@ class Response extends AbstractMessage
      */
     public function getContentMd5()
     {
-        return $this->getHeader('Content-MD5', true);
+        return (string) $this->getHeader('Content-MD5');
     }
 
     /**
@@ -511,7 +486,7 @@ class Response extends AbstractMessage
      */
     public function getContentRange()
     {
-        return $this->getHeader('Content-Range', true);
+        return (string) $this->getHeader('Content-Range');
     }
 
     /**
@@ -521,7 +496,7 @@ class Response extends AbstractMessage
      */
     public function getContentType()
     {
-        return $this->getHeader('Content-Type', true);
+        return (string) $this->getHeader('Content-Type');
     }
 
     /**
@@ -535,7 +510,7 @@ class Response extends AbstractMessage
      */
     public function isContentType($type)
     {
-        return stripos($this->getContentType(), $type) !== false;
+        return stripos($this->getHeader('Content-Type'), $type) !== false;
     }
 
     /**
@@ -545,7 +520,7 @@ class Response extends AbstractMessage
      */
     public function getDate()
     {
-        return $this->getHeader('Date', true);
+        return (string) $this->getHeader('Date');
     }
 
     /**
@@ -555,7 +530,7 @@ class Response extends AbstractMessage
      */
     public function getEtag()
     {
-        return $this->getHeader('ETag', true);
+        return (string) $this->getHeader('ETag');
     }
 
     /**
@@ -565,7 +540,7 @@ class Response extends AbstractMessage
      */
     public function getExpires()
     {
-        return $this->getHeader('Expires', true);
+        return (string) $this->getHeader('Expires');
     }
 
     /**
@@ -576,7 +551,7 @@ class Response extends AbstractMessage
      */
     public function getLastModified()
     {
-        return $this->getHeader('Last-Modified', true);
+        return (string) $this->getHeader('Last-Modified');
     }
 
     /**
@@ -586,7 +561,7 @@ class Response extends AbstractMessage
      */
     public function getLocation()
     {
-        return $this->getHeader('Location', true);
+        return (string) $this->getHeader('Location');
     }
 
     /**
@@ -597,7 +572,7 @@ class Response extends AbstractMessage
      */
     public function getPragma()
     {
-        return $this->getHeader('Pragma');
+        return (string) $this->getHeader('Pragma');
     }
 
     /**
@@ -607,7 +582,7 @@ class Response extends AbstractMessage
      */
     public function getProxyAuthenticate()
     {
-        return $this->getHeader('Proxy-Authenticate', true);
+        return (string) $this->getHeader('Proxy-Authenticate');
     }
 
     /**
@@ -618,16 +593,7 @@ class Response extends AbstractMessage
      */
     public function getRetryAfter()
     {
-        $time = $this->getHeader('Retry-After', true);
-        if ($time === null) {
-            return null;
-        }
-
-        if (!is_numeric($time)) {
-            $time = strtotime($time) - time();
-        }
-
-        return (int) $time;
+        return (string) $this->getHeader('Retry-After');
     }
 
     /**
@@ -637,17 +603,17 @@ class Response extends AbstractMessage
      */
     public function getServer()
     {
-        return $this->getHeader('Server', true);
+        return (string)  $this->getHeader('Server');
     }
 
     /**
      * Get the Set-Cookie HTTP header
      *
-     * @return Header|null An HTTP cookie.
+     * @return string|null An HTTP cookie.
      */
     public function getSetCookie()
     {
-        return $this->getHeader('Set-Cookie');
+        return (string) $this->getHeader('Set-Cookie');
     }
 
     /**
@@ -658,18 +624,17 @@ class Response extends AbstractMessage
      */
     public function getTrailer()
     {
-        return $this->getHeader('Trailer', true);
+        return (string) $this->getHeader('Trailer');
     }
 
     /**
      * Get the Transfer-Encoding HTTP header
      *
-     * @return string|null The form of encoding used to safely transfer the entity to the user. Currently defined
-     *                     methods are: chunked
+     * @return string|null The form of encoding used to safely transfer the entity to the user
      */
     public function getTransferEncoding()
     {
-        return $this->getHeader('Transfer-Encoding', true);
+        return (string) $this->getHeader('Transfer-Encoding');
     }
 
     /**
@@ -680,40 +645,37 @@ class Response extends AbstractMessage
      */
     public function getVary()
     {
-        return $this->getHeader('Vary', true);
+        return (string) $this->getHeader('Vary');
     }
 
     /**
      * Get the Via HTTP header
      *
      * @return string|null Informs the client of proxies through which the response was sent.
-     *                     (e.g. 1.0 fred, 1.1 nowhere.com (Apache/1.1))
      */
     public function getVia()
     {
-        return $this->getHeader('Via', true);
+        return (string) $this->getHeader('Via');
     }
 
     /**
      * Get the Warning HTTP header
      *
-     * @return string|null A general warning about possible problems with the entity body.
-     *                     (e.g. 199 Miscellaneous warning)
+     * @return string|null A general warning about possible problems with the entity body
      */
     public function getWarning()
     {
-        return $this->getHeader('Warning', true);
+        return (string) $this->getHeader('Warning');
     }
 
     /**
      * Get the WWW-Authenticate HTTP header
      *
      * @return string|null Indicates the authentication scheme that should be used to access the requested entity
-     *                     (e.g. Basic)
      */
     public function getWwwAuthenticate()
     {
-        return $this->getHeader('WWW-Authenticate', true);
+        return (string) $this->getHeader('WWW-Authenticate');
     }
 
     /**
@@ -777,21 +739,7 @@ class Response extends AbstractMessage
     }
 
     /**
-     * Set the request object associated with the response
-     *
-     * @param RequestInterface $request The request object used to generate the response
-     *
-     * @return Response
-     */
-    public function setRequest(RequestInterface $request)
-    {
-        $this->request = $request;
-
-        return $this;
-    }
-
-    /**
-     * Check if the response can be cached
+     * Check if the response can be cached based on the response headers
      *
      * @return bool Returns TRUE if the response can be cached or false if not
      */
@@ -810,7 +758,7 @@ class Response extends AbstractMessage
 
         // Never cache no-store resources (this is a private cache, so private
         // can be cached)
-        if ($this->hasCacheControlDirective('no-store')) {
+        if ($this->getHeader('Cache-Control') && $this->getHeader('Cache-Control')->hasDirective('no-store')) {
             return false;
         }
 
@@ -824,13 +772,14 @@ class Response extends AbstractMessage
      */
     public function getMaxAge()
     {
-        // s-max-age, then max-age, then Expires
-        if ($age = $this->getCacheControlDirective('s-maxage')) {
-            return $age;
-        }
-
-        if ($age = $this->getCacheControlDirective('max-age')) {
-            return $age;
+        if ($header = $this->getHeader('Cache-Control')) {
+            // s-max-age, then max-age, then Expires
+            if ($age = $header->getDirective('s-maxage')) {
+                return $age;
+            }
+            if ($age = $header->getDirective('max-age')) {
+                return $age;
+            }
         }
 
         if ($this->getHeader('Expires')) {
@@ -878,33 +827,9 @@ class Response extends AbstractMessage
     public function getFreshness()
     {
         $maxAge = $this->getMaxAge();
-        $age = $this->getAge();
+        $age = $this->calculateAge();
 
         return $maxAge && $age ? ($maxAge - $age) : null;
-    }
-
-    /**
-     * Get the previous response (e.g. Redirect response)
-     *
-     * @return null|Response
-     */
-    public function getPreviousResponse()
-    {
-        return $this->previous;
-    }
-
-    /**
-     * Set the previous response
-     *
-     * @param Response $response Response to set
-     *
-     * @return self
-     */
-    public function setPreviousResponse(Response $response)
-    {
-        $this->previous = $response;
-
-        return $this;
     }
 
     /**
@@ -939,5 +864,63 @@ class Response extends AbstractMessage
         }
 
         return $xml;
+    }
+
+    /**
+     * Get the redirect count of this response
+     *
+     * @return int
+     */
+    public function getRedirectCount()
+    {
+        return (int) $this->params->get(RedirectPlugin::REDIRECT_COUNT);
+    }
+
+    /**
+     * Set the effective URL that resulted in this response (e.g. the last redirect URL)
+     *
+     * @param string $url The effective URL
+     *
+     * @return self
+     */
+    public function setEffectiveUrl($url)
+    {
+        $this->effectiveUrl = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get the effective URL that resulted in this response (e.g. the last redirect URL)
+     *
+     * @return string
+     */
+    public function getEffectiveUrl()
+    {
+        return $this->effectiveUrl;
+    }
+
+    /**
+     * @deprecated
+     */
+    public function getPreviousResponse()
+    {
+        return null;
+    }
+
+    /**
+     * @deprecated
+     */
+    public function setRequest($request)
+    {
+        return $this;
+    }
+
+    /**
+     * @deprecated
+     */
+    public function getRequest()
+    {
+        return null;
     }
 }

@@ -2,8 +2,6 @@
 
 namespace Guzzle\Service\Command;
 
-use Guzzle\Service\Description\OperationInterface;
-
 /**
  * A command that creates requests based on {@see Guzzle\Service\Description\OperationInterface} objects, and if the
  * matching operation uses a service description model in the responseClass attribute, then this command will marshal
@@ -11,14 +9,10 @@ use Guzzle\Service\Description\OperationInterface;
  */
 class OperationCommand extends AbstractCommand
 {
-    /**
-     * @var RequestSerializerInterface
-     */
+    /** @var RequestSerializerInterface */
     protected $requestSerializer;
 
-    /**
-     * @var ResponseParserInterface Response parser
-     */
+    /** @var ResponseParserInterface Response parser */
     protected $responseParser;
 
     /**
@@ -79,22 +73,16 @@ class OperationCommand extends AbstractCommand
         return $this->responseParser;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function build()
     {
         // Prepare and serialize the request
         $this->request = $this->getRequestSerializer()->prepare($this);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function process()
     {
         // Do not process the response if 'command.response_processing' is set to 'raw'
-        $this->result = $this->get(self::RESPONSE_PROCESSING) == self::TYPE_RAW
+        $this->result = $this[self::RESPONSE_PROCESSING] == self::TYPE_RAW
             ? $this->request->getResponse()
             : $this->getResponseParser()->parse($this);
     }

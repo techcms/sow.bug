@@ -14,9 +14,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class ErrorResponsePlugin implements EventSubscriberInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public static function getSubscribedEvents()
     {
         return array('command.before_send' => array('onCommandBeforeSend', -1));
@@ -45,6 +42,7 @@ class ErrorResponsePlugin implements EventSubscriberInterface
      * @param Operation        $operation Operation that defines the request and errors
      *
      * @return \Closure Returns a closure
+     * @throws ErrorResponseException
      */
     protected function getErrorClosure(RequestInterface $request, CommandInterface $command, Operation $operation)
     {

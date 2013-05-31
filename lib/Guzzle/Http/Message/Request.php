@@ -11,6 +11,7 @@ use Guzzle\Http\Exception\BadResponseException;
 use Guzzle\Http\ClientInterface;
 use Guzzle\Http\EntityBody;
 use Guzzle\Http\EntityBodyInterface;
+use Guzzle\Http\Message\Header\HeaderInterface;
 use Guzzle\Http\Url;
 use Guzzle\Parser\ParserRegistry;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -22,64 +23,39 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class Request extends AbstractMessage implements RequestInterface
 {
-    /**
-     * @var EventDispatcherInterface
-     */
+    /** @var EventDispatcherInterface */
     protected $eventDispatcher;
 
-    /**
-     * @var Url HTTP Url
-     */
+    /** @var Url HTTP Url */
     protected $url;
 
-    /**
-     * @var string HTTP method (GET, PUT, POST, DELETE, HEAD, OPTIONS, TRACE)
-     */
+    /** @var string HTTP method (GET, PUT, POST, DELETE, HEAD, OPTIONS, TRACE) */
     protected $method;
 
-    /**
-     * @var ClientInterface
-     */
+    /** @var ClientInterface */
     protected $client;
 
-    /**
-     * @var Response Response of the request
-     */
+    /** @var Response Response of the request */
     protected $response;
 
-    /**
-     * @var EntityBodyInterface Response body
-     */
+    /** @var EntityBodyInterface Response body */
     protected $responseBody;
 
-    /**
-     * @var string State of the request object
-     */
+    /** @var string State of the request object */
     protected $state;
 
-    /**
-     * @var string Authentication username
-     */
+    /** @var string Authentication username */
     protected $username;
 
-    /**
-     * @var string Auth password
-     */
+    /** @var string Auth password */
     protected $password;
 
-    /**
-     * @var Collection cURL specific transfer options
-     */
+    /** @var Collection cURL specific transfer options */
     protected $curlOptions;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     protected $isRedirect = false;
 
-    /**
-     * {@inheritdoc}
-     */
     public static function getAllEvents()
     {
         return array(
@@ -101,8 +77,6 @@ class Request extends AbstractMessage implements RequestInterface
     }
 
     /**
-     * Create a new request
-     *
      * @param string           $method  HTTP method
      * @param string|Url       $url     HTTP URL to connect to. The URI scheme, host header, and URI are parsed from the
      *                                  full URL. If query string parameters are present they will be parsed as well.
@@ -110,26 +84,19 @@ class Request extends AbstractMessage implements RequestInterface
      */
     public function __construct($method, $url, $headers = array())
     {
+        parent::__construct();
         $this->method = strtoupper($method);
         $this->curlOptions = new Collection();
-        $this->params = new Collection();
         $this->setUrl($url);
 
         if ($headers) {
             // Special handling for multi-value headers
             foreach ($headers as $key => $value) {
-                $lkey = strtolower($key);
                 // Deal with collisions with Host and Authorization
-                if ($lkey == 'host') {
+                if ($key == 'host' || $key == 'Host') {
                     $this->setHeader($key, $value);
-                } elseif ($lkey == 'authorization') {
-                    $parts = explode(' ', $value);
-                    if ($parts[0] == 'Basic' && isset($parts[1])) {
-                        list($user, $pass) = explode(':', base64_decode($parts[1]));
-                        $this->setAuth($user, $pass);
-                    } else {
-                        $this->setHeader($key, $value);
-                    }
+                } elseif ($value instanceof HeaderInterface) {
+                    $this->addHeader($key, $value);
                 } else {
                     foreach ((array) $value as $v) {
                         $this->addHeader($key, $v);
@@ -141,10 +108,6 @@ class Request extends AbstractMessage implements RequestInterface
         $this->setState(self::STATE_NEW);
     }
 
-    /**
-     * Clone the request object, leaving off any response that was received
-     * @see Guzzle\Plugin\Redirect\RedirectPlugin::cloneRequestWithGetMethod
-     */
     public function __clone()
     {
         if ($this->eventDispatcher) {
@@ -152,15 +115,9 @@ class Request extends AbstractMessage implements RequestInterface
         }
         $this->curlOptions = clone $this->curlOptions;
         $this->params = clone $this->params;
-        // Remove state based parameters from the cloned request
-        $this->params->remove('curl_handle')->remove('curl_multi');
         $this->url = clone $this->url;
         $this->response = $this->responseBody = null;
-
-        // Clone each header
-        foreach ($this->headers as $key => &$value) {
-            $value = clone $value;
-        }
+        $this->headers = clone $this->headers;
 
         $this->setState(RequestInterface::STATE_NEW);
         $this->dispatch('request.clone', array('request' => $this));
@@ -195,9 +152,6 @@ class Request extends AbstractMessage implements RequestInterface
         throw $e;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setClient(ClientInterface $client)
     {
         $this->client = $client;
@@ -205,17 +159,11 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getClient()
     {
         return $this->client;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getRawHeaders()
     {
         $protocolVersion = $this->protocolVersion ?: '1.1';
@@ -225,9 +173,6 @@ class Request extends AbstractMessage implements RequestInterface
             . '/' . $protocolVersion . "\r\n" . implode("\r\n", $this->getHeaderLines());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUrl($url)
     {
         if ($url instanceof Url) {
@@ -249,9 +194,6 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function send()
     {
         if (!$this->client) {
@@ -261,17 +203,11 @@ class Request extends AbstractMessage implements RequestInterface
         return $this->client->send($this);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getResponse()
     {
         return $this->response;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getQuery($asString = false)
     {
         return $asString
@@ -279,25 +215,16 @@ class Request extends AbstractMessage implements RequestInterface
             : $this->url->getQuery();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getMethod()
     {
         return $this->method;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getScheme()
     {
         return $this->url->getScheme();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setScheme($scheme)
     {
         $this->url->setScheme($scheme);
@@ -305,17 +232,11 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getHost()
     {
         return $this->url->getHost();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setHost($host)
     {
         $this->url->setHost($host);
@@ -324,17 +245,11 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getProtocolVersion()
     {
         return $this->protocolVersion;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setProtocolVersion($protocol)
     {
         $this->protocolVersion = $protocol;
@@ -342,17 +257,11 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPath()
     {
         return '/' . ltrim($this->url->getPath(), '/');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setPath($path)
     {
         $this->url->setPath($path);
@@ -360,17 +269,11 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPort()
     {
         return $this->url->getPort();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setPort($port)
     {
         $this->url->setPort($port);
@@ -378,33 +281,24 @@ class Request extends AbstractMessage implements RequestInterface
         // Include the port in the Host header if it is not the default port for the scheme of the URL
         $scheme = $this->url->getScheme();
         if (($scheme == 'http' && $port != 80) || ($scheme == 'https' && $port != 443)) {
-            $this->headers['host'] = new Header('Host', $this->url->getHost() . ':' . $port);
+            $this->headers['host'] = $this->headerFactory->createHeader('Host', $this->url->getHost() . ':' . $port);
         } else {
-            $this->headers['host'] = new Header('Host', $this->url->getHost());
+            $this->headers['host'] = $this->headerFactory->createHeader('Host', $this->url->getHost());
         }
 
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUsername()
     {
         return $this->username;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPassword()
     {
         return $this->password;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setAuth($user, $password = '', $scheme = CURLAUTH_BASIC)
     {
         // If we got false or null, disable authentication
@@ -429,9 +323,6 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getResource()
     {
         $resource = $this->getPath();
@@ -442,31 +333,24 @@ class Request extends AbstractMessage implements RequestInterface
         return $resource;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUrl($asObject = false)
     {
         return $asObject ? clone $this->url : (string) $this->url;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getState()
     {
         return $this->state;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setState($state, array $context = array())
     {
+        $oldState = $this->state;
         $this->state = $state;
-        if ($this->state == self::STATE_NEW) {
+
+        if ($state == self::STATE_NEW) {
             $this->response = null;
-        } elseif ($this->state == self::STATE_COMPLETE) {
+        } elseif ($state == self::STATE_COMPLETE && $oldState !== self::STATE_COMPLETE) {
             $this->processResponse($context);
             $this->responseBody = null;
         }
@@ -474,83 +358,44 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCurlOptions()
     {
         return $this->curlOptions;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function receiveResponseHeader($data)
+    public function startResponse(Response $response)
     {
-        static $normalize = array("\r", "\n");
         $this->state = self::STATE_TRANSFER;
-        $length = strlen($data);
-        $data = str_replace($normalize, '', $data);
+        $response->setEffectiveUrl((string) $this->getUrl());
+        $this->response = $response;
 
-        if (strpos($data, 'HTTP/') === 0) {
-
-            $startLine = explode(' ', $data, 3);
-            $code = $startLine[1];
-            $status = isset($startLine[2]) ? $startLine[2] : '';
-
-            // Only download the body of the response to the specified response
-            // body when a successful response is received.
-            $body = $code >= 200 && $code < 300 ? $this->getResponseBody() : EntityBody::factory();
-
-            $this->response = new Response($code, null, $body);
-            $this->response->setStatus($code, $status)->setRequest($this);
-            $this->dispatch('request.receive.status_line', array(
-                'request'       => $this,
-                'line'          => $data,
-                'status_code'   => $code,
-                'reason_phrase' => $status
-            ));
-
-        } elseif (strpos($data, ':') !== false) {
-
-            list($header, $value) = explode(':', $data, 2);
-            $this->response->addHeader(trim($header), trim($value));
-        }
-
-        return $length;
+        return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setResponse(Response $response, $queued = false)
     {
-        // Never overwrite the request associated with the response (useful for redirect history)
-        if (!$response->getRequest()) {
-            $response->setRequest($this);
-        }
+        $response->setEffectiveUrl((string) $this->url);
 
         if ($queued) {
-            $this->getEventDispatcher()->addListener('request.before_send', function ($e) use ($response) {
+            $ed = $this->getEventDispatcher();
+            $ed->addListener('request.before_send', $f = function ($e) use ($response, &$f, $ed) {
                 $e['request']->setResponse($response);
+                $ed->removeListener('request.before_send', $f);
             }, -9999);
         } else {
             $this->response = $response;
             // If a specific response body is specified, then use it instead of the response's body
-            if ($this->responseBody && !$this->responseBody->getCustomData('default')) {
+            if ($this->responseBody && !$this->responseBody->getCustomData('default') && !$response->isRedirect()) {
                 $this->getResponseBody()->write((string) $this->response->getBody());
             } else {
                 $this->responseBody = $this->response->getBody();
             }
-            $this->processResponse();
+            $this->setState(self::STATE_COMPLETE);
         }
 
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setResponseBody($body)
     {
         // Attempt to open a file for writing if a string was passed
@@ -567,30 +412,25 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getResponseBody()
     {
         if ($this->responseBody === null) {
-            $this->responseBody = EntityBody::factory();
-            $this->responseBody->setCustomData('default', true);
+            $this->responseBody = EntityBody::factory()->setCustomData('default', true);
         }
 
         return $this->responseBody;
     }
 
     /**
-     * {@inheritdoc}
+     * Determine if the response body is repeatable (readable + seekable)
+     *
+     * @return bool
      */
     public function isResponseBodyRepeatable()
     {
         return !$this->responseBody ? true : $this->responseBody->isSeekable() && $this->responseBody->isReadable();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCookies()
     {
         if ($cookie = $this->getHeader('Cookie')) {
@@ -601,9 +441,6 @@ class Request extends AbstractMessage implements RequestInterface
         return array();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCookie($name)
     {
         $cookies = $this->getCookies();
@@ -611,9 +448,6 @@ class Request extends AbstractMessage implements RequestInterface
         return isset($cookies[$name]) ? $cookies[$name] : null;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function addCookie($name, $value)
     {
         if (!$this->hasHeader('Cookie')) {
@@ -623,14 +457,11 @@ class Request extends AbstractMessage implements RequestInterface
         }
 
         // Always use semicolons to separate multiple cookie headers
-        $this->getHeader('Cookie')->setGlue('; ');
+        $this->getHeader('Cookie')->setGlue(';');
 
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function removeCookie($name)
     {
         if ($cookie = $this->getHeader('Cookie')) {
@@ -644,9 +475,6 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function canCache()
     {
         // Only GET and HEAD requests can be cached
@@ -655,16 +483,13 @@ class Request extends AbstractMessage implements RequestInterface
         }
 
         // Never cache requests when using no-store
-        if ($this->hasCacheControlDirective('no-store')) {
+        if ($this->getHeader('Cache-Control') && $this->getHeader('Cache-Control')->hasDirective('no-store')) {
             return false;
         }
 
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setEventDispatcher(EventDispatcherInterface $eventDispatcher)
     {
         $this->eventDispatcher = $eventDispatcher;
@@ -673,9 +498,6 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getEventDispatcher()
     {
         if (!$this->eventDispatcher) {
@@ -685,19 +507,12 @@ class Request extends AbstractMessage implements RequestInterface
         return $this->eventDispatcher;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function dispatch($eventName, array $context = array())
     {
         $context['request'] = $this;
         $this->getEventDispatcher()->dispatch($eventName, new Event($context));
     }
 
-    /**
-     * {@inheritdoc}
-     * @codeCoverageIgnore
-     */
     public function addSubscriber(EventSubscriberInterface $subscriber)
     {
         $this->getEventDispatcher()->addSubscriber($subscriber);
@@ -705,9 +520,6 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setIsRedirect($isRedirect)
     {
         $this->isRedirect = $isRedirect;
@@ -715,9 +527,6 @@ class Request extends AbstractMessage implements RequestInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isRedirect()
     {
         return $this->isRedirect;
@@ -725,15 +534,17 @@ class Request extends AbstractMessage implements RequestInterface
 
     /**
      * {@inheritdoc}
+     * Adds a check for Host header changes
      */
-    protected function changedHeader($header)
+    public function addHeader($header, $value)
     {
-        parent::changedHeader($header);
+        parent::addHeader($header, $value);
 
-        if ($header == 'host') {
-            // If the Host header was changed, be sure to update the internal URL
+        if ($header == 'host' || $header == 'Host') {
             $this->setHost((string) $this->getHeader('Host'));
         }
+
+        return $this;
     }
 
     /**

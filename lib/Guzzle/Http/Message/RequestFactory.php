@@ -3,7 +3,6 @@
 namespace Guzzle\Http\Message;
 
 use Guzzle\Common\Collection;
-use Guzzle\Http\EntityBody;
 use Guzzle\Http\Url;
 use Guzzle\Parser\ParserRegistry;
 
@@ -12,19 +11,13 @@ use Guzzle\Parser\ParserRegistry;
  */
 class RequestFactory implements RequestFactoryInterface
 {
-    /**
-     * @var RequestFactory Singleton instance of the default request factory
-     */
+    /** @var RequestFactory Singleton instance of the default request factory */
     protected static $instance;
 
-    /**
-     * @var string Class to instantiate for requests with no body
-     */
+    /** @var string Class to instantiate for requests with no body */
     protected $requestClass = 'Guzzle\\Http\\Message\\Request';
 
-    /**
-     * @var string Class to instantiate for requests with a body
-     */
+    /** @var string Class to instantiate for requests with a body */
     protected $entityEnclosingRequestClass = 'Guzzle\\Http\\Message\\EntityEnclosingRequest';
 
     /**
@@ -43,9 +36,6 @@ class RequestFactory implements RequestFactoryInterface
         return static::$instance;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function fromMessage($message)
     {
         $parsed = ParserRegistry::getInstance()->getParser('message')->parseRequest($message);
@@ -68,9 +58,6 @@ class RequestFactory implements RequestFactoryInterface
         return $request;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function fromParts(
         $method,
         array $urlParts,
@@ -79,13 +66,10 @@ class RequestFactory implements RequestFactoryInterface
         $protocol = 'HTTP',
         $protocolVersion = '1.1'
     ) {
-        return $this->create($method, Url::buildUrl($urlParts, true), $headers, $body)
+        return $this->create($method, Url::buildUrl($urlParts), $headers, $body)
                     ->setProtocolVersion($protocolVersion);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function create($method, $url, $headers = null, $body = null)
     {
         $method = strtoupper($method);
@@ -120,11 +104,10 @@ class RequestFactory implements RequestFactoryInterface
                 $request->addPostFields($body);
             } else {
                 // Add a raw entity body body to the request
-                $request->setBody(
-                    $body,
-                    (string) $request->getHeader('Content-Type'),
-                    (string) $request->getHeader('Transfer-Encoding') == 'chunked'
-                );
+                $request->setBody($body, (string) $request->getHeader('Content-Type'));
+                if ((string) $request->getHeader('Transfer-Encoding') == 'chunked') {
+                    $request->removeHeader('Content-Length');
+                }
             }
         }
 
@@ -157,10 +140,8 @@ class RequestFactory implements RequestFactoryInterface
         } elseif ($request instanceof EntityEnclosingRequestInterface) {
             $cloned->setBody($request->getBody());
         }
-        $cloned->getParams()
-            ->replace($request->getParams()->getAll())
-            ->remove('curl_handle')
-            ->remove('curl_multi');
+        $cloned->getParams()->replace($request->getParams()->getAll());
+        $cloned->dispatch('request.clone', array('request' => $cloned));
 
         return $cloned;
     }
