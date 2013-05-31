@@ -5,6 +5,7 @@ use Sow\DB as DB;
 
 use Sow\log\Monolog as log;
 use Guzzle\Http\Client;
+use Zend\Barcode\Barcode;
 
 
 
@@ -16,16 +17,18 @@ class Home_Controller extends \Sow\sys\Control
 
 	public function indexAction() {
 
-		$url = \Purl\Url::parse( 'http://jwage.com' )
-		->set( 'scheme', 'https' )
-		->set( 'port', '443' )
-		->set( 'user', 'jwage' )
-		->set( 'pass', 'password' )
-		->set( 'path', 'about/me' )
-		->set( 'query', 'param1=value1&param2=value2' )
-		->set( 'fragment', 'about/me?param1=value1&param2=value2' );
 
-		echo $url->getUrl();
+		// Only the text to draw is required
+		$barcodeOptions = array( 'text' => 'ZEND-FRAMEWORK' );
+
+		// No required options
+		$rendererOptions = array();
+
+		// Draw the barcode in a new image,
+		$imageResource = Barcode::draw(
+			'code39', 'image', $barcodeOptions, $rendererOptions
+		);
+		var_dump($imageResource);
 	}
 	public function demoAction() {
 		//Y::dump($this->GET('page'));
