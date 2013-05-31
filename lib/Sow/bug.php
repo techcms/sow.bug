@@ -166,7 +166,7 @@ class bug {
     return self::app()->run();
   }
   public static function registerPlugin( $plugin ) {
-    $plugin = $plugin.'Plugin';
+    $plugin = $plugin.'_Plugin';
     return self::dispatch()->registerPlugin( new $plugin() );
   }
 

@@ -2,17 +2,24 @@
 use Sow\bug as Y;
 use Sow\util\FB as fb;
 use Sow\DB as DB;
+<<<<<<< HEAD
 use Sow\log\Monolog as log;
 use Guzzle\Http\Client;
 
 
 class HomeController extends \Sow\sys\Control
+=======
+use Guzzle\Http\Client;
+
+class Home_Controller extends \Sow\sys\Control
+>>>>>>> refs/heads/master
 {
 	public function init() {
 		$this->setViewpath( Y::view( $this->getModuleName() ) );
 	}
 
 	public function indexAction() {
+<<<<<<< HEAD
 		$client = new Client('http://www.candou.com');
 		$request = $client->get('/');
 		$response = $request->send();
@@ -30,6 +37,9 @@ class HomeController extends \Sow\sys\Control
 		// $log = log::stream('fish');
 		// $log->addDebug('123213213');
 		// $log->addWarning('123213213');
+=======
+		$client = new Client('https://api.github.com');
+>>>>>>> refs/heads/master
 	}
 	public function demoAction() {
 		//Y::dump($this->GET('page'));

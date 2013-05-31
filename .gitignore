@@ -1,6 +1,9 @@
 Thumbs.db
 .DS_Store
+<<<<<<< HEAD
 composer.json
+=======
+>>>>>>> refs/heads/master
 .phptidy-cache
 log/*
 temp/*

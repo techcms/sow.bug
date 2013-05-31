@@ -1,0 +1,23 @@
+session_welcome:
+    path:     /session
+    defaults: { _controller: TestBundle:Session:welcome }
+
+session_welcome_name:
+    path:     /session/{name}
+    defaults: { _controller: TestBundle:Session:welcome }
+
+session_logout:
+    path:     /session_logout
+    defaults: { _controller: TestBundle:Session:logout}
+
+session_setflash:
+    path:     /session_setflash/{message}
+    defaults: { _controller: TestBundle:Session:setFlash}
+
+session_showflash:
+    path:     /session_showflash
+    defaults: { _controller: TestBundle:Session:showFlash}
+
+profiler:
+    path:     /profiler
+    defaults: { _controller: TestBundle:Profiler:index }

@@ -1,6 +1,6 @@
 <?php
 use Sow\bug as Y;
-class IndexController extends \Yaf\Controller_Abstract
+class Index_Controller extends \Yaf\Controller_Abstract
 {
     public function indexAction()
     {
