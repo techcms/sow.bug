@@ -18,17 +18,18 @@ class Home_Controller extends \Sow\sys\Control
 	public function indexAction() {
 
 
-		// Only the text to draw is required
+
+		header( "Content-Type: image/png" );
 		$barcodeOptions = array( 'text' => 'ZEND-FRAMEWORK' );
 
 		// No required options
 		$rendererOptions = array();
 
 		// Draw the barcode in a new image,
-		$imageResource = Barcode::draw(
+		// send the headers and the image
+		Zend_Barcode::render(
 			'code39', 'image', $barcodeOptions, $rendererOptions
 		);
-		var_dump($imageResource);
 	}
 	public function demoAction() {
 		//Y::dump($this->GET('page'));
