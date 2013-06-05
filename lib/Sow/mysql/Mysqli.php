@@ -284,7 +284,7 @@ class mysqli {
      */
     protected function _throwException() {
         $error = $this->error();
-        throw new Exception( $error['msg'], $error['code'] );
+        throw new \Exception( $error['msg'], $error['code'] );
     }
 
 

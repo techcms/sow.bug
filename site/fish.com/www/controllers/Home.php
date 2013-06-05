@@ -1,7 +1,7 @@
 <?php
 use Sow\bug as Y;
 use Sow\util\FB as fb;
-use Sow\DB as DB;
+use Sow\db\Instance as mysql;
 
 use Sow\log\Monolog as log;
 use Guzzle\Http\Client;
@@ -17,7 +17,15 @@ class Home_Controller extends \Sow\sys\Control
 
 	public function indexAction() {
 
+			$mysql = mysql::db('fish');
+			$result = $mysql->query("select * from word_posts");
+			Y::dump($result);
 
+
+
+		
+	}
+	public function demoAction() {
 
 		$table = new Zend\Text\Table\Table( array( 'columnWidths' => array( 10, 20 ) ) );
 
@@ -31,10 +39,7 @@ class Home_Controller extends \Sow\sys\Control
 		$row->appendColumn( new Zend\Text\Table\Column( 'Framework' ) );
 
 		$table->appendRow( $row );
-
 		echo $table;
-	}
-	public function demoAction() {
 		//Y::dump($this->GET('page'));
 
 		// fb::log( Y::config() );
