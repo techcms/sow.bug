@@ -2,7 +2,12 @@
 use Sow\bug as Y;
 use Sow\util\FB as fb;
 use Sow\DB as DB;
+
+use Sow\log\Monolog as log;
 use Guzzle\Http\Client;
+use Zend\Barcode\Barcode;
+
+
 
 class Home_Controller extends \Sow\sys\Control
 {
@@ -11,7 +16,23 @@ class Home_Controller extends \Sow\sys\Control
 	}
 
 	public function indexAction() {
-		$client = new Client('https://api.github.com');
+
+
+
+		$table = new Zend\Text\Table\Table( array( 'columnWidths' => array( 10, 20 ) ) );
+
+		// Either simple
+		$table->appendRow( array( 'Zend', 'Framework' ) );
+
+		// Or verbose
+		$row = new Zend\Text\Table\Row();
+
+		$row->appendColumn( new Zend\Text\Table\Column( 'Zend' ) );
+		$row->appendColumn( new Zend\Text\Table\Column( 'Framework' ) );
+
+		$table->appendRow( $row );
+
+		echo $table;
 	}
 	public function demoAction() {
 		//Y::dump($this->GET('page'));
@@ -21,8 +42,24 @@ class Home_Controller extends \Sow\sys\Control
 		// fb::info( 'Info Message' );
 		// fb::warn( 'Warn Message' );
 		// fb::error( 'Error Message' );
+		// $client = new Client('http://www.techweb.com.cn');
+		// $request = $client->get('/');
+		// $response = $request->send();
+		// Y::dump($response);
 
-
+		/*
+		const EMERGENCY = 'emergency';
+    const ALERT     = 'alert';
+    const CRITICAL  = 'critical';
+    const ERROR     = 'error';
+    const WARNING   = 'warning';
+    const NOTICE    = 'notice';
+    const INFO      = 'info';
+    const DEBUG     = 'debug';
+		*/
+		// $log = log::stream('fish');
+		// $log->addDebug('123213213');
+		// $log->addWarning('123213213');
 		// $imagine = new Imagine\Gd\Imagine();
 		// $size = new Imagine\Image\Box( 200, 200 );
 

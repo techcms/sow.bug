@@ -14,7 +14,7 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract  {
 
         if ( $config->debug ) {
             ini_set( 'display_errors' , "On" );
-            error_reporting( E_ALL );
+            error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
         } else {
             ini_set( 'display_errors' , "Off" );
             error_reporting( 0 );
