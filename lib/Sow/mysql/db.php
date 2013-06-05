@@ -1,7 +1,7 @@
-<?php namespace  Sow\db;
+<?php namespace  Sow\mysql;
 use Sow\bug as Y;
 use Sow\sys\Exception as Exception;
-class mysqli {
+class db {
 
     public $config = array(
         'host'       => '127.0.0.1',
@@ -284,7 +284,7 @@ class mysqli {
      */
     protected function _throwException() {
         $error = $this->error();
-        throw new \Exception( $error['msg'], $error['code'] );
+        throw new Exception( $error['msg'], $error['code'] );
     }
 
 

@@ -1,4 +1,4 @@
-<?php namespace  Sow\mysql;
+<?php namespace  Sow\mongo;
 use Sow\bug as Y;
 use Sow\sys\Exception as Exception;
 class Instance {
@@ -9,7 +9,7 @@ class Instance {
 
         
         if (isset($_instance[$name])){
-            if ($_instance[$name] instanceof Sow\mysql\db) {
+            if ($_instance[$name] instanceof Sow\mongo\db) {
                 return $_instance[$name];
             }        
         }

@@ -1,7 +1,8 @@
 <?php
 use Sow\bug as Y;
 use Sow\util\FB as fb;
-use Sow\db\Instance as mysql;
+use Sow\mysql\Instance as mysql;
+use Sow\mongo\Instance as mongo;
 
 use Sow\log\Monolog as log;
 use Guzzle\Http\Client;
@@ -17,11 +18,11 @@ class Home_Controller extends \Sow\sys\Control
 
 	public function indexAction() {
 
-			$mysql = mysql::db('fish');
-			$result = $mysql->query("select * from word_posts");
-			Y::dump($result);
-
-
+			// $mysql = mysql::db('fish');
+			// $result = $mysql->query("select * from words_posts");
+			// Y::dump($result);
+			$mongo = mongo::db('fish');
+			Y::dump($mongo);
 
 		
 	}
