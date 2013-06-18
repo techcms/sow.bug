@@ -28,19 +28,19 @@ class Home_Controller extends \Sow\sys\Control
 	}
 	public function demoAction() {
 
-		$table = new Zend\Text\Table\Table( array( 'columnWidths' => array( 10, 20 ) ) );
+		// $table = new Zend\Text\Table\Table( array( 'columnWidths' => array( 10, 20 ) ) );
 
-		// Either simple
-		$table->appendRow( array( 'Zend', 'Framework' ) );
+		// // Either simple
+		// $table->appendRow( array( 'Zend', 'Framework' ) );
 
-		// Or verbose
-		$row = new Zend\Text\Table\Row();
+		// // Or verbose
+		// $row = new Zend\Text\Table\Row();
 
-		$row->appendColumn( new Zend\Text\Table\Column( 'Zend' ) );
-		$row->appendColumn( new Zend\Text\Table\Column( 'Framework' ) );
+		// $row->appendColumn( new Zend\Text\Table\Column( 'Zend' ) );
+		// $row->appendColumn( new Zend\Text\Table\Column( 'Framework' ) );
 
-		$table->appendRow( $row );
-		echo $table;
+		// $table->appendRow( $row );
+		// echo $table;
 		//Y::dump($this->GET('page'));
 
 		// fb::log( Y::config() );

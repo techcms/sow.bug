@@ -1,8 +1,8 @@
 <?php namespace Sow;
 class bug {
 
-//tools
-//--------------------------------------------------------
+  //tools
+  //--------------------------------------------------------
   public static function dump() {
     $argc = func_num_args();
     $argv = func_get_args();
@@ -28,8 +28,8 @@ class bug {
     }
   }
 
-//yaf 
-//--------------------------------------------------------
+  //yaf
+  //--------------------------------------------------------
   public static function app( ) {
     return \Yaf\Application::app();
   }
@@ -225,5 +225,9 @@ class bug {
   }
   public static function session( ) {
     return \Yaf\Session::getInstance() ;
+  }
+  public static function addConfig( $routes_config ) {
+
+    return self::dispatch()->getRouter()->addConfig( $routes_config );
   }
 }
