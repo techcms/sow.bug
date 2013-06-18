@@ -122,7 +122,7 @@ class LogPlugin implements EventSubscriberInterface
                 // The body of the request cannot be recalled so logging the body will require us to buffer it
                 $request->getParams()->set('request_wire', EntityBody::factory());
             }
-            if (!$request->isResponseBodyRepeatable()) {
+            if (!$request->getResponseBody()->isRepeatable()) {
                 // The body of the response cannot be recalled so logging the body will require us to buffer it
                 $request->getParams()->set('response_wire', EntityBody::factory());
             }
@@ -151,7 +151,7 @@ class LogPlugin implements EventSubscriberInterface
         }
 
         // Send the log message to the adapter, adding a category and host
-        $priority = $response && !$response->isSuccessful() ? LOG_ERR : LOG_DEBUG;
+        $priority = $response && $response->isError() ? LOG_ERR : LOG_DEBUG;
         $message = $this->formatter->format($request, $response, $handle);
         $this->logAdapter->log($message, $priority, array(
             'request'  => $request,

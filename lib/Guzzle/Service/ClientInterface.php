@@ -4,14 +4,11 @@ namespace Guzzle\Service;
 
 use Guzzle\Common\FromConfigInterface;
 use Guzzle\Common\Exception\InvalidArgumentException;
-use Guzzle\Inflection\InflectorInterface;
 use Guzzle\Http\ClientInterface as HttpClientInterface;
 use Guzzle\Service\Exception\CommandTransferException;
 use Guzzle\Service\Command\CommandInterface;
 use Guzzle\Service\Description\ServiceDescriptionInterface;
-use Guzzle\Service\Command\Factory\FactoryInterface as CommandFactoryInterface;
 use Guzzle\Service\Resource\ResourceIteratorInterface;
-use Guzzle\Service\Resource\ResourceIteratorFactoryInterface;
 
 /**
  * Client interface for executing commands on a web service.
@@ -34,7 +31,7 @@ interface ClientInterface extends HttpClientInterface, FromConfigInterface
     /**
      * Execute one or more commands
      *
-     * @param CommandInterface|array $command Command or array of commands to execute
+     * @param CommandInterface|array|Traversable $command Command, array of commands or Traversable object containing commands to execute
      *
      * @return mixed Returns the result of the executed command or an array of commands if executing multiple commands
      * @throws InvalidArgumentException if an invalid command is passed
