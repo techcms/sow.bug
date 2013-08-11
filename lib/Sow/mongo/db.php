@@ -19,7 +19,7 @@ Class db
 
         extract($config);
 
-        $this->_mongo = new \Mongo($server, $options);
+        $this->_mongo = new \Mongo($server/*, $options*/);
 
         if (isset($database)) {
             $this->_db = $this->db($database);

@@ -113,7 +113,6 @@ class RequestMediator
                 'write'   => $write
             ));
         }
-
         return $this->request->getResponse()->getBody()->write($write);
     }
 

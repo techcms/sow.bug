@@ -10,11 +10,11 @@ class Instance {
         if (isset($_instance[$name])){
             if ($_instance[$name] instanceof Predis\Client) {
                 return $_instance[$name];
-            }
+            }        
         }
-        $config = Y::config('redis')->$config->toArray();
+        $config = Y::config('redis')->$name->toArray();
         $_instance[$name] = new \Predis\Client($config);
-
+	
         return $_instance[$name];
 
 
