@@ -101,7 +101,7 @@ class db {
         }
 
         return false;
-    }    
+    }
     public function connect() {
         if ( $this->ping( false ) ) {
             return $this->conn;
@@ -326,13 +326,13 @@ class db {
      * Query SQL
      *
      * @param string  $sql
-     * @return 
+     * @return
      */
     protected function _query( $sql ) {
         return $this->conn->query( $sql );
-    }    
+    }
 
-    protected function execute( $sql ) {
+    public function execute( $sql ) {
         return $this->conn->query( $sql );
     }
 
